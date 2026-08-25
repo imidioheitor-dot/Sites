@@ -2,12 +2,26 @@
 # Downloads the generated media into ./assets/ and switches index.html over to
 # local files, so the site becomes fully self-contained (no CDN dependency).
 #
-#   ./fetch-assets.sh
+#   ./fetch-assets.sh            download + compress for the web
+#   ./fetch-assets.sh --1080p    download + rescale the hero video to 1920x1080
 #
-# Run it from this folder. Needs curl. If ffmpeg is present it also produces a
-# web-weight version of the hero video (the original is ~15 MB).
+# Run it from this folder. Needs curl. ffmpeg and ImageMagick are optional but
+# recommended — the raw video is ~15 MB and the stills are 2048px.
+#
+# On --1080p: the source render is 1284x716. Rescaling gives you a genuine 1080p
+# file, but it is a lanczos resample — it cannot invent detail that was never
+# rendered. It fixes the container spec, not the picture. Real 1080p would mean
+# re-generating the video (~120 credits on Higgsfield).
 set -euo pipefail
 cd "$(dirname "$0")"
+
+WANT_1080P=0
+for arg in "$@"; do
+  case "$arg" in
+    --1080p) WANT_1080P=1 ;;
+    -h|--help) sed -n '2,14p' "$0"; exit 0 ;;
+  esac
+done
 
 BASE="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8"
 mkdir -p assets
@@ -36,13 +50,21 @@ get hf_20260824_195758_bf262599-59c6-4d6a-960c-59d14a70d3a9.png chili-lamb.png
 # The source PNGs are 2048px and the video is ~15 MB. Shrink them for the web.
 if command -v ffmpeg >/dev/null 2>&1; then
   if [ ! -s assets/hero.web.mp4 ]; then
-    echo "Compressing hero video for the web…"
+    if [ "$WANT_1080P" = "1" ]; then
+      echo "Rescaling hero video to 1920x1080…"
+      SCALE="scale=1920:1080:flags=lanczos"
+      CRF=23
+    else
+      echo "Compressing hero video for the web…"
+      SCALE="scale=1280:-2"
+      CRF=26
+    fi
     ffmpeg -v error -y -i assets/hero.mp4 -an \
-      -vf "scale=1280:-2" -c:v libx264 -profile:v high -crf 26 -preset slow \
+      -vf "$SCALE" -c:v libx264 -profile:v high -crf "$CRF" -preset slow \
       -movflags +faststart assets/hero.web.mp4
     mv assets/hero.mp4 assets/hero.original.mp4
     mv assets/hero.web.mp4 assets/hero.mp4
-    echo "  hero.mp4 is now $(du -h assets/hero.mp4 | cut -f1) (original kept as hero.original.mp4)"
+    echo "  hero.mp4 is now $(du -h assets/hero.mp4 | cut -f1) at $(ffprobe -v error -select_streams v -show_entries stream=width,height -of csv=p=0:s=x assets/hero.mp4) (original kept as hero.original.mp4)"
   fi
 else
   echo "! ffmpeg not found — hero.mp4 stays at its original ~15 MB."

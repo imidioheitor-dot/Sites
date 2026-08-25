@@ -88,11 +88,20 @@ to come from you, which is what the editor and the CSV import are for.
 it. To make the folder self-contained:
 
 ```bash
-./fetch-assets.sh
+./fetch-assets.sh            # download + compress for the web
+./fetch-assets.sh --1080p    # download + rescale the hero video to 1920x1080
 ```
 
 Downloads the video and stills into `assets/`, compresses them if `ffmpeg` /
 ImageMagick are present, and flips `ASSET_LOCAL` in `index.html` to `true`.
+
+### On the hero video resolution
+
+The hero video is **1284×716, 15.04s** — 720p class, not the 1080p originally
+asked for. Kling's `pro` mode (true 1080p) is gated behind a Plus subscription,
+and re-generating at 1080p costs **120–135 credits**, which the budget did not
+allow. `--1080p` gives you a genuine 1920×1080 file via lanczos resampling; it
+fixes the spec but cannot add detail that was never rendered.
 
 ## Interaction
 
