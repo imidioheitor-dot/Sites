@@ -378,6 +378,103 @@ tbody tr:last-child td{border-bottom:0}
 @media(max-width:900px){.hint-swipe{display:flex}.tbl-bar{flex-direction:column;align-items:stretch}}
 .empty{padding:3rem 1rem;text-align:center;color:var(--muted);font-size:var(--step-0)}
 
+/* dimension chips inside a platform cell */
+.dims{display:flex;gap:2px;margin-top:.18rem}
+.dim{
+  width:15px;height:15px;border-radius:4px;display:grid;place-items:center;
+  font-size:.5rem;font-weight:600;letter-spacing:0;line-height:1;
+  border:1px solid;cursor:help;user-select:none;
+}
+.dim.ok{color:var(--jade);border-color:rgba(91,169,122,.3);background:rgba(91,169,122,.08)}
+.dim.drift{color:var(--saffron);border-color:rgba(232,145,45,.36);background:var(--saffron-soft)}
+.dim.bad{color:var(--chili);border-color:rgba(210,80,58,.38);background:rgba(210,80,58,.1)}
+.dim.na{color:var(--muted);border-color:var(--border);opacity:.45}
+td.dish{cursor:pointer}
+tbody tr:hover td.dish .edit-cue{opacity:1;transform:none}
+.edit-cue{
+  margin-left:auto;flex:none;display:inline-flex;align-items:center;gap:.3rem;
+  font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--saffron);
+  opacity:0;transform:translateX(-5px);transition:opacity .3s var(--ease),transform .3s var(--ease);
+}
+.edit-cue svg{width:11px;height:11px}
+@media(hover:none){.edit-cue{opacity:.75;transform:none}}
+
+/* ---------- editor drawer ---------- */
+.scrim{
+  position:fixed;inset:0;z-index:70;background:rgba(6,4,3,.72);
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;transition:opacity .4s var(--ease);
+}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;right:0;bottom:0;z-index:71;width:min(660px,100%);
+  background:var(--void-2);border-left:1px solid var(--border);
+  transform:translateX(102%);transition:transform .5s var(--ease);
+  display:flex;flex-direction:column;overscroll-behavior:contain;
+}
+.drawer.on{transform:none}
+.dr-head{
+  padding:1.15rem var(--gut) 1.05rem;border-bottom:1px solid var(--border);
+  display:flex;align-items:flex-start;gap:1rem;justify-content:space-between;flex:none;
+  background:var(--surface);
+}
+.dr-head h3{font-size:clamp(1.25rem,3.4vw,1.75rem);font-weight:300}
+.dr-head .sub{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.4rem}
+.dr-x{
+  background:transparent;border:1px solid var(--border);color:var(--cream-dim);
+  width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1.1rem;line-height:1;flex:none;
+  transition:color .3s var(--ease),border-color .3s var(--ease);
+}
+.dr-x:hover{color:var(--saffron);border-color:var(--saffron)}
+.dr-body{flex:1;overflow-y:auto;padding:1.1rem var(--gut) 1.6rem;-webkit-overflow-scrolling:touch}
+.dr-foot{
+  flex:none;padding:.9rem var(--gut);border-top:1px solid var(--border);background:var(--surface);
+  display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;justify-content:space-between;
+}
+.pane{border:1px solid var(--border);border-radius:var(--r);margin-bottom:.7rem;background:var(--surface);overflow:hidden}
+.pane.ref{border-color:rgba(46,140,122,.45);background:linear-gradient(180deg,rgba(46,140,122,.07),transparent 60%),var(--surface)}
+.pane-head{
+  display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem;cursor:pointer;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-dim);font-weight:500;
+}
+.pane.ref .pane-head{color:var(--teal);cursor:default}
+.pane-head .grow{flex:1}
+.pane-head .caret{color:var(--muted);font-size:.9rem;transition:transform .3s var(--ease)}
+.pane.open .pane-head .caret{transform:rotate(180deg)}
+.pane-body{display:none;padding:0 .9rem .9rem;gap:.6rem;grid-template-columns:1fr 1fr}
+.pane.open .pane-body{display:grid}
+.pane.ref .pane-body{display:grid}
+.f{display:flex;flex-direction:column;gap:.28rem}
+.f.wide{grid-column:1/-1}
+.f label{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.f input[type=text],.f input[type=number],.f select,.f textarea{
+  background:var(--void-2);border:1px solid var(--border);border-radius:8px;color:var(--cream);
+  padding:.5rem .6rem;font:inherit;font-size:.82rem;font-weight:300;width:100%;
+}
+.f textarea{min-height:62px;resize:vertical;line-height:1.5}
+.f input:focus,.f select:focus,.f textarea:focus{outline:none;border-color:var(--saffron)}
+.f .diffnote{font-size:.6rem;color:var(--saffron);letter-spacing:.08em}
+.f .diffnote.ok{color:var(--jade)}
+.f.changed input,.f.changed select,.f.changed textarea{border-color:rgba(232,145,45,.5)}
+.tog{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--cream-dim);cursor:pointer;padding-top:1.1rem}
+.tog input{accent-color:var(--saffron);width:15px;height:15px}
+.pane-actions{grid-column:1/-1;display:flex;gap:.45rem;flex-wrap:wrap;padding-top:.2rem}
+.mini{
+  font:inherit;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+  background:transparent;border:1px solid var(--border);color:var(--cream-dim);
+  padding:.42rem .7rem;border-radius:999px;cursor:pointer;transition:color .3s,border-color .3s;
+}
+.mini:hover{color:var(--saffron);border-color:var(--saffron)}
+.mini.solid{background:var(--saffron);border-color:var(--saffron);color:var(--void)}
+.mini.solid:hover{filter:brightness(1.1);color:var(--void)}
+.dr-hint{font-size:.72rem;color:var(--muted);line-height:1.6;margin-bottom:1rem}
+.dr-hint b{color:var(--teal);font-weight:400}
+@media(max-width:700px){
+  .pane-body{grid-template-columns:1fr}
+  .drawer{width:100%}
+  .tog{padding-top:.2rem}
+}
+
 /* io editor */
 .io{margin-top:1.1rem;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden}
 .io summary{
@@ -438,6 +535,24 @@ tbody tr:last-child td{border-bottom:0}
 <canvas id="fluid" aria-hidden="true"></canvas>
 <div id="dot" aria-hidden="true"></div>
 <div id="reveal-float" aria-hidden="true"><img alt="" id="reveal-img"></div>
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dr-title" aria-hidden="true">
+  <div class="dr-head">
+    <div>
+      <h3 id="dr-title">Dish</h3>
+      <div class="sub" id="dr-sub"></div>
+    </div>
+    <button class="dr-x" id="dr-close" aria-label="Close editor">&times;</button>
+  </div>
+  <div class="dr-body" id="dr-body"></div>
+  <div class="dr-foot">
+    <button class="mini" id="dr-push">Push reference to every platform</button>
+    <div style="display:flex;gap:.5rem">
+      <button class="mini" id="dr-cancel">Cancel</button>
+      <button class="mini solid" id="dr-save">Save changes</button>
+    </div>
+  </div>
+</aside>
 
 <!-- ================= NAV ================= -->
 <header class="nav" id="nav">
@@ -509,7 +624,11 @@ tbody tr:last-child td{border-bottom:0}
 <section class="sec wrap" id="sync">
   <p class="eyebrow rise">The sync table</p>
   <h2 class="rise" style="font-size:var(--step-3);margin-top:1.1rem;max-width:17ch">See every dish on every platform.</h2>
-  <p class="lede rise" style="margin-top:1.3rem;margin-bottom:2.6rem">Your own website is the source of truth. Everything else is compared against it &mdash; price gaps, missing listings, stale descriptions and dishes with no photo are flagged automatically.</p>
+  <p class="lede rise" style="margin-top:1.3rem">Your own website is the <b style="color:var(--teal);font-weight:400">reference</b>. Every platform is compared against it on five things &mdash; price, menu tag, image, description and modifications.</p>
+  <p class="rise" style="margin-top:1rem;margin-bottom:2.4rem;color:var(--muted);font-size:var(--step--1);letter-spacing:.13em;text-transform:uppercase;display:flex;align-items:center;gap:.55rem">
+    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="var(--saffron)" stroke-width="2" stroke-linecap="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+    Click any dish to edit it &mdash; change the reference and every status re-grades instantly
+  </p>
 
   <div class="tbl-bar rise">
     <div class="filters" id="filters"></div>
@@ -546,7 +665,7 @@ tbody tr:last-child td{border-bottom:0}
   <details class="io rise">
     <summary>Import &amp; export &mdash; CSV / JSON</summary>
     <div class="io-body">
-      <p class="io-note">Paste a CSV or JSON export below and press <b>Load</b> to replace the table with your real data. Your edits stay in this browser (<code>localStorage</code>) &mdash; nothing is uploaded anywhere. CSV columns: <code>id,name,category,burmese,description,direct,doordash,ubereats,grubhub,caviar,seamless,postmates,chownow,toast,yelp</code> &mdash; use an empty cell for "not listed".</p>
+      <p class="io-note">One row per dish <b>per platform</b>. Paste a CSV or JSON export and press <b>Load</b> to replace the table with your real data. Edits stay in this browser (<code>localStorage</code>) &mdash; nothing is uploaded anywhere. Columns: <code>dish_id, dish_name, burmese, platform, listed, available, price, tag, image, description, modifications, verified</code>. <code>modifications</code> are pipe-separated; <code>platform</code> must be one of <code>reference, doordash, ubereats, grubhub, caviar, seamless, postmates, chownow, toast, yelp</code>.</p>
       <textarea id="io-text" spellcheck="false" placeholder="Paste CSV or JSON here…"></textarea>
       <div class="io-row">
         <button class="btn" id="io-load">Load into table</button>
@@ -663,7 +782,7 @@ var ASSET_MAP = {
   "samusa-soup.png"    : "hf_20260824_195758_3f94b48f-b138-4e61-a477-1c911ed7d367.png",
   "rainbow-salad.png"  : "hf_20260824_195758_84434e4d-e6ef-4696-84f7-9d46e10c980d.png",
   "platha.png"         : "hf_20260824_195758_12fee7ab-9845-4a17-96b9-f3661dea4f73.png",
-  "sesame-chicken.png" : "hf_20260824_195758_a6700c99-2c5d-49e8-b4f7-5ee89a927fed.png",
+  "sesame-beef.png"    : "hf_20260824_195758_a6700c99-2c5d-49e8-b4f7-5ee89a927fed.png",
   "garlic-noodles.png" : "hf_20260824_195758_f958da0f-9aa5-42ed-9270-72452f3456f7.png",
   "pork-belly.png"     : "hf_20260824_195758_272c8c86-1a34-47c0-8b75-6f53a3518c2c.png",
   "coconut-rice.png"   : "hf_20260824_195758_f8392653-6310-4ce2-90c2-ff62224d12ea.png",
@@ -675,117 +794,159 @@ function asset(name){
 }
 
 /* ============================================================
-   PLATFORMS
+   PLATFORMS — the restaurant's own site is the REFERENCE
    ============================================================ */
 var PLATFORMS = [
-  { k:"direct",    n:"Direct site", short:"Direct",    truth:true },
-  { k:"doordash",  n:"DoorDash",    short:"DoorDash",  major:true },
-  { k:"ubereats",  n:"Uber Eats",   short:"Uber Eats", major:true },
-  { k:"grubhub",   n:"Grubhub",     short:"Grubhub",   major:true },
-  { k:"caviar",    n:"Caviar",      short:"Caviar",    major:true },
-  { k:"seamless",  n:"Seamless",    short:"Seamless"  },
-  { k:"postmates", n:"Postmates",   short:"Postmates" },
-  { k:"chownow",   n:"ChowNow",     short:"ChowNow"   },
-  { k:"toast",     n:"Toast",       short:"Toast"     },
-  { k:"yelp",      n:"Yelp",        short:"Yelp"      }
+  { k:"reference", n:"Reference",  short:"Reference", ref:true, mult:1.00 },
+  { k:"doordash",  n:"DoorDash",   short:"DoorDash",  major:true, mult:1.19 },
+  { k:"ubereats",  n:"Uber Eats",  short:"Uber Eats", major:true, mult:1.25 },
+  { k:"grubhub",   n:"Grubhub",    short:"Grubhub",   major:true, mult:1.19 },
+  { k:"caviar",    n:"Caviar",     short:"Caviar",    major:true, mult:1.10 },
+  { k:"seamless",  n:"Seamless",   short:"Seamless",  mult:1.19 },
+  { k:"postmates", n:"Postmates",  short:"Postmates", mult:1.25 },
+  { k:"chownow",   n:"ChowNow",    short:"ChowNow",   mult:1.00 },
+  { k:"toast",     n:"Toast",      short:"Toast",     mult:1.00 },
+  { k:"yelp",      n:"Yelp",       short:"Yelp",      mult:1.19 }
 ];
 var PKEYS = PLATFORMS.map(function(p){ return p.k; });
-/* A listing above this markup over the direct price reads as a rip-off to the
-   customer; below the direct price the restaurant is paying the commission
-   out of its own margin. Both are worth flagging. */
+var REF = "reference";
+
+/* the five things compared on every platform */
+var DIMS = [
+  { k:"price", n:"Price",         letter:"$" },
+  { k:"cat",   n:"Menu tag",      letter:"T" },
+  { k:"img",   n:"Image",         letter:"I" },
+  { k:"desc",  n:"Description",   letter:"D" },
+  { k:"mods",  n:"Modifications", letter:"M" }
+];
+/* Above this markup over the reference the listing reads as a rip-off; below the
+   reference price the restaurant is paying commission out of its own margin. */
 var MARKUP_CEILING = 0.30;
 
-/* L(price, photo, descFresh, available) — null anywhere means "not listed" */
-function L(p, photo, desc, avail){
-  return { p:p, photo:photo!==0, desc:desc!==0, avail:avail!==0 };
-}
+var CATS = ["Salads", "Soups", "Appetizers", "Entrées", "Noodles", "Rice"];
 
 /* ============================================================
-   SEED DATA — real Burma Superstar dishes.
-   Prices are ESTIMATES for demonstration; replace via CSV/JSON import.
+   SEED — real Burma Superstar dishes.
+   `v:true` marks a value confirmed from a public source; everything else is an
+   estimate anchored to the restaurant's published $9-$18 dine-in range, and is
+   meant to be replaced via the editor or a CSV/JSON import.
    ============================================================ */
 var SEED = [
-  { id:"tea-leaf-salad", name:"Tea Leaf Salad", burmese:"Laphet Thoke", cat:"Salads",
-    img:"tea-leaf-salad.png",
-    desc:"Fermented tea leaves tossed table-side with crisp split peas, roasted peanuts, sesame, fried garlic, tomato and shredded cabbage.",
-    p:{ direct:L(17.95), doordash:L(21.50), ubereats:L(22.95), grubhub:L(21.50),
-        caviar:L(19.95), seamless:L(21.50), postmates:L(22.95), chownow:L(17.95),
-        toast:L(17.95), yelp:L(21.50,0) } },
+  { id:"tea-leaf-salad", name:"Tea Leaf Salad", burmese:"Laphet Thoke", img:"tea-leaf-salad.png",
+    cat:"Salads", price:16.00, priceV:true, descV:true,
+    desc:"Crunchy textures from fried garlic, peanuts, sunflower seeds, and roasted sesame mixed with lemon juice, tomatoes, fresh greens, jalapenos, fish sauce & dried shrimp.",
+    mods:["Add chicken +$6","Add prawns +$8","No dried shrimp (vegetarian)","Dressing on the side"],
+    dev:{ doordash:{ price:19.00, priceV:true },
+          ubereats:{ mods:["Add chicken +$6","Dressing on the side"] },
+          yelp:{ img:false } } },
 
-  { id:"rainbow-salad", name:"Rainbow Salad", burmese:"", cat:"Salads",
-    img:"rainbow-salad.png",
-    desc:"Twenty-two ingredients — four noodles, green papaya, potato and dried shrimp — folded together in tamarind dressing.",
-    p:{ direct:L(18.95), doordash:L(22.95), ubereats:L(23.95), grubhub:L(22.95),
-        caviar:L(20.95), seamless:L(22.95), postmates:null, chownow:L(18.95),
-        toast:L(18.95), yelp:L(22.95,0,0) } },
+  { id:"rainbow-salad", name:"Rainbow Salad", burmese:"", img:"rainbow-salad.png",
+    cat:"Salads", price:16.00,
+    desc:"Twenty-two ingredients — four kinds of noodles, green papaya, potato and dried shrimp — folded together in a tamarind dressing.",
+    mods:["Add chicken +$6","No dried shrimp (vegetarian)","Extra tamarind dressing"],
+    dev:{ postmates:null,
+          yelp:{ img:false, desc:"A colourful salad with many ingredients." },
+          grubhub:{ mods:["Add chicken +$6"] } } },
 
-  { id:"samusa-soup", name:"Samusa Soup", burmese:"", cat:"Soups",
-    img:"samusa-soup.png",
-    desc:"Vegetarian samusas and falafel torn into a tangy tamarind lentil broth with cabbage, onion and garlic.",
-    p:{ direct:L(13.95), doordash:L(16.95), ubereats:L(17.50), grubhub:L(16.95),
-        caviar:L(15.50), seamless:L(16.95), postmates:L(17.50), chownow:L(13.95),
-        toast:L(13.95), yelp:L(16.95) } },
+  { id:"samusa-soup", name:"Samusa Soup", burmese:"", img:"samusa-soup.png",
+    cat:"Soups", price:12.00,
+    desc:"Vegetarian samusas and falafel torn into a tangy tamarind lentil broth with cabbage, onion and fresh cilantro.",
+    mods:["Extra samusas +$4","Extra spicy","Vegan"],
+    dev:{ doordash:{ price:23.45, priceV:true },
+          yelp:{ img:false } } },
 
-  { id:"platha", name:"Platha", burmese:"", cat:"Appetizers",
-    img:"platha.png",
+  { id:"platha", name:"Platha", burmese:"", img:"platha.png",
+    cat:"Appetizers", price:9.00,
     desc:"Flaky Burmese flatbread, layered and griddled to golden, served with a coconut curry dip.",
-    p:{ direct:L(9.95), doordash:L(12.50), ubereats:L(12.95), grubhub:L(12.50),
-        caviar:L(11.50), seamless:L(12.50), postmates:L(12.95), chownow:L(9.95),
-        toast:L(9.95), yelp:L(12.50,0) } },
+    mods:["Extra curry dip +$2","Add egg +$3"],
+    dev:{ doordash:{ price:17.45, priceV:true },
+          ubereats:{ cat:"Entrées" },
+          yelp:{ img:false } } },
 
-  { id:"sesame-chicken", name:"Sesame Chicken", burmese:"", cat:"Entrées",
-    img:"sesame-chicken.png",
-    desc:"Wok-seared chicken in a dark caramelised sesame sauce, crusted with toasted white and black sesame.",
-    p:{ direct:L(22.95), doordash:L(27.50), ubereats:L(28.95), grubhub:L(27.50),
-        caviar:L(24.95), seamless:L(27.50), postmates:L(28.95), chownow:L(22.95),
-        toast:L(22.95), yelp:L(31.95,0,0) } },
+  { id:"sesame-beef", name:"Sesame Beef", burmese:"", img:"sesame-beef.png",
+    cat:"Entrées", price:18.00, descV:true,
+    desc:"Lightly battered strips of beef tossed with sesame seeds in a sweet, tangy sauce.",
+    mods:["Brown rice +$2","Extra sauce +$1","Spice level"],
+    dev:{ yelp:{ price:26.95, img:false, desc:"Beef with sesame seeds." },
+          chownow:{ mods:["Brown rice +$2"] } } },
 
-  { id:"garlic-noodles", name:"Garlic Noodles", burmese:"", cat:"Noodles",
-    img:"garlic-noodles.png",
-    desc:"Egg noodles with crisp fried garlic, scallions, fresh onion and cucumber in the house sweet-and-spicy sauce.",
-    p:{ direct:L(16.95), doordash:L(20.50), ubereats:L(21.50), grubhub:L(20.50),
-        caviar:L(18.95), seamless:L(20.50), postmates:L(21.50), chownow:L(16.95),
-        toast:L(16.95), yelp:L(20.50) } },
+  { id:"garlic-noodles", name:"Garlic Noodles", burmese:"", img:"garlic-noodles.png",
+    cat:"Noodles", price:14.00, descV:true,
+    desc:"Egg noodles with fried garlic, sprinkled with scallions, fresh onions, cucumbers, and our house sweet and spicy sauce.",
+    mods:["Add chicken +$6","Add tofu +$4","Extra fried garlic"],
+    dev:{} },
 
-  { id:"pork-belly", name:"Pork Belly", burmese:"Wet Thar Chin", cat:"Entrées",
-    img:"pork-belly.png",
-    desc:"Braised pork belly tossed with pickled mustard greens, Thai chillies and julienned ginger.",
-    p:{ direct:L(24.95), doordash:L(29.95), ubereats:L(30.95), grubhub:L(29.95),
-        caviar:L(26.95), seamless:L(29.95), postmates:L(30.95), chownow:L(24.95),
-        toast:L(24.95,1,1,0), yelp:null } },
+  { id:"pork-belly", name:"Pork Belly", burmese:"Wet Thar Chin", img:"pork-belly.png",
+    cat:"Entrées", price:18.00, descV:true,
+    desc:"Pork belly tossed with pickled mustard greens, Thai chilies and ginger in a Burma Superstar family recipe.",
+    mods:["Brown rice +$2","Spice level","Extra pickled greens +$2"],
+    dev:{ toast:{ avail:false }, yelp:null } },
 
-  { id:"chili-lamb", name:"Chili Lamb", burmese:"", cat:"Entrées",
-    img:"chili-lamb.png",
+  { id:"chili-lamb", name:"Chili Lamb", burmese:"", img:"chili-lamb.png",
+    cat:"Entrées", price:18.00,
     desc:"Grass-fed lamb seared in a dark chilli sauce with onions, fresh chillies and mint.",
-    p:{ direct:L(26.95), doordash:L(31.95), ubereats:L(32.95), grubhub:L(31.95),
-        caviar:L(28.95), seamless:null, postmates:L(32.95), chownow:L(26.95),
-        toast:L(26.95), yelp:L(31.95,0) } },
+    mods:["Spice level","Brown rice +$2"],
+    dev:{ seamless:null, yelp:{ img:false } } },
 
-  { id:"coconut-rice", name:"Coconut Rice", burmese:"", cat:"Rice",
-    img:"coconut-rice.png",
-    desc:"Fragrant rice steamed in coconut milk with toasted coconut flakes.",
-    p:{ direct:L(6.95), doordash:L(8.50), ubereats:L(8.95), grubhub:L(8.50),
-        caviar:L(7.95), seamless:L(8.50), postmates:L(8.95), chownow:L(6.95),
-        toast:L(6.95), yelp:L(8.50) } },
+  { id:"coconut-rice", name:"Coconut Rice", burmese:"", img:"coconut-rice.png",
+    cat:"Rice", price:5.00, descV:true,
+    desc:"Jasmine rice cooked in coconut milk.",
+    mods:["Large +$3"],
+    dev:{} },
 
-  { id:"nan-gyi-dok", name:"Nan Gyi Dok", burmese:"", cat:"Noodles", img:"",
-    desc:"Thick round rice noodles hand-tossed with chicken curry, chickpea flour, egg and crisp onion.",
-    p:{ direct:L(18.95), doordash:L(22.95), ubereats:L(23.95,0), grubhub:L(22.95,0),
-        caviar:L(20.95,0), seamless:L(22.95,0), postmates:null, chownow:L(18.95,0),
-        toast:L(18.95,0), yelp:null } },
+  { id:"nan-gyi-dok", name:"Nan Gyi Dok", burmese:"", img:"", cat:"Noodles", price:16.00, descV:true,
+    desc:"Flour noodles with coconut chicken curry, roasted chickpea flour, hard-boiled egg, cabbage, wontons, turmeric, chili and fried onions.",
+    mods:["Add egg +$3","Extra wontons +$2","Spice level"],
+    dev:{ doordash:{ cat:"Entrées" }, ubereats:{ img:false }, grubhub:{ img:false },
+          caviar:{ img:false }, seamless:{ img:false }, postmates:null,
+          chownow:{ img:false }, toast:{ img:false }, yelp:null } },
 
-  { id:"ohn-no-kauswe", name:"Chicken Coconut Noodle Soup", burmese:"Ohn No Kauswe", cat:"Soups", img:"",
-    desc:"Egg noodles in a coconut chicken broth with fried noodle crisps, egg, onion and lime.",
-    p:{ direct:L(17.95), doordash:L(21.95), ubereats:L(22.95), grubhub:L(21.95,0),
-        caviar:L(19.95), seamless:L(21.95,0), postmates:L(22.95,0), chownow:L(17.95,0),
-        toast:L(17.95), yelp:null } },
+  { id:"ohn-no-kauswe", name:"Chicken Coconut Noodle Soup", burmese:"Ohn No Kauswe", img:"",
+    cat:"Soups", price:16.00,
+    desc:"Egg noodles in a coconut chicken broth with fried noodle crisps, hard-boiled egg, onion and lime.",
+    mods:["Add egg +$3","Extra noodle crisps","Spice level"],
+    dev:{ grubhub:{ img:false }, seamless:{ img:false, desc:"Coconut noodle soup." },
+          postmates:{ img:false }, chownow:{ img:false }, yelp:null } },
 
-  { id:"mango-chicken", name:"Mango Chicken", burmese:"", cat:"Entrées", img:"",
+  { id:"mango-chicken", name:"Mango Chicken", burmese:"", img:"", cat:"Entrées", price:17.00,
     desc:"Chicken with fresh mango, bell pepper and onion in a light sweet-tart glaze.",
-    p:{ direct:L(22.95), doordash:L(27.50), ubereats:L(28.95), grubhub:L(15.95),
-        caviar:L(24.95), seamless:L(27.50,0), postmates:L(28.95,0), chownow:L(22.95,0),
-        toast:L(22.95), yelp:null } }
+    mods:["Brown rice +$2","Spice level"],
+    dev:{ grubhub:{ price:12.95 }, seamless:{ img:false }, postmates:{ img:false },
+          chownow:{ img:false }, yelp:null } }
 ];
+
+/* ------------------------------------------------------------
+   Materialise: each platform keeps its OWN stored copy of the listing,
+   exactly like the real world. That is what makes editing the reference
+   meaningful — the platforms do not follow it, so they fall out of sync.
+   ------------------------------------------------------------ */
+function round05(n){ return Math.round(n * 20) / 20; }
+function materialise(seed){
+  return seed.map(function(d){
+    var out = {
+      id:d.id, name:d.name, burmese:d.burmese || "", img:d.img || "",
+      plat:{}
+    };
+    PLATFORMS.forEach(function(pf){
+      var dev = d.dev ? d.dev[pf.k] : undefined;
+      if (dev === null){ out.plat[pf.k] = null; return; }   /* not listed */
+      dev = dev || {};
+      var base = pf.ref ? d.price : round05(d.price * pf.mult);
+      out.plat[pf.k] = {
+        price: dev.price != null ? dev.price : base,
+        cat:   dev.cat  != null ? dev.cat  : d.cat,
+        desc:  dev.desc != null ? dev.desc : d.desc,
+        img:   dev.img  === false ? false : true,
+        mods:  (dev.mods || d.mods || []).slice(),
+        avail: dev.avail === false ? false : true,
+        /* provenance: was this number read from a real public source? */
+        v:     pf.ref ? !!d.priceV : !!dev.priceV,
+        vd:    pf.ref ? !!d.descV  : false
+      };
+    });
+    return out;
+  });
+}
 </script>
 
 <script>
@@ -793,7 +954,7 @@ var SEED = [
 /* ============================================================
    STATE
    ============================================================ */
-var LS_KEY = "burma-menu-sync-v1";
+var LS_KEY = "burma-menu-sync-v2";
 var DATA = loadData();
 var activeCat = "All";
 var issuesOnly = false;
@@ -804,59 +965,114 @@ function loadData(){
     var raw = localStorage.getItem(LS_KEY);
     if (raw){
       var parsed = JSON.parse(raw);
-      if (Array.isArray(parsed) && parsed.length) return parsed;
+      if (Array.isArray(parsed) && parsed.length && parsed[0].plat) return parsed;
     }
   }catch(e){}
-  return clone(SEED);
+  return materialise(SEED);
 }
 function saveData(){
   try{ localStorage.setItem(LS_KEY, JSON.stringify(DATA)); }catch(e){}
 }
 function money(n){ return "$" + Number(n).toFixed(2); }
+function normText(t){ return String(t == null ? "" : t).toLowerCase().replace(/\s+/g," ").replace(/[.’']/g,"").trim(); }
+function sameMods(a, b){
+  a = (a||[]).map(normText).sort(); b = (b||[]).map(normText).sort();
+  if (a.length !== b.length) return false;
+  for (var i=0;i<a.length;i++) if (a[i] !== b[i]) return false;
+  return true;
+}
+function refOf(dish){ return dish.plat ? dish.plat[REF] : null; }
 
 /* ============================================================
-   DIAGNOSTICS
+   DIAGNOSTICS — every platform graded on all five dimensions
    ============================================================ */
-/* Returns {level:'ok'|'drift'|'bad', notes:[], cls:''} for one platform cell. */
+var RANK = { ok:0, drift:1, bad:2 };
+function worse(a,b){ return RANK[b] > RANK[a] ? b : a; }
+
 function diagnose(dish, pk){
   var meta = PLATFORMS.filter(function(p){ return p.k === pk; })[0] || {};
-  var cell = dish.p ? dish.p[pk] : null;
-  var base = dish.p && dish.p.direct ? dish.p.direct.p : null;
+  var cell = dish.plat ? dish.plat[pk] : null;
+  var ref  = refOf(dish);
+  var dims = {};
+  DIMS.forEach(function(d){ dims[d.k] = { s:"na", note:"Not listed" }; });
 
-  if (!cell || cell.p == null){
-    return { level:"bad", notes:["Not listed"], cls:"" };
+  if (!cell || cell.price == null){
+    return { level:"bad", dims:dims, listed:false, notes:["Not listed on this platform"] };
   }
   if (cell.avail === false){
-    return { level:"bad", notes:["Sold out"], cls:"" };
+    DIMS.forEach(function(d){ dims[d.k] = { s:"na", note:"Unavailable" }; });
+    return { level:"bad", dims:dims, listed:true, notes:["Listed but switched off"] };
   }
-  if (meta.truth){
-    return { level:"ok", notes:["Source of truth"], cls:"" };
+  if (meta.ref){
+    DIMS.forEach(function(d){ dims[d.k] = { s:"ok", note:"This is the reference" }; });
+    return { level:"ok", dims:dims, listed:true, isRef:true, notes:["Source of truth"] };
   }
 
-  var notes = [], level = "ok", cls = "";
-  if (base != null){
-    var delta = (cell.p - base) / base;
-    if (cell.p < base){
-      level = "bad";
-      cls = "dn";
-      notes.push("Under base price");
-    } else if (delta > MARKUP_CEILING){
-      level = "drift";
-      cls = "up";
-      notes.push("+" + Math.round(delta * 100) + "% markup");
+  var level = "ok", notes = [];
+
+  /* price */
+  if (!ref || ref.price == null){
+    dims.price = { s:"na", note:"No reference price" };
+  } else if (cell.price < ref.price){
+    dims.price = { s:"bad", note:"Under the reference price (" + money(ref.price) + ")" };
+    level = worse(level,"bad"); notes.push("Priced under reference");
+  } else {
+    var delta = (cell.price - ref.price) / ref.price;
+    if (delta > MARKUP_CEILING){
+      dims.price = { s:"drift", note:"+" + Math.round(delta*100) + "% over the reference (" + money(ref.price) + ")" };
+      level = worse(level,"drift"); notes.push("+" + Math.round(delta*100) + "% markup");
+    } else {
+      dims.price = { s:"ok", note:"+" + Math.round(delta*100) + "% over reference — within range" };
     }
   }
-  if (cell.photo === false){ if (level === "ok") level = "drift"; notes.push("No photo"); }
-  if (cell.desc === false){ if (level === "ok") level = "drift"; notes.push("Stale copy"); }
-  if (!notes.length) notes.push("Matches");
-  return { level:level, notes:notes, cls:cls };
+
+  /* menu tag / category */
+  if (ref && normText(cell.cat) !== normText(ref.cat)){
+    dims.cat = { s:"drift", note:'Tagged "' + cell.cat + '" — reference says "' + ref.cat + '"' };
+    level = worse(level,"drift"); notes.push("Wrong menu tag");
+  } else {
+    dims.cat = { s:"ok", note:"Tag matches: " + cell.cat };
+  }
+
+  /* image */
+  if (cell.img === false){
+    dims.img = { s:"drift", note:"No image on this platform" };
+    level = worse(level,"drift"); notes.push("No image");
+  } else {
+    dims.img = { s:"ok", note:"Image present" };
+  }
+
+  /* description */
+  if (ref && normText(cell.desc) !== normText(ref.desc)){
+    dims.desc = { s:"drift", note:"Description differs from the reference" };
+    level = worse(level,"drift"); notes.push("Description differs");
+  } else {
+    dims.desc = { s:"ok", note:"Description matches" };
+  }
+
+  /* modifications */
+  if (ref && !sameMods(cell.mods, ref.mods)){
+    var refN = (ref.mods||[]).length, cN = (cell.mods||[]).length;
+    var missing = (ref.mods||[]).filter(function(m){
+      return (cell.mods||[]).map(normText).indexOf(normText(m)) < 0;
+    });
+    dims.mods = { s:"drift", note: missing.length
+      ? "Missing: " + missing.join(", ")
+      : "Modifications differ (" + cN + " here vs " + refN + " on the reference)" };
+    level = worse(level,"drift"); notes.push(missing.length ? "Missing " + missing.length + " option" + (missing.length>1?"s":"") : "Options differ");
+  } else {
+    dims.mods = { s:"ok", note:(cell.mods||[]).length + " modifications, matching" };
+  }
+
+  if (!notes.length) notes.push("Matches the reference");
+  return { level:level, dims:dims, listed:true, notes:notes };
 }
-var RANK = { ok:0, drift:1, bad:2 };
+
 function rowStatus(dish){
   var worst = "ok";
   PKEYS.forEach(function(k){
-    var d = diagnose(dish, k);
-    if (RANK[d.level] > RANK[worst]) worst = d.level;
+    if (k === REF) return;
+    worst = worse(worst, diagnose(dish, k).level);
   });
   return worst;
 }
@@ -864,8 +1080,18 @@ function countIssues(){
   var n = 0;
   DATA.forEach(function(d){
     PKEYS.forEach(function(k){
-      if (k === "direct") return;
+      if (k === REF) return;
       if (diagnose(d, k).level !== "ok") n++;
+    });
+  });
+  return n;
+}
+function countUnverified(){
+  var n = 0;
+  DATA.forEach(function(d){
+    PKEYS.forEach(function(k){
+      var c = d.plat ? d.plat[k] : null;
+      if (c && c.price != null && !c.v) n++;
     });
   });
   return n;
@@ -885,12 +1111,12 @@ function renderHead(){
   tr.innerHTML = "";
   tr.appendChild(el("th", "dish", "Menu item"));
   PLATFORMS.forEach(function(p){
-    var th = el("th", p.major || p.truth ? "major" : "");
+    var th = el("th", p.major || p.ref ? "major" : "");
     var dot = el("span", "pdot");
-    if (p.truth) dot.style.background = "var(--teal)";
+    if (p.ref) dot.style.background = "var(--teal)";
     th.appendChild(dot);
     th.appendChild(document.createTextNode(p.short));
-    if (p.truth) th.title = "Your own website — the price every platform is compared against";
+    if (p.ref) th.title = "Your own website — what every platform is compared against";
     tr.appendChild(th);
   });
   tr.appendChild(el("th", "", "Status"));
@@ -907,7 +1133,8 @@ function renderBody(){
   var tb = document.getElementById("tbody");
   tb.innerHTML = "";
   var rows = DATA.filter(function(d){
-    if (activeCat !== "All" && d.cat !== activeCat) return false;
+    var ref = refOf(d);
+    if (activeCat !== "All" && (!ref || ref.cat !== activeCat)) return false;
     if (issuesOnly && rowStatus(d) === "ok") return false;
     return true;
   });
@@ -922,16 +1149,18 @@ function renderBody(){
   }
 
   rows.forEach(function(d){
+    var ref = refOf(d);
     var tr = el("tr");
 
-    /* dish cell */
+    /* dish cell — the click target for the editor */
     var td = el("td", "dish");
+    td.setAttribute("role", "button");
+    td.setAttribute("tabindex", "0");
+    td.title = "Click to edit " + d.name + " on every platform";
     var box = el("div", "dish-cell");
     if (d.img){
       var im = new Image();
-      im.className = "dish-thumb";
-      im.loading = "lazy";
-      im.alt = "";
+      im.className = "dish-thumb"; im.loading = "lazy"; im.alt = "";
       im.src = asset(d.img);
       box.appendChild(im);
     } else {
@@ -939,34 +1168,60 @@ function renderBody(){
     }
     var txt = el("div");
     txt.appendChild(el("div", "dish-name", d.name));
-    txt.appendChild(el("div", "dish-meta", d.burmese ? d.cat + " · " + d.burmese : d.cat));
+    txt.appendChild(el("div", "dish-meta", d.burmese ? (ref ? ref.cat : "") + " · " + d.burmese : (ref ? ref.cat : "")));
     box.appendChild(txt);
+    var cue = el("span", "edit-cue");
+    cue.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>Edit';
+    box.appendChild(cue);
     td.appendChild(box);
+    td.addEventListener("click", function(){ openEditor(d.id); });
+    td.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openEditor(d.id); }
+    });
     tr.appendChild(td);
 
     /* platform cells */
     PKEYS.forEach(function(k){
-      var cell = d.p ? d.p[k] : null;
+      var cell = d.plat ? d.plat[k] : null;
       var dg = diagnose(d, k);
       var tdp = el("td");
-      var v = el("div", "cellv" + (!cell || cell.p == null ? " missing" : ""));
-      var price = el("div", "price " + dg.cls, (cell && cell.p != null) ? money(cell.p) : "—");
+      var v = el("div", "cellv" + (!cell || cell.price == null ? " missing" : ""));
+
+      var priceCls = dg.dims.price.s === "bad" ? "dn" : dg.dims.price.s === "drift" ? "up" : "";
+      var priceTxt = (cell && cell.price != null)
+        ? (cell.avail === false ? money(cell.price) : money(cell.price))
+        : "—";
+      var price = el("div", "price " + priceCls, priceTxt);
+      if (cell && cell.price != null){
+        price.title = (cell.v ? "Verified from a public source" : "Estimated — replace with the real value")
+                    + "\n" + dg.dims.price.note;
+        if (!cell.v) price.style.borderBottom = "1px dashed rgba(147,128,109,.55)";
+      }
       v.appendChild(price);
-      var noteCls = dg.level === "bad" ? "bad" : dg.level === "drift" ? "warn" : "good";
-      var note = el("div", "note " + noteCls);
-      note.appendChild(el("i", "flag"));
-      note.appendChild(document.createTextNode(dg.notes[0]));
-      note.title = dg.notes.join(" · ");
-      v.appendChild(note);
+
+      if (!dg.listed || (cell && cell.avail === false)){
+        var note = el("div", "note bad");
+        note.appendChild(el("i", "flag"));
+        note.appendChild(document.createTextNode(dg.listed ? "Sold out" : "Not listed"));
+        v.appendChild(note);
+      } else {
+        var dims = el("div", "dims");
+        DIMS.forEach(function(dim){
+          if (dim.k === "price") return;
+          var st = dg.dims[dim.k];
+          var chip = el("span", "dim " + st.s, dim.letter);
+          chip.title = dim.n + " — " + st.note;
+          dims.appendChild(chip);
+        });
+        v.appendChild(dims);
+      }
       tdp.appendChild(v);
       tr.appendChild(tdp);
     });
 
-    /* status */
     var tds = el("td");
     tds.appendChild(statusChip(rowStatus(d)));
     tr.appendChild(tds);
-
     tb.appendChild(tr);
   });
 }
@@ -974,24 +1229,22 @@ function renderFilters(){
   var wrap = document.getElementById("filters");
   wrap.innerHTML = "";
   var cats = ["All"];
-  DATA.forEach(function(d){ if (cats.indexOf(d.cat) < 0) cats.push(d.cat); });
+  DATA.forEach(function(d){
+    var r = refOf(d);
+    if (r && cats.indexOf(r.cat) < 0) cats.push(r.cat);
+  });
   cats.forEach(function(c){
     var b = el("button", "chip", c);
     b.type = "button";
     b.setAttribute("aria-pressed", String(c === activeCat));
-    b.addEventListener("click", function(){
-      activeCat = c;
-      renderFilters();
-      renderBody();
-    });
+    b.addEventListener("click", function(){ activeCat = c; renderFilters(); renderBody(); });
     wrap.appendChild(b);
   });
 }
 function renderStats(){
-  var issues = countIssues();
   animateNum(document.getElementById("s-dishes"), DATA.length);
   animateNum(document.getElementById("s-plats"), PLATFORMS.length);
-  animateNum(document.getElementById("s-issues"), issues);
+  animateNum(document.getElementById("s-issues"), countIssues());
 }
 function animateNum(node, target){
   if (!node) return;
@@ -1012,43 +1265,58 @@ function animateNum(node, target){
 function renderBento(){
   var wrap = document.getElementById("bento");
   if (!wrap) return;
-  var notListed = 0, soldOut = 0, noPhoto = 0, stale = 0, overMark = 0, under = 0, worst = 0, worstName = "";
+  var c = { notListed:0, soldOut:0, price:0, cat:0, img:0, desc:0, mods:0, ok:0, total:0 };
+  var worst = 0, worstName = "";
   DATA.forEach(function(d){
-    var base = d.p && d.p.direct ? d.p.direct.p : null;
+    var ref = refOf(d);
     PKEYS.forEach(function(k){
-      if (k === "direct") return;
-      var c = d.p ? d.p[k] : null;
-      if (!c || c.p == null){ notListed++; return; }
-      if (c.avail === false){ soldOut++; return; }
-      if (c.photo === false) noPhoto++;
-      if (c.desc === false) stale++;
-      if (base != null){
-        var dl = (c.p - base) / base;
-        if (c.p < base) under++;
-        else if (dl > MARKUP_CEILING){
-          overMark++;
+      if (k === REF) return;
+      c.total++;
+      var dg = diagnose(d, k);
+      if (!dg.listed){ c.notListed++; return; }
+      var cell = d.plat[k];
+      if (cell.avail === false){ c.soldOut++; return; }
+      var clean = true;
+      if (dg.dims.price.s !== "ok"){
+        c.price++; clean = false;
+        if (ref && cell.price > ref.price){
+          var dl = (cell.price - ref.price) / ref.price;
           if (dl > worst){ worst = dl; worstName = d.name; }
         }
       }
+      if (dg.dims.cat.s  !== "ok"){ c.cat++;  clean = false; }
+      if (dg.dims.img.s  !== "ok"){ c.img++;  clean = false; }
+      if (dg.dims.desc.s !== "ok"){ c.desc++; clean = false; }
+      if (dg.dims.mods.s !== "ok"){ c.mods++; clean = false; }
+      if (clean) c.ok++;
     });
   });
   var cells = [
-    { tag:"Not listed", big:String(notListed), cls:"warn", p:"Dish-and-platform pairs where the item simply is not there. Every one is an order that cannot be placed.", wide:true },
-    { tag:"Sold out / unavailable", big:String(soldOut), cls:"warn", p:"Still switched off on a platform after the kitchen brought it back." },
-    { tag:"Below base price", big:String(under), cls:"warn", p:"Listed under the restaurant's own price — the commission comes straight out of margin." },
-    { tag:"Missing photo", big:String(noPhoto), cls:"acc", p:"Items with no image. Listings with photos are ordered far more often." },
-    { tag:"Stale description", big:String(stale), cls:"acc", p:"Copy that no longer matches the menu on your own site." },
-    { tag:"Over " + Math.round(MARKUP_CEILING * 100) + "% markup", big:String(overMark), cls:"acc", p: worstName ? ("Worst offender: " + worstName + " at +" + Math.round(worst * 100) + "%.") : "Nothing above the ceiling right now." },
-    { tag:"In sync", big:String(DATA.length * (PKEYS.length - 1) - notListed - soldOut - noPhoto - stale - overMark - under), cls:"ok", p:"Listings that match your source of truth on price, photo and copy." }
+    { tag:"Not listed", big:String(c.notListed), cls:"warn", wide:true,
+      p:"Dish-and-platform pairs where the item simply is not there. Every one is an order that cannot be placed." },
+    { tag:"Sold out / switched off", big:String(c.soldOut), cls:"warn",
+      p:"Still unavailable on a platform after the kitchen brought it back." },
+    { tag:"Price out of band", big:String(c.price), cls:"warn",
+      p: worstName ? ("Under the reference, or more than " + Math.round(MARKUP_CEILING*100) + "% over it. Worst: " + worstName + " at +" + Math.round(worst*100) + "%.")
+                   : "Every listed price sits within range of the reference." },
+    { tag:"Wrong menu tag", big:String(c.cat), cls:"acc",
+      p:"Filed under a different section than the reference — customers browsing that category never see it." },
+    { tag:"Missing image", big:String(c.img), cls:"acc",
+      p:"Listings with no photo. Items with photos are ordered far more often." },
+    { tag:"Description differs", big:String(c.desc), cls:"acc",
+      p:"Copy that no longer matches the reference on your own site." },
+    { tag:"Modifications differ", big:String(c.mods), cls:"acc",
+      p:"Add-ons, spice levels and swaps that are missing or different from the reference." },
+    { tag:"Fully in sync", big:String(c.ok), cls:"ok",
+      p:"Listings matching the reference on price, tag, image, description and modifications." }
   ];
   wrap.innerHTML = "";
-  cells.forEach(function(c){
-    var d = el("div", "cell" + (c.wide ? " wide" : ""));
-    d.appendChild(el("div", "tag", c.tag));
-    var b = el("div", "big " + (c.cls || ""), c.big);
+  cells.forEach(function(cc){
+    var d = el("div", "cell" + (cc.wide ? " wide" : ""));
+    d.appendChild(el("div", "tag", cc.tag));
     var body = el("div");
-    body.appendChild(b);
-    body.appendChild(el("p", "", c.p));
+    body.appendChild(el("div", "big " + (cc.cls || ""), cc.big));
+    body.appendChild(el("p", "", cc.p));
     d.appendChild(body);
     wrap.appendChild(d);
   });
@@ -1059,18 +1327,15 @@ function renderRevealList(){
   if (!wrap) return;
   wrap.innerHTML = "";
   DATA.forEach(function(d, i){
+    var ref = refOf(d);
     var row = el("div", "reveal-row");
     row.setAttribute("data-img", d.img ? asset(d.img) : "");
     row.appendChild(el("div", "idx", String(i + 1).padStart(2, "0")));
     var nm = el("div", "nm");
     nm.appendChild(document.createTextNode(d.name));
-    if (d.burmese){
-      var em = el("em", "", d.burmese);
-      nm.appendChild(em);
-    }
+    if (d.burmese) nm.appendChild(el("em", "", d.burmese));
     row.appendChild(nm);
-    var base = d.p && d.p.direct ? d.p.direct.p : null;
-    row.appendChild(el("div", "pr", base != null ? money(base) : "—"));
+    row.appendChild(el("div", "pr", ref && ref.price != null ? money(ref.price) : "—"));
     row.appendChild(el("div", "bar"));
     wrap.appendChild(row);
   });
@@ -1082,9 +1347,9 @@ function renderStrips(){
     if (!wrap) return;
     wrap.innerHTML = "";
     PLATFORMS.forEach(function(p){
-      var s = el("span", "pill" + (p.major || p.truth ? " major" : ""));
+      var s = el("span", "pill" + (p.major || p.ref ? " major" : ""));
       var dot = el("i", "flag");
-      dot.style.color = p.truth ? "var(--teal)" : (p.major ? "var(--saffron)" : "var(--muted)");
+      dot.style.color = p.ref ? "var(--teal)" : (p.major ? "var(--saffron)" : "var(--muted)");
       s.appendChild(dot);
       s.appendChild(document.createTextNode(p.n));
       wrap.appendChild(s);
@@ -1094,68 +1359,61 @@ function renderStrips(){
 function renderAll(){
   renderHead(); renderFilters(); renderBody();
   renderBento(); renderRevealList(); renderStrips(); renderStats();
+  var note = document.getElementById("seed-note");
+  if (note){
+    var un = countUnverified();
+    note.textContent = un
+      ? un + " prices still estimated — click a dish to correct them"
+      : "All prices verified";
+  }
 }
 </script>
 
 <script>
 "use strict";
 /* ============================================================
-   CSV / JSON  —  import + export
-   Cell syntax:  "21.50"            listed at that price
-                 ""                 not listed
-                 "SOLD OUT"         listed but unavailable
-                 "21.50 -photo"     no image on that platform
-                 "21.50 -copy"      description out of date
+   CSV / JSON — long format, one row per dish x platform.
+   Columns: dish_id,dish_name,burmese,platform,listed,available,
+            price,tag,image,description,modifications,verified
+   modifications are pipe-separated:  Add egg +$3|Spice level
    ============================================================ */
-var CSV_COLS = ["id","name","category","burmese","description"].concat(PKEYS);
+var CSV_COLS = ["dish_id","dish_name","burmese","platform","listed","available",
+                "price","tag","image","description","modifications","verified"];
 
 function csvEscape(v){
   v = v == null ? "" : String(v);
-  return /[",\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+  return /[",\n]/.test(v) ? '"' + v.replace(/"/g,'""') + '"' : v;
 }
-function cellToText(c){
-  if (!c || c.p == null) return "";
-  if (c.avail === false) return "SOLD OUT";
-  var s = Number(c.p).toFixed(2);
-  if (c.photo === false) s += " -photo";
-  if (c.desc === false) s += " -copy";
-  return s;
-}
-function textToCell(t){
-  t = (t || "").trim();
-  if (!t) return null;
-  if (/^sold\s*out$/i.test(t)) return { p:null, photo:true, desc:true, avail:false };
-  var num = parseFloat(t.replace(/[^0-9.\-]/g, " "));
-  if (!isFinite(num)) return null;
-  return {
-    p: num,
-    photo: !/-photo/i.test(t),
-    desc:  !/-copy/i.test(t),
-    avail: true
-  };
-}
+function yn(b){ return b ? "yes" : "no"; }
+function isYes(v){ return /^(y|yes|true|1)$/i.test(String(v||"").trim()); }
+
 function toCSV(){
   var lines = [CSV_COLS.join(",")];
   DATA.forEach(function(d){
-    var row = [d.id, d.name, d.cat, d.burmese || "", d.desc || ""];
-    PKEYS.forEach(function(k){ row.push(cellToText(d.p ? d.p[k] : null)); });
-    lines.push(row.map(csvEscape).join(","));
+    PLATFORMS.forEach(function(pf){
+      var c = d.plat ? d.plat[pf.k] : null;
+      var row = c
+        ? [d.id, d.name, d.burmese||"", pf.k, "yes", yn(c.avail !== false),
+           c.price != null ? Number(c.price).toFixed(2) : "", c.cat||"", yn(c.img !== false),
+           c.desc||"", (c.mods||[]).join("|"), yn(!!c.v)]
+        : [d.id, d.name, d.burmese||"", pf.k, "no", "", "", "", "", "", "", ""];
+      lines.push(row.map(csvEscape).join(","));
+    });
   });
   return lines.join("\n");
 }
 function parseCSV(text){
-  var rows = [], row = [], cur = "", q = false;
-  for (var i = 0; i < text.length; i++){
-    var ch = text[i];
+  var rows=[], row=[], cur="", q=false;
+  for (var i=0;i<text.length;i++){
+    var ch=text[i];
     if (q){
-      if (ch === '"'){
-        if (text[i+1] === '"'){ cur += '"'; i++; } else q = false;
-      } else cur += ch;
+      if (ch === '"'){ if (text[i+1] === '"'){ cur+='"'; i++; } else q=false; }
+      else cur+=ch;
     } else {
-      if (ch === '"') q = true;
-      else if (ch === ","){ row.push(cur); cur = ""; }
-      else if (ch === "\n"){ row.push(cur); rows.push(row); row = []; cur = ""; }
-      else if (ch !== "\r") cur += ch;
+      if (ch === '"') q=true;
+      else if (ch === ","){ row.push(cur); cur=""; }
+      else if (ch === "\n"){ row.push(cur); rows.push(row); row=[]; cur=""; }
+      else if (ch !== "\r") cur+=ch;
     }
   }
   if (cur !== "" || row.length){ row.push(cur); rows.push(row); }
@@ -1163,58 +1421,66 @@ function parseCSV(text){
 }
 function fromCSV(text){
   var rows = parseCSV(text);
-  if (rows.length < 2) throw new Error("needs a header row plus at least one dish");
+  if (rows.length < 2) throw new Error("needs a header row plus at least one line");
   var head = rows[0].map(function(h){ return String(h).trim().toLowerCase(); });
-  function col(name){ return head.indexOf(name); }
-  var iName = col("name");
-  if (iName < 0) throw new Error('missing a "name" column');
-  var out = [];
-  for (var r = 1; r < rows.length; r++){
+  function ix(n){ return head.indexOf(n); }
+  if (ix("dish_id") < 0 && ix("dish_name") < 0) throw new Error('needs a "dish_id" or "dish_name" column');
+  if (ix("platform") < 0) throw new Error('needs a "platform" column');
+
+  var byId = {}, order = [];
+  for (var r=1;r<rows.length;r++){
     var c = rows[r];
-    var get = function(n){ var i = col(n); return i >= 0 ? String(c[i] || "").trim() : ""; };
-    var name = get("name");
-    if (!name) continue;
-    var d = {
-      id: get("id") || name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, ""),
-      name: name,
-      cat: get("category") || "Uncategorised",
-      burmese: get("burmese"),
-      desc: get("description"),
-      img: "",
-      p: {}
+    var get = function(n){ var i = ix(n); return i>=0 ? String(c[i]==null?"":c[i]).trim() : ""; };
+    var name = get("dish_name");
+    var id = get("dish_id") || name.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+    if (!id) continue;
+    var pk = get("platform").toLowerCase();
+    if (PKEYS.indexOf(pk) < 0) continue;
+    if (!byId[id]){
+      var seedMatch = SEED.filter(function(s){ return s.id === id; })[0];
+      byId[id] = { id:id, name:name || (seedMatch ? seedMatch.name : id), burmese:get("burmese") || (seedMatch ? seedMatch.burmese : ""), img:seedMatch ? seedMatch.img : "", plat:{} };
+      PKEYS.forEach(function(k){ byId[id].plat[k] = null; });
+      order.push(id);
+    }
+    var listedCol = ix("listed");
+    var listed = listedCol >= 0 ? isYes(get("listed")) : true;
+    var priceRaw = get("price");
+    if (!listed || (priceRaw === "" && !get("tag") && !get("description"))){ byId[id].plat[pk] = null; continue; }
+    var num = parseFloat(priceRaw.replace(/[^0-9.\-]/g,""));
+    byId[id].plat[pk] = {
+      price: isFinite(num) ? num : null,
+      cat:   get("tag") || "Uncategorised",
+      desc:  get("description"),
+      img:   ix("image") >= 0 ? isYes(get("image")) : true,
+      mods:  get("modifications") ? get("modifications").split("|").map(function(m){ return m.trim(); }).filter(Boolean) : [],
+      avail: ix("available") >= 0 ? isYes(get("available")) : true,
+      v:     ix("verified") >= 0 ? isYes(get("verified")) : false,
+      vd:    false
     };
-    var seedMatch = SEED.filter(function(s){ return s.id === d.id; })[0];
-    if (seedMatch) d.img = seedMatch.img;
-    PKEYS.forEach(function(k){ d.p[k] = textToCell(get(k)); });
-    out.push(d);
   }
-  if (!out.length) throw new Error("no dish rows found");
+  var out = order.map(function(id){ return byId[id]; });
+  if (!out.length) throw new Error("no usable rows found");
   return out;
 }
 function normaliseJSON(arr){
   if (!Array.isArray(arr)) throw new Error("expected a JSON array of dishes");
-  return arr.map(function(d, i){
-    if (!d || !d.name) throw new Error("dish " + (i + 1) + ' has no "name"');
-    var out = {
-      id: d.id || String(d.name).toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-      name: d.name,
-      cat: d.cat || d.category || "Uncategorised",
-      burmese: d.burmese || "",
-      desc: d.desc || d.description || "",
-      img: d.img || "",
-      p: {}
-    };
-    var src = d.p || d.platforms || {};
+  return arr.map(function(d,i){
+    if (!d || !d.name) throw new Error("dish " + (i+1) + ' has no "name"');
+    var out = { id:d.id || String(d.name).toLowerCase().replace(/[^a-z0-9]+/g,"-"),
+                name:d.name, burmese:d.burmese||"", img:d.img||"", plat:{} };
+    var src = d.plat || d.platforms || {};
     PKEYS.forEach(function(k){
       var c = src[k];
-      if (c == null){ out.p[k] = null; return; }
-      if (typeof c === "number"){ out.p[k] = { p:c, photo:true, desc:true, avail:true }; return; }
-      if (typeof c === "string"){ out.p[k] = textToCell(c); return; }
-      out.p[k] = {
-        p: c.p != null ? Number(c.p) : (c.price != null ? Number(c.price) : null),
-        photo: c.photo !== false,
-        desc: c.desc !== false,
-        avail: c.avail !== false
+      if (c == null){ out.plat[k] = null; return; }
+      if (typeof c === "number") c = { price:c };
+      out.plat[k] = {
+        price: c.price != null ? Number(c.price) : null,
+        cat:   c.cat || c.category || "Uncategorised",
+        desc:  c.desc || c.description || "",
+        img:   c.img !== false,
+        mods:  Array.isArray(c.mods) ? c.mods.slice() : (typeof c.mods === "string" ? c.mods.split("|") : []),
+        avail: c.avail !== false,
+        v:     !!c.v, vd: !!c.vd
       };
     });
     return out;
@@ -1236,26 +1502,22 @@ function ioSay(msg, kind){
   if (!n) return;
   n.textContent = msg;
   n.className = "io-msg" + (kind ? " " + kind : "");
-  if (msg) setTimeout(function(){ if (n.textContent === msg){ n.textContent = ""; n.className = "io-msg"; } }, 6000);
+  if (msg) setTimeout(function(){ if (n.textContent === msg){ n.textContent=""; n.className="io-msg"; } }, 6000);
 }
-
 function wireIO(){
   var ta = document.getElementById("io-text");
-
   document.getElementById("exp-csv").addEventListener("click", function(){
     var csv = toCSV();
     if (!download("burma-menu-sync.csv", csv, "text/csv;charset=utf-8")){
-      ta.value = csv;
-      document.querySelector(".io").open = true;
-      ioSay("Download blocked here — the CSV is in the box below, copy it.", "err");
+      ta.value = csv; document.querySelector(".io").open = true;
+      ioSay("Download blocked here — the CSV is in the box below.", "err");
     }
   });
   document.getElementById("exp-json").addEventListener("click", function(){
     var js = JSON.stringify(DATA, null, 2);
     if (!download("burma-menu-sync.json", js, "application/json")){
-      ta.value = js;
-      document.querySelector(".io").open = true;
-      ioSay("Download blocked here — the JSON is in the box below, copy it.", "err");
+      ta.value = js; document.querySelector(".io").open = true;
+      ioSay("Download blocked here — the JSON is in the box below.", "err");
     }
   });
   document.getElementById("io-fill-csv").addEventListener("click", function(){
@@ -1265,38 +1527,244 @@ function wireIO(){
     ta.value = JSON.stringify(DATA, null, 2); ioSay("Current table written out as JSON.", "ok");
   });
   document.getElementById("io-load").addEventListener("click", function(){
-    var txt = (ta.value || "").trim();
+    var txt = (ta.value||"").trim();
     if (!txt){ ioSay("Paste some CSV or JSON first.", "err"); return; }
     try{
-      var next = (txt[0] === "[" || txt[0] === "{")
-        ? normaliseJSON(JSON.parse(txt))
-        : fromCSV(txt);
-      DATA = next;
+      DATA = (txt[0] === "[" || txt[0] === "{") ? normaliseJSON(JSON.parse(txt)) : fromCSV(txt);
       activeCat = "All"; issuesOnly = false;
-      document.getElementById("only-issues").setAttribute("aria-pressed", "false");
+      document.getElementById("only-issues").setAttribute("aria-pressed","false");
       saveData(); renderAll();
-      var note = document.getElementById("seed-note");
-      if (note) note.textContent = "Your imported data · saved in this browser";
       ioSay("Loaded " + DATA.length + " dishes.", "ok");
-    }catch(err){
-      ioSay("Could not read that: " + err.message, "err");
-    }
+    }catch(err){ ioSay("Could not read that: " + err.message, "err"); }
   });
   document.getElementById("io-reset").addEventListener("click", function(){
-    DATA = clone(SEED);
+    DATA = materialise(SEED);
     activeCat = "All"; issuesOnly = false;
-    document.getElementById("only-issues").setAttribute("aria-pressed", "false");
+    document.getElementById("only-issues").setAttribute("aria-pressed","false");
     try{ localStorage.removeItem(LS_KEY); }catch(e){}
-    renderAll();
-    var note = document.getElementById("seed-note");
-    if (note) note.textContent = "Seed data — replace via CSV / JSON import";
-    ioSay("Back to the seed data.", "ok");
+    renderAll(); ioSay("Back to the seed data.", "ok");
   });
   document.getElementById("only-issues").addEventListener("click", function(){
     issuesOnly = !issuesOnly;
     this.setAttribute("aria-pressed", String(issuesOnly));
     renderBody();
   });
+}
+
+/* ============================================================
+   EDITOR DRAWER — click a dish, edit any platform.
+   Editing the REFERENCE re-grades every other platform live.
+   ============================================================ */
+var EDIT_ID = null, DRAFT = null, LAST_FOCUS = null;
+
+function fieldRow(label, node, wide){
+  var f = el("div", "f" + (wide ? " wide" : ""));
+  f.appendChild(el("label", null, label));
+  f.appendChild(node);
+  return f;
+}
+function inputEl(type, val){
+  var i = document.createElement("input");
+  i.type = type; i.value = val == null ? "" : val;
+  if (type === "number"){ i.step = "0.01"; i.min = "0"; }
+  return i;
+}
+function paneFor(pk){
+  var pf = PLATFORMS.filter(function(p){ return p.k === pk; })[0];
+  var cell = DRAFT.plat[pk];
+  var pane = el("div", "pane" + (pf.ref ? " ref open" : ""));
+  pane.setAttribute("data-pk", pk);
+
+  var head = el("div", "pane-head");
+  var dot = el("i", "flag");
+  dot.style.color = pf.ref ? "var(--teal)" : (pf.major ? "var(--saffron)" : "var(--muted)");
+  head.appendChild(dot);
+  head.appendChild(el("span", "grow", pf.n + (pf.ref ? " — source of truth" : "")));
+  var badge = el("span", "", "");
+  badge.id = "badge-" + pk;
+  head.appendChild(badge);
+  if (!pf.ref) head.appendChild(el("span", "caret", "▾"));
+  pane.appendChild(head);
+  if (!pf.ref){
+    head.addEventListener("click", function(){ pane.classList.toggle("open"); });
+  }
+
+  var body = el("div", "pane-body");
+
+  var listedWrap = el("label", "tog");
+  var listedCb = document.createElement("input");
+  listedCb.type = "checkbox"; listedCb.checked = !!cell;
+  listedWrap.appendChild(listedCb);
+  listedWrap.appendChild(document.createTextNode("Listed on this platform"));
+  if (pf.ref){ listedCb.checked = true; listedCb.disabled = true; }
+
+  var availWrap = el("label", "tog");
+  var availCb = document.createElement("input");
+  availCb.type = "checkbox"; availCb.checked = cell ? cell.avail !== false : true;
+  availWrap.appendChild(availCb);
+  availWrap.appendChild(document.createTextNode("Currently available"));
+
+  var priceI = inputEl("number", cell ? cell.price : "");
+  var catS = document.createElement("select");
+  CATS.concat(cell && CATS.indexOf(cell.cat) < 0 && cell.cat ? [cell.cat] : []).forEach(function(c){
+    var o = document.createElement("option"); o.value = c; o.textContent = c;
+    if (cell && cell.cat === c) o.selected = true;
+    catS.appendChild(o);
+  });
+  var imgWrap = el("label", "tog");
+  var imgCb = document.createElement("input");
+  imgCb.type = "checkbox"; imgCb.checked = cell ? cell.img !== false : true;
+  imgWrap.appendChild(imgCb);
+  imgWrap.appendChild(document.createTextNode("Has an image"));
+
+  var descT = document.createElement("textarea");
+  descT.value = cell ? cell.desc || "" : "";
+  var modsT = document.createElement("textarea");
+  modsT.value = cell ? (cell.mods || []).join("\n") : "";
+  modsT.placeholder = "One modification per line";
+
+  body.appendChild(fieldRow("Price ($)", priceI));
+  body.appendChild(fieldRow("Menu tag", catS));
+  body.appendChild(listedWrap);
+  body.appendChild(availWrap);
+  body.appendChild(imgWrap);
+  body.appendChild(el("div", "f"));
+  body.appendChild(fieldRow("Description", descT, true));
+  body.appendChild(fieldRow("Modifications (one per line)", modsT, true));
+
+  if (!pf.ref){
+    var acts = el("div", "pane-actions");
+    var copy = el("button", "mini", "Copy the reference into " + pf.n);
+    copy.type = "button";
+    copy.addEventListener("click", function(){
+      var r = DRAFT.plat[REF];
+      if (!r) return;
+      listedCb.checked = true; availCb.checked = true;
+      priceI.value = r.price;
+      catS.value = r.cat;
+      imgCb.checked = true;
+      descT.value = r.desc || "";
+      modsT.value = (r.mods || []).join("\n");
+      pull(); refreshBadges();
+    });
+    acts.appendChild(copy);
+    body.appendChild(acts);
+  }
+  pane.appendChild(body);
+
+  function pull(){
+    if (!listedCb.checked && !pf.ref){ DRAFT.plat[pk] = null; return; }
+    var prev = DRAFT.plat[pk] || {};
+    var pv = parseFloat(priceI.value);
+    DRAFT.plat[pk] = {
+      price: isFinite(pv) ? pv : null,
+      cat: catS.value,
+      desc: descT.value,
+      img: imgCb.checked,
+      mods: modsT.value.split("\n").map(function(m){ return m.trim(); }).filter(Boolean),
+      avail: availCb.checked,
+      /* a hand-edited value stops being an estimate */
+      v: prev.price === (isFinite(pv) ? pv : null) ? !!prev.v : true,
+      vd: !!prev.vd
+    };
+  }
+  [priceI, catS, descT, modsT].forEach(function(n){
+    n.addEventListener("input", function(){ pull(); refreshBadges(); markChanged(n); });
+    n.addEventListener("change", function(){ pull(); refreshBadges(); });
+  });
+  [listedCb, availCb, imgCb].forEach(function(n){
+    n.addEventListener("change", function(){ pull(); refreshBadges(); });
+  });
+  function markChanged(n){ var f = n.closest(".f"); if (f) f.classList.add("changed"); }
+  return pane;
+}
+function refreshBadges(){
+  PLATFORMS.forEach(function(pf){
+    var b = document.getElementById("badge-" + pf.k);
+    if (!b) return;
+    var dg = diagnose(DRAFT, pf.k);
+    var map = { ok:["ok","In sync"], drift:["drift","Drifted"], bad:["bad","Broken"] };
+    var m = map[dg.level];
+    b.className = "state " + m[0];
+    b.innerHTML = "";
+    b.appendChild(el("i", "flag"));
+    b.appendChild(document.createTextNode(pf.ref ? "Reference" : m[1]));
+    b.title = dg.notes.join(" · ");
+  });
+}
+function openEditor(id){
+  var dish = DATA.filter(function(d){ return d.id === id; })[0];
+  if (!dish) return;
+  EDIT_ID = id;
+  DRAFT = clone(dish);
+  LAST_FOCUS = document.activeElement;
+
+  document.getElementById("dr-title").textContent = dish.name;
+  document.getElementById("dr-sub").textContent =
+    (dish.burmese ? dish.burmese + " · " : "") + "Editing across " + PLATFORMS.length + " platforms";
+
+  var body = document.getElementById("dr-body");
+  body.innerHTML = "";
+  var hint = el("p", "dr-hint");
+  hint.innerHTML = "Change the <b>reference</b> and every platform below is re-graded against the new values straight away. " +
+                   "Use <em>Copy the reference into&hellip;</em> to fix a platform, then Save.";
+  body.appendChild(hint);
+  PLATFORMS.forEach(function(pf){ body.appendChild(paneFor(pf.k)); });
+  refreshBadges();
+
+  document.getElementById("scrim").classList.add("on");
+  var dr = document.getElementById("drawer");
+  dr.classList.add("on");
+  dr.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  setTimeout(function(){ document.getElementById("dr-close").focus(); }, 60);
+}
+function closeEditor(){
+  document.getElementById("scrim").classList.remove("on");
+  var dr = document.getElementById("drawer");
+  dr.classList.remove("on");
+  dr.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  EDIT_ID = null; DRAFT = null;
+  if (LAST_FOCUS && LAST_FOCUS.focus) LAST_FOCUS.focus();
+}
+function saveEditor(){
+  if (!EDIT_ID || !DRAFT) return closeEditor();
+  for (var i=0;i<DATA.length;i++){
+    if (DATA[i].id === EDIT_ID){ DATA[i] = clone(DRAFT); break; }
+  }
+  saveData(); renderAll(); closeEditor();
+}
+function wireEditor(){
+  document.getElementById("dr-close").addEventListener("click", closeEditor);
+  document.getElementById("dr-cancel").addEventListener("click", closeEditor);
+  document.getElementById("scrim").addEventListener("click", closeEditor);
+  document.getElementById("dr-save").addEventListener("click", saveEditor);
+  document.getElementById("dr-push").addEventListener("click", function(){
+    if (!DRAFT) return;
+    var r = DRAFT.plat[REF];
+    if (!r) return;
+    PKEYS.forEach(function(k){
+      if (k === REF) return;
+      var prev = DRAFT.plat[k];
+      if (!prev) return;                       /* leave unlisted platforms alone */
+      prev.cat = r.cat; prev.desc = r.desc; prev.img = true;
+      prev.mods = (r.mods || []).slice(); prev.avail = true;
+    });
+    openEditorRefresh();
+  });
+  document.addEventListener("keydown", function(e){
+    if (e.key === "Escape" && EDIT_ID) closeEditor();
+  });
+}
+/* re-render the panes from DRAFT without losing it */
+function openEditorRefresh(){
+  var body = document.getElementById("dr-body");
+  var hint = body.firstChild;
+  body.innerHTML = "";
+  if (hint) body.appendChild(hint);
+  PLATFORMS.forEach(function(pf){ body.appendChild(paneFor(pf.k)); });
+  refreshBadges();
 }
 </script>
 
@@ -1823,6 +2291,7 @@ function wireBento(){
 function boot(){
   renderAll();
   wireIO();
+  wireEditor();
   initChrome();
   initCursor();
   initPressure();

@@ -1,84 +1,111 @@
 # Burma Superstar — Menu Sync
 
-A delivery-menu control room for Burma Superstar (San Francisco). One screen that
-shows every dish across every US delivery platform the restaurant is listed on, so
-a mismatch is visible before a customer finds it.
+A delivery-menu control room for Burma Superstar (San Francisco). One screen showing
+every dish across every US delivery platform, so a mismatch is visible before a
+customer finds it.
 
-**Deliverable:** `index.html` — one self-contained file (no build step, no framework).
+**Deliverable:** `index.html` — one file, no build step, no framework.
 
-## What it does
+## The model
 
-The restaurant's own website is treated as the **source of truth**. Every other
-platform is compared against it and each listing is graded:
+The restaurant's own website is the **reference**. Every other platform keeps its own
+stored copy of the listing, exactly as in real life — which is why they drift. Each
+platform is graded against the reference on **five dimensions**:
 
-| State | Meaning |
-|---|---|
-| **In sync** | price, photo and copy all match the source of truth |
-| **Drifted** | listed, but the price is more than 30% over base, or the photo/description is stale |
-| **Broken** | not listed at all, sold out, or priced *below* the restaurant's own price |
+| Chip | Dimension | Flagged when |
+|:--:|---|---|
+| `$` | **Price** | below the reference, or more than 30% over it |
+| `T` | **Menu tag** | filed under a different section than the reference |
+| `I` | **Image** | no photo on that platform |
+| `D` | **Description** | copy no longer matches the reference |
+| `M` | **Modifications** | add-ons, spice levels or swaps missing or different |
 
-Platforms covered — the four majors are highlighted, the rest are still tracked:
+Rolled up per dish into **In sync** / **Drifted** / **Broken** (not listed, sold out,
+or priced under the reference).
 
-**Direct site** (truth) · **DoorDash** · **Uber Eats** · **Grubhub** · **Caviar** ·
+Platforms — the four majors are highlighted, the rest still tracked:
+
+**Reference** (your site) · **DoorDash** · **Uber Eats** · **Grubhub** · **Caviar** ·
 Seamless · Postmates · ChowNow · Toast · Yelp
 
-## Using it
+## Editing
 
-- **Filter** by category, or press **Issues only** to see just what needs attention.
-- **Export CSV / JSON** downloads the current table.
-- **Import & export** panel: paste a CSV or JSON export and press **Load into table**
-  to replace the seed data with the real menu. Edits persist in the browser via
-  `localStorage`; nothing is uploaded anywhere. **Reset to seed data** undoes it.
+**Click any dish** to open the editor. It shows one pane per platform with every
+field editable: price, menu tag, listed, available, image, description and
+modifications.
 
-CSV columns:
+The important part: **edit the reference and every platform is re-graded live.**
+Change the price on your own site and the platforms that no longer match flip to
+Drifted while you watch. Two shortcuts fix things fast:
+
+- **Copy the reference into &lt;platform&gt;** — heals one platform.
+- **Push reference to every platform** — heals all of them at once (unlisted
+  platforms are left alone).
+
+Changes are saved to `localStorage`; **Reset to seed data** undoes everything.
+A hand-edited price stops counting as an estimate.
+
+## Import / export
+
+CSV is **long format — one row per dish per platform** (12 dishes × 10 platforms =
+120 rows), which is what you actually want in a spreadsheet when comparing five
+dimensions.
 
 ```
-id,name,category,burmese,description,direct,doordash,ubereats,grubhub,caviar,seamless,postmates,chownow,toast,yelp
+dish_id,dish_name,burmese,platform,listed,available,price,tag,image,description,modifications,verified
 ```
 
-Each platform cell accepts:
+- `platform` — one of `reference, doordash, ubereats, grubhub, caviar, seamless, postmates, chownow, toast, yelp`
+- `listed` / `available` / `image` / `verified` — `yes` or `no`
+- `modifications` — pipe-separated: `Add egg +$3|Spice level`
 
-| Value | Meaning |
-|---|---|
-| `21.50` | listed at that price |
-| *(empty)* | not listed on that platform |
-| `SOLD OUT` | listed but currently unavailable |
-| `21.50 -photo` | listed, but no image |
-| `21.50 -copy` | listed, but the description is out of date |
+JSON export/import carries the same structure verbatim.
+
+## About the data — read this
+
+The dish names, descriptions and several prices are **real**, recovered from public
+sources:
+
+- Tea Leaf Salad, Nan Gyi Dok, Coconut Rice, Garlic Noodles, Pork Belly and Sesame
+  Beef carry their **real menu descriptions**.
+- Verified prices: Tea Leaf Salad **$16.00** reference / **$19.00** DoorDash,
+  Samusa Soup **$23.45** DoorDash, Platha & Dip **$17.45** DoorDash.
+- Remaining prices are **estimates**, anchored to the restaurant's published
+  **$9–$18** dine-in range.
+
+Estimated prices are drawn with a dashed underline and the footer counts how many
+remain. Hovering a price says whether it is verified or estimated.
+
+**Why not all real:** this build environment's network policy blocks every menu
+source — the restaurant's own site, all four major platforms, every aggregator
+(allmenus, zmenu, menupix, Yelp, TripAdvisor) and even the official menu PDFs. Only
+package registries are reachable. The numbers cannot be fetched from here; they have
+to come from you, which is what the editor and the CSV import are for.
 
 ## Assets
 
 `index.html` loads its media from a CDN by default so it works the moment you open
-it. To make the folder fully self-contained:
+it. To make the folder self-contained:
 
 ```bash
 ./fetch-assets.sh
 ```
 
-That downloads the video and stills into `assets/`, compresses them if `ffmpeg` /
-ImageMagick are available, and flips `ASSET_LOCAL` in `index.html` to `true`.
+Downloads the video and stills into `assets/`, compresses them if `ffmpeg` /
+ImageMagick are present, and flips `ASSET_LOCAL` in `index.html` to `true`.
 
 ## Interaction
 
-Built for the cursor and for phones:
-
-- **Hero** — scroll-driven 15s video of the tea leaf salad turning in 3D, no text baked in.
-- **TextPressure** — the `MENU SYNC` headline bends its variable-font weight, width
-  and slant toward the cursor.
+- **Hero** — scroll-driven 15s video of the tea leaf salad turning in 3D, no baked-in text.
+- **TextPressure** — the `MENU SYNC` headline bends its variable-font weight, width and slant toward the cursor.
 - **Portal** — a scroll-driven aperture that opens through the dish and swallows the screen.
-- **3D product** — the signature dish as a layered volume you can drag to rotate; it
-  swings on its own when idle.
+- **3D product** — the signature dish as a layered volume you can drag to rotate.
 - **Object reveal on hover** — hovering a menu row floats its photo under the cursor.
-- **Cursor** — a warm spice-ember trail follows the pointer, with a magnetic dot that
-  grows over anything interactive.
+- **Cursor** — a warm spice-ember trail with a magnetic dot that grows over anything interactive.
 - **Bento** — spotlight, border glow, 3D tilt, magnetism, particles and a click ripple.
 
-All pointer effects are disabled on touch devices and under
-`prefers-reduced-motion`, where the video is replaced by a still.
+Pointer effects are disabled on touch and under `prefers-reduced-motion`, where the
+video is replaced by a still.
 
-## A note on the data
-
-The dish names are Burma Superstar's real menu. **The prices are estimates** — the
-restaurant's own site and the delivery platforms are blocked by this environment's
-network policy, so they could not be read directly. Replace them via the CSV/JSON
-import; the structure is already correct.
+Verified: no horizontal scroll at 320/390/768/1440, drawer usable at every width,
+zero JavaScript errors.
