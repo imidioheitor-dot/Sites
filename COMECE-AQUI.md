@@ -56,6 +56,41 @@ cache no navegador do cliente. Me chame que eu faço essa versão.
 
 ---
 
+## 🍱 O cardápio
+
+São **39 pratos** em 8 categorias, mais o item de **Dieta personalizada** (que
+não vai para o carrinho — abre o WhatsApp para você passar o orçamento):
+
+| Categoria | Pratos | Tamanhos |
+|---|---|---|
+| Arroz branco | 8 | Light 250g · Balance 350g |
+| Arroz integral | 8 | Light 250g · Balance 350g |
+| Linha da Roça FIT | 5 | Light 250g · Balance 350g |
+| Sem arroz | 4 | Light 250g · Balance 350g |
+| Massas FIT | 4 | tamanho único |
+| Tortas & Quibes | 4 | tamanho único |
+| Caldos | 5 | tamanho único |
+
+No carrinho, Light e Balance entram como itens separados, e o tamanho aparece
+no pedido que chega no seu WhatsApp.
+
+> **Tortas & Quibes e Caldos** ficaram com **tamanho único** porque na sua lista
+> só as quatro primeiras categorias pediam as duas opções. Se algum deles também
+> tiver Light e Balance, é um clique: na Área do lojista, no prato, clique em
+> **"usar 2 tamanhos"**.
+
+### ⚠️ Os preços ainda não estão definidos
+
+Os pratos aparecem com **"a definir"** e o botão *Adicionar* fica desativado —
+de propósito, para nenhum cliente conseguir pedir por um preço errado.
+
+Para resolver em menos de um minuto: entre na Área do lojista e use a caixa
+amarela no topo — digite o preço do **Light**, do **Balance** e do **tamanho
+único** e clique em **"Aplicar aos sem preço"**. Depois é só ajustar caso a caso
+o que for diferente.
+
+---
+
 ## 🔐 Área do lojista (mudar preços e produtos)
 
 No menu do site, clique em **"Gerenciar"**. A senha é:

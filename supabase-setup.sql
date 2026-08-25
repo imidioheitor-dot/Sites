@@ -16,15 +16,29 @@ create table if not exists public.produtos (
   id          text primary key,
   nome        text not null default '',
   descricao   text not null default '',
-  peso        text not null default '',
-  preco       numeric(10,2) not null default 0 check (preco >= 0),
-  categoria   text not null default 'fit' check (categoria in ('fit','sopa')),
+  categoria   text not null default 'arroz-branco',
   etiqueta    text not null default '',
   imagem      text not null default '',
+  tipo        text,                         -- 'orcamento' no item de dieta personalizada
+  -- tamanhos: [{"nome":"Light","peso":"250g","preco":29.90}, {...}]
+  -- preco null = ainda nao definido (o prato aparece, mas nao entra no carrinho)
+  tamanhos    jsonb not null default '[]'::jsonb,
+  -- colunas do formato antigo, mantidas para compatibilidade
+  peso        text not null default '',
+  preco       numeric(10,2),
   ordem       int  not null default 0,
   ativo       boolean not null default true,
   atualizado  timestamptz not null default now()
 );
+
+-- se a tabela ja existia no formato antigo, acrescenta o que falta
+alter table public.produtos add column if not exists tamanhos jsonb not null default '[]'::jsonb;
+alter table public.produtos add column if not exists tipo text;
+alter table public.produtos alter column preco drop not null;
+do $$ begin
+  begin alter table public.produtos drop constraint produtos_categoria_check; exception when others then null; end;
+  begin alter table public.produtos drop constraint produtos_preco_check;     exception when others then null; end;
+end $$;
 
 create index if not exists produtos_ativo_ordem_idx on public.produtos (ativo, ordem);
 
@@ -88,18 +102,17 @@ create policy pedidos_leitura_logado
 
 -- ============================================================
 -- CARDÁPIO INICIAL
--- As fotos ficam vazias aqui: o site usa as imagens já embutidas nele.
--- Depois, pela Área do lojista, você pode trocar cada foto.
 -- ============================================================
-insert into public.produtos (id, nome, descricao, peso, preco, categoria, etiqueta, ordem) values
-  ('frango-quiabo',   'Frango com Quiabo',      'Sobrecoxa grelhada, quiabo salteado no azeite, arroz branco e feijão.', '250g', 26.90, 'fit',  'Mais pedido',      0),
-  ('patinho-legumes', 'Patinho com Legumes',    'Patinho moído refogado, mix de legumes no vapor, arroz integral.',      '250g', 28.90, 'fit',  'Rico em proteína', 1),
-  ('quibe-quinoa',    'Quibe de Quinoa',        'Quibe assado de quinoa com temperos frescos e salada.',                 '250g', 27.90, 'fit',  'Vegetariano',      2),
-  ('canja',           'Canja de Galinha',       'Canja caseira com frango desfiado, arroz e legumes.',                   '400g', 22.90, 'sopa', 'Conforto',         3),
-  ('creme-abobora',   'Creme de Abóbora',       'Creme aveludado de abóbora com toque de gengibre.',                     '400g', 21.90, 'sopa', 'Leve',             4)
-on conflict (id) do nothing;
+-- O site ja vem com o cardapio completo embutido. Ao entrar na Area do lojista
+-- pela primeira vez e salvar, ele sobe inteiro para ca automaticamente.
+-- Se preferir semear na mao, use o modelo abaixo como exemplo:
+--
+-- insert into public.produtos (id, nome, descricao, categoria, etiqueta, tamanhos, ordem) values
+--   ('exemplo', 'Nome do prato', 'Descricao', 'arroz-branco', 'Mais pedido',
+--    '[{"nome":"Light","peso":"250g","preco":29.90},{"nome":"Balance","peso":"350g","preco":34.90}]'::jsonb, 0)
+-- on conflict (id) do nothing;
 
 -- ============================================================
 -- PRONTO. Confira com:
---   select id, nome, preco, ativo from public.produtos order by ordem;
+--   select id, nome, categoria, tamanhos, ativo from public.produtos order by ordem;
 -- ============================================================
