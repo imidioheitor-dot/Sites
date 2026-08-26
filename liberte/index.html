@@ -2423,11 +2423,52 @@ watchFades();
 })();
 
 /* ============================================================
+   16b. MÍDIA — cadeia de fallback
+   O site prefere o arquivo local (rápido, autocontido). Se ele não
+   existir, cai no .png e, por último, na cópia hospedada. Nenhuma
+   foto quebra, com ou sem o script de download.
+   ============================================================ */
+const CDN='https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/';
+const REMOTO={
+  'hero-3d':'hf_20260826_200513_a795b386-4cb3-4dea-9d11-fad8bcb21a1f.png',
+  'portal-tall':'hf_20260826_200513_7e526f0c-b9c0-4abe-8014-d711d61f8ab4.png',
+  'jazz':'hf_20260826_200513_2f04de68-2b29-4716-9f28-03ffcf5710f8.png',
+  'contemporaneo':'hf_20260826_200513_735463bf-b9f1-415e-8138-dc839d91f348.png',
+  'sapateado':'hf_20260826_200513_513632d0-8f86-4d46-b9b3-693ed3cee7dc.png',
+  'urbanas':'hf_20260826_200513_8989866d-f1c1-4358-94f4-f573d4b2a04b.png',
+  'estudio':'hf_20260826_200513_56b0c09c-f376-46d4-94a5-1de12afb6c7f.png',
+  'exame':'hf_20260826_200513_f40f5c6f-5b33-4479-884a-021d779851b1.png',
+  'bailarina':'hf_20260826_200513_0d7e7344-f4bf-4bbf-9b1f-e5bd0d49baf9.png',
+  'barra':'hf_20260826_201140_fe7c5c04-f8f1-44cf-97f5-92a46a9c1900.png',
+  'hero-video':'hf_20260826_200641_414366f8-dd7a-4bad-b58d-3d21874d589b.mp4'
+};
+document.addEventListener('error',e=>{
+  const el=e.target;
+  if(!el||el.tagName!=='IMG')return;
+  const src=el.getAttribute('src')||'';
+  const m=/assets\/img\/([a-z0-9-]+)\.(jpg|png)$/i.exec(src);
+  if(!m)return;
+  const nome=m[1],ext=m[2].toLowerCase();
+  if(ext==='jpg'){el.src='assets/img/'+nome+'.png';return;}
+  if(ext==='png'&&REMOTO[nome]){el.src=CDN+REMOTO[nome];}
+},true);
+
+/* ============================================================
    17. HERO — vídeo com degradação elegante
    ============================================================ */
 (function heroVideo(){
   const v=$('#heroVid');if(!v)return;
+  let tentouRemoto=false;
   const fail=()=>{
+    // antes de desistir, tenta a cópia hospedada
+    if(!tentouRemoto&&REMOTO['hero-video']){
+      tentouRemoto=true;
+      v.querySelectorAll('source').forEach(x=>x.remove());
+      const src=document.createElement('source');
+      src.src=CDN+REMOTO['hero-video'];src.type='video/mp4';
+      v.appendChild(src);v.load();
+      return;
+    }
     // sem vídeo, o poster assume; sem poster, o creme assume.
     v.style.display='none';
     const m=v.parentElement;

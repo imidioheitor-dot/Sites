@@ -17,28 +17,47 @@ liberte/
 
 ---
 
-## 1. Primeiro passo, obrigatório: baixar os assets reais
+## 1. As fotos e o vídeo
 
-As imagens que estão na pasta agora são **placeholders** da paleta da marca, com
-a palavra `IMAGEM PROVISORIA` escrita nelas. As definitivas — 10 imagens e o vídeo
-3D de 15s em 1080p — já foram geradas e estão hospedadas na sua conta Higgsfield.
-Elas não puderam ser baixadas no ambiente do Claude porque o CDN
-(`d8j0ntlcm91z4.cloudfront.net`) está fora da allowlist de rede daquela sessão.
+**O site já funciona assim como está.** Se um arquivo de imagem não existir na
+pasta, o próprio `index.html` busca a cópia hospedada automaticamente. A ordem
+que ele tenta é:
 
-Na sua máquina não há esse bloqueio. Rode uma vez:
+```
+assets/img/nome.jpg  →  assets/img/nome.png  →  cópia hospedada na internet
+```
+
+Isso vale também para o vídeo do hero. Nenhuma foto quebra em nenhum cenário.
+
+As imagens que vieram na pasta são **placeholders** da paleta da marca, com a
+palavra `IMAGEM PROVISORIA` escrita nelas — elas existem só para o layout não
+ficar vazio. Como o `.jpg` provisório existe, ele é usado no lugar do definitivo.
+
+### Para usar as definitivas (recomendado)
+
+As 10 imagens e o vídeo 3D de 15s em 1080p já foram gerados e estão hospedados.
+Baixe-os para dentro da pasta:
 
 ```bash
 bash assets/baixar-assets.sh
 ```
 
-O script baixa tudo, converte PNG→JPG e coloca cada arquivo no nome certo.
-Depois disso o site está completo — o vídeo do hero aparece e os placeholders
-somem.
+O script substitui os placeholders pelos arquivos reais. Se um download falhar,
+os outros continuam — e o que falhou segue sendo buscado online pelo site.
+Se você não tiver ImageMagick nem Pillow, ele deixa os arquivos em `.png`, e
+o site reconhece `.png` sem problema.
 
-> Se preferir usar fotos reais do estúdio, é só substituir os arquivos em
-> `assets/img/` mantendo os nomes. Os nomes usados são:
-> `hero-3d, portal-tall, barra, jazz, contemporaneo, sapateado, urbanas,
-> estudio, exame, bailarina`.
+> **No Windows:** use o Git Bash ou o WSL. Ou simplesmente pule esta etapa — o
+> site busca tudo sozinho.
+
+### Para usar fotos reais do estúdio
+
+Substitua os arquivos em `assets/img/` mantendo os nomes:
+`hero-3d, portal-tall, barra, jazz, contemporaneo, sapateado, urbanas,
+estudio, exame, bailarina` — em `.jpg` ou `.png`.
+
+Quando fizer isso, remova o bloco `REMOTO` do `<script>` no `index.html` para
+o site parar de usar a hospedagem externa como rede de segurança.
 
 ---
 
