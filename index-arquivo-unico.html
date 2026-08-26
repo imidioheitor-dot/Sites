@@ -552,7 +552,7 @@ footer{padding:clamp(60px,8vw,110px) var(--pad) 40px;border-top:1px solid var(--
 
     <div class="strip">
       <div><span class="k">Embarque</span><span class="v">16 · 08</span></div>
-      <div><span class="k">Faltam</span><span class="v" id="cd">—</span></div>
+      <div><span class="k" id="cdLabel">Faltam</span><span class="v" id="cd">—</span></div>
       <div><span class="k">Missa</span><span class="v">07:30</span></div>
       <div><span class="k">Almoço</span><span class="v">11:00</span></div>
     </div>
@@ -1434,11 +1434,19 @@ $("#doneClose").addEventListener("click",closeModal);
    COUNTDOWN
    ================================================================== */
 (function cd(){
-  const el=$("#cd"), target=new Date(DATA_EMBARQUE).getTime();
+  const el=$("#cd"), rot=$("#cdLabel"), target=new Date(DATA_EMBARQUE).getTime();
   (function tick(){
     const d=target-Date.now();
-    if(d<=0){ el.textContent="É HOJE"; return; }
+    // Depois que a data passa a contagem vira tempo decorrido, senao o bloco
+    // fica preso em "E HOJE" para sempre.
+    if(d<=0){
+      const dd=Math.floor(-d/864e5);
+      if(dd<1){ if(rot) rot.textContent="Hoje"; el.textContent="É HOJE"; }
+      else { if(rot) rot.textContent="Desde o embarque"; el.textContent = dd+(dd===1?" dia":" dias"); }
+      setTimeout(tick,6e5); return;
+    }
     const dd=Math.floor(d/864e5), hh=Math.floor(d%864e5/36e5), mm=Math.floor(d%36e5/6e4);
+    if(rot) rot.textContent="Faltam";
     el.textContent = dd>0 ? dd+"d "+hh+"h" : hh+"h "+mm+"m";
     setTimeout(tick,30000);
   })();
