@@ -17,38 +17,30 @@ liberte/
 
 ---
 
-## 1. As fotos e o vídeo
+## 1. Baixe o pacote completo
 
-**O site já funciona assim como está.** Se um arquivo de imagem não existir na
-pasta, o próprio `index.html` busca a cópia hospedada automaticamente. A ordem
-que ele tenta é:
+O jeito mais rápido: **use o .zip pronto**, que já traz as 10 imagens geradas
+por IA e o vídeo 3D de 15s embutidos, prontos para abrir.
 
-```
-assets/img/nome.jpg  →  assets/img/nome.png  →  cópia hospedada na internet
-```
+**https://d2ol7oe51mr4n9.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/9dfc55ff-1df6-4925-ae4c-6d42cab41647.zip**
 
-Isso vale também para o vídeo do hero. Nenhuma foto quebra em nenhum cenário.
+Descompacte e abra `index.html`. Nada mais a fazer.
 
-As imagens que vieram na pasta são **placeholders** da paleta da marca, com a
-palavra `IMAGEM PROVISORIA` escrita nelas — elas existem só para o layout não
-ficar vazio. Como o `.jpg` provisório existe, ele é usado no lugar do definitivo.
+### Por que este diretório do repositório é diferente
 
-### Para usar as definitivas (recomendado)
+As imagens que estão versionadas aqui em `assets/img/` são **placeholders** da
+paleta da marca, com `IMAGEM PROVISORIA` escrito nelas. Elas existem para o
+layout não quebrar, mas não são as definitivas.
 
-As 10 imagens e o vídeo 3D de 15s em 1080p já foram gerados e estão hospedados.
-Baixe-os para dentro da pasta:
+O motivo é chato mas simples: o ambiente onde este site foi construído tem uma
+allowlist de rede que não inclui o CDN onde as imagens geradas ficam
+hospedadas. O pacote acima foi montado fora dele, com os arquivos reais.
+
+Para trocar os placeholders pelos definitivos direto neste diretório:
 
 ```bash
 bash assets/baixar-assets.sh
 ```
-
-O script substitui os placeholders pelos arquivos reais. Se um download falhar,
-os outros continuam — e o que falhou segue sendo buscado online pelo site.
-Se você não tiver ImageMagick nem Pillow, ele deixa os arquivos em `.png`, e
-o site reconhece `.png` sem problema.
-
-> **No Windows:** use o Git Bash ou o WSL. Ou simplesmente pule esta etapa — o
-> site busca tudo sozinho.
 
 ### Para usar fotos reais do estúdio
 
@@ -56,8 +48,8 @@ Substitua os arquivos em `assets/img/` mantendo os nomes:
 `hero-3d, portal-tall, barra, jazz, contemporaneo, sapateado, urbanas,
 estudio, exame, bailarina` — em `.jpg` ou `.png`.
 
-Quando fizer isso, remova o bloco `REMOTO` do `<script>` no `index.html` para
-o site parar de usar a hospedagem externa como rede de segurança.
+Feito isso, apague o bloco `REMOTO` do `<script>` no `index.html` para o site
+deixar de usar a hospedagem externa como rede de segurança.
 
 ---
 

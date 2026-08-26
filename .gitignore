@@ -1,2 +1,5 @@
 node_modules/
 *.log
+
+# pacote montado fora do repositorio (assets reais)
+liberte-dance-studio.zip
