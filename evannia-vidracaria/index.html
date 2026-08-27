@@ -196,6 +196,9 @@ section{position:relative}
 .burger[aria-expanded="true"] i:first-child{transform:translateY(3.25px) rotate(45deg)}
 .burger[aria-expanded="true"] i:last-child{transform:translateY(-3.25px) rotate(-45deg)}
 @media (max-width:960px){.burger{display:flex}}
+/* celular estreito: brand + hambúrguer + botão não cabem na mesma linha.
+   O CTA do WhatsApp já existe no hero, no menu e no botão flutuante. */
+@media (max-width:560px){#navWa{display:none}}
 .mnav{
   position:fixed;inset:0;z-index:790;display:flex;flex-direction:column;
   justify-content:center;gap:6px;padding:96px var(--pad) 40px;
@@ -210,6 +213,10 @@ section{position:relative}
   padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);
 }
 .mnav a:last-child{border-bottom:0}
+.mnav .mnav-cta{
+  font-size:15px;font-weight:500;letter-spacing:-.01em;color:#fff;
+  align-self:flex-start;margin-top:26px;padding:15px 24px;border-bottom:0;
+}
 @media (min-width:961px){.mnav{display:none!important}}
 
 /* ═══════════ BOTÕES ═══════════ */
@@ -615,7 +622,7 @@ section{position:relative}
 .tick svg{width:10px;height:10px;stroke:#fff;stroke-width:2.6;fill:none}
 
 /* ═══════════ FOOTER ═══════════ */
-.foot{background:var(--ink);color:#DCE7EA;padding-block:clamp(60px,8vw,110px) 34px;margin-top:var(--gap-sec)}
+.foot{background:var(--ink);color:#DCE7EA;padding-block:clamp(60px,8vw,110px) 34px}
 .foot a{color:#DCE7EA}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:clamp(26px,4vw,60px)}
 @media (max-width:860px){.foot-grid{grid-template-columns:1fr;gap:34px}}
@@ -678,6 +685,10 @@ section{position:relative}
   <a href="#processo">Como funciona</a>
   <a href="#orcamento">Orçamento</a>
   <a href="#contato">Contato</a>
+  <a class="btn btn-wa mnav-cta" id="mnavWa" href="#" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Z"/></svg>
+    Falar no WhatsApp
+  </a>
 </nav>
 
 <main>
@@ -1056,6 +1067,14 @@ section{position:relative}
           Vidro sob medida para casa, apartamento e comércio.
           Medição, produção e instalação em <span id="fAtuacao">Ribeirão Preto e região</span>.
         </p>
+        <a class="btn btn-wa" id="fWaBtn" href="#" target="_blank" rel="noopener"
+           style="margin-top:26px" data-lens="Falar">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.13h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 0 1-1.26-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.21-8.24 8.21Z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <p class="t-small" style="margin-top:14px;color:#6E858D">
+          Medição sem custo · Resposta no mesmo dia
+        </p>
       </div>
       <div>
         <span class="lbl">Contato</span>
@@ -1145,7 +1164,7 @@ function bind(){
   ['fTel','asideTel'].forEach(function(id){var e=document.getElementById(id); if(e) e.href=telHref;});
 
   var saud = 'Olá! Vim pelo site da Evannia Vidraçaria e gostaria de um orçamento.';
-  ['fWa','fab','navWa'].forEach(function(id){
+  ['fWa','fWaBtn','fab','mnavWa','navWa'].forEach(function(id){
     var e=document.getElementById(id);
     if(e && id!=='navWa'){ e.href = waLink(saud); }
   });
