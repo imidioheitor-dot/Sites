@@ -1,0 +1,1031 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Cross Lion — Cross Training em Ribeirão Preto | Sumarezinho</title>
+<meta name="description" content="Na Cross Lion você vai muito além do treino. Cross training com coaches qualificados, treinos adaptáveis para todos os níveis e uma comunidade unida. Av. Antônio e Helena Zerrener, 1810 — Sumarezinho, Ribeirão Preto/SP. Aula experimental gratuita.">
+<meta name="theme-color" content="#0B0908">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Cross Lion">
+<meta property="og:title" content="Cross Lion — Muito além do treino">
+<meta property="og:description" content="Cross training de alta performance em Ribeirão Preto. Coaches de perto, treinos para todos os níveis, comunidade cheia de energia. Aula experimental gratuita.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://d8j0ntlcm91z4.cloudfront.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,25..151,100..1000&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0908'/%3E%3Ctext x='32' y='45' font-family='Helvetica,Arial' font-weight='bold' font-size='34' fill='%23E2571F' text-anchor='middle'%3EL%3C/text%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":["HealthAndBeautyBusiness","SportsActivityLocation"],
+"name":"Cross Lion","description":"Centro de cross training em Ribeirão Preto. Coaches qualificados, treinos adaptáveis para todos os níveis e um ambiente motivador.",
+"address":{"@type":"PostalAddress","streetAddress":"Av. Antônio e Helena Zerrener, 1810","addressLocality":"Ribeirão Preto","addressRegion":"SP","addressCountry":"BR","postalCode":"14055-000"},
+"areaServed":"Ribeirão Preto e região","sameAs":["https://www.instagram.com/crosslionrp/"],
+"slogan":"Muito além do treino."}
+</script>
+<style>
+/* ═══════════════ TOKENS ═══════════════ */
+:root{
+  --void:#0B0908;      /* canvas: preto quente, nunca #000 puro */
+  --coal:#131010;      /* superfície elevada */
+  --pitch:#070605;     /* poço mais fundo */
+  --iron:#2A211B;      /* traços e divisórias */
+  --ash:#7A6B5E;       /* texto recuado */
+  --smoke:#A79684;     /* texto secundário */
+  --bone:#F2EAE0;      /* texto primário (creme, nunca branco puro) */
+  --ember:#E2571F;     /* acento único: ferrugem */
+  --flame:#FF8A3D;     /* acento claro */
+  --ease:cubic-bezier(.52,.01,0,1);
+  --gut:clamp(20px,5vw,72px);
+  --maxw:1440px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{
+  margin:0;background:var(--void);color:var(--bone);
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  font-weight:300;line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{margin:0;font-family:'Roboto Flex',Inter,sans-serif;font-weight:500;line-height:.92;letter-spacing:-.035em}
+p{margin:0}
+::selection{background:var(--ember);color:#fff}
+
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gut)}
+.sect{padding-block:clamp(72px,12vw,180px);position:relative}
+
+/* etiqueta de seção */
+.tag{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ember);font-weight:500;margin-bottom:1.6em;
+}
+.tag::before{content:"";width:26px;height:1px;background:var(--ember);opacity:.7}
+
+.d1{font-size:clamp(2.7rem,11vw,9.5rem)}
+.d2{font-size:clamp(2rem,6.4vw,5rem)}
+.d3{font-size:clamp(1.5rem,3.4vw,2.6rem)}
+.lead{font-size:clamp(1rem,1.65vw,1.28rem);color:var(--smoke);font-weight:200;max-width:56ch}
+
+/* ═══════════════ CURSOR ═══════════════ */
+.cur,.cur-dot{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;border-radius:50%;mix-blend-mode:difference}
+.cur{width:34px;height:34px;border:1px solid rgba(242,234,224,.5);transform:translate(-50%,-50%);transition:width .3s var(--ease),height .3s var(--ease),background .3s}
+.cur-dot{width:5px;height:5px;background:var(--bone);transform:translate(-50%,-50%)}
+body.cur-lg .cur{width:76px;height:76px;background:rgba(226,87,31,.16);border-color:var(--ember)}
+@media (hover:none),(pointer:coarse){.cur,.cur-dot{display:none}}
+
+/* ═══════════════ HEADER ═══════════════ */
+.hdr{
+  position:fixed;inset:0 0 auto;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:20px;padding:18px var(--gut);
+  transition:background .45s var(--ease),backdrop-filter .45s var(--ease),border-color .45s;
+  border-bottom:1px solid transparent;
+}
+.hdr.stuck{background:rgba(11,9,8,.78);backdrop-filter:blur(16px) saturate(1.3);-webkit-backdrop-filter:blur(16px) saturate(1.3);border-bottom-color:var(--iron)}
+.mark{display:flex;align-items:center;gap:10px;font-family:'Roboto Flex',sans-serif;font-weight:600;font-size:15px;letter-spacing:.16em;text-transform:uppercase}
+.mark i{width:9px;height:9px;background:var(--ember);border-radius:50%;display:block;flex:none;box-shadow:0 0 14px var(--ember)}
+.nav{display:none;gap:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--smoke)}
+.nav a{position:relative;padding-block:4px;transition:color .3s}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--ember);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
+.nav a:hover{color:var(--bone)}
+.nav a:hover::after{transform:scaleX(1);transform-origin:left}
+@media(min-width:960px){.nav{display:flex}}
+.btn{
+  display:inline-flex;align-items:center;gap:.7em;
+  padding:13px 22px;border-radius:100px;
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  border:1px solid var(--ember);background:var(--ember);color:#fff;
+  cursor:pointer;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(226,87,31,.36)}
+.btn.ghost{background:transparent;color:var(--bone);border-color:var(--iron)}
+.btn.ghost:hover{border-color:var(--ember);color:var(--ember);box-shadow:none}
+.hdr .btn{padding:11px 18px}
+
+/* ═══════════════ HERO ═══════════════ */
+.hero{position:relative;min-height:100svh;display:grid;align-items:end;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(120% 85% at 78% 18%,rgba(226,87,31,.20),transparent 62%),
+    linear-gradient(to top,var(--void) 4%,rgba(11,9,8,.72) 38%,rgba(11,9,8,.44) 100%);
+}
+.hero-inner{padding:0 var(--gut) clamp(38px,7vh,80px);width:100%;max-width:var(--maxw);margin-inline:auto}
+.hero-kicker{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px}
+.chip{
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  padding:7px 13px;border:1px solid var(--iron);border-radius:100px;
+  color:var(--smoke);background:rgba(19,16,16,.5);backdrop-filter:blur(8px);
+}
+/* TextPressure */
+#pressure{width:100%;position:relative;margin-bottom:2px;overflow:hidden}
+#pressure h1{
+  margin:0;font-family:'Roboto Flex',sans-serif;text-transform:uppercase;
+  display:flex;justify-content:space-between;white-space:nowrap;
+  line-height:1;font-weight:100;width:100%;text-align:center;user-select:none;
+}
+#pressure span{display:inline-block;color:var(--bone);will-change:font-variation-settings}
+.hero-sub{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:22px;margin-top:clamp(14px,2.4vw,26px)}
+.hero-sub p{max-width:min(44ch,100%);min-width:0;flex:1 1 260px;color:var(--smoke);font-weight:200;font-size:clamp(.95rem,1.5vw,1.15rem)}
+.scroll-cue{display:flex;align-items:center;gap:12px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ash)}
+.scroll-cue i{display:block;width:1px;height:44px;background:linear-gradient(var(--ember),transparent);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ═══════════════ REVEAL ═══════════════ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ═══════════════ MANIFESTO ═══════════════ */
+.manifesto{border-top:1px solid var(--iron)}
+.manifesto .d2{max-width:20ch}
+.manifesto .d2 em{font-style:normal;color:var(--ember)}
+.mani-grid{display:grid;gap:clamp(30px,5vw,80px);grid-template-columns:1fr;margin-top:clamp(34px,5vw,58px)}
+@media(min-width:900px){.mani-grid{grid-template-columns:1.15fr .85fr;align-items:end}}
+.mani-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 20px}
+.stat b{display:block;font-family:'Roboto Flex',sans-serif;font-size:clamp(2rem,4.6vw,3.4rem);font-weight:500;color:var(--bone);letter-spacing:-.04em;line-height:1}
+.stat span{display:block;margin-top:8px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ash)}
+
+/* ═══════════════ PERSPECTIVA (grade 3D reativa) ═══════════════ */
+#perspectiva{background:var(--pitch);border-block:1px solid var(--iron);overflow:hidden}
+.persp-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:clamp(30px,5vw,56px)}
+.tiles-stage{
+  perspective:1100px;perspective-origin:50% 50%;
+  display:grid;gap:clamp(6px,1vw,12px);
+  grid-template-columns:repeat(4,1fr);
+  max-width:900px;margin-inline:auto;
+}
+@media(min-width:700px){.tiles-stage{grid-template-columns:repeat(7,1fr)}}
+.tile{
+  aspect-ratio:1;border:1px solid var(--iron);background:var(--coal);
+  transform-style:preserve-3d;will-change:transform;
+  transition:transform .55s var(--ease),background .55s var(--ease),border-color .55s var(--ease);
+  position:relative;
+}
+.tile::after{
+  content:"";position:absolute;inset:0;background:var(--ember);
+  opacity:0;transition:opacity .5s var(--ease);
+}
+.tile.hot{border-color:rgba(226,87,31,.55)}
+.tile.hot::after{opacity:.14}
+
+/* ═══════════════ REVELAÇÃO NO HOVER ═══════════════ */
+.reveal-list{border-top:1px solid var(--iron)}
+.reveal-row{
+  position:relative;display:flex;align-items:center;justify-content:space-between;
+  gap:22px;padding:clamp(22px,3.4vw,40px) 0;border-bottom:1px solid var(--iron);
+  cursor:pointer;isolation:isolate;overflow:hidden;
+}
+.reveal-row h3{font-size:clamp(1.5rem,4.6vw,3.2rem);font-weight:500;transition:transform .6s var(--ease),color .5s var(--ease);}
+.reveal-row .num{font-size:11px;letter-spacing:.2em;color:var(--ash);flex:none;transition:color .5s}
+.reveal-row .meta{font-size:12.5px;color:var(--ash);max-width:30ch;display:none;transition:color .5s}
+@media(min-width:840px){.reveal-row .meta{display:block}}
+.reveal-row::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(90deg,rgba(226,87,31,.16),transparent 70%);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .65s var(--ease);
+}
+.reveal-row:hover::before{transform:scaleX(1)}
+.reveal-row:hover h3{transform:translateX(clamp(8px,1.6vw,26px));color:var(--bone)}
+.reveal-row:hover .num,.reveal-row:hover .meta{color:var(--flame)}
+/* o objeto que é revelado seguindo o cursor */
+.reveal-float{
+  position:fixed;top:0;left:0;width:clamp(180px,20vw,290px);aspect-ratio:4/3;
+  z-index:800;pointer-events:none;overflow:hidden;border-radius:4px;
+  opacity:0;transform:translate(-50%,-50%) scale(.86) rotate(-5deg);
+  transition:opacity .45s var(--ease),transform .55s var(--ease);
+  box-shadow:0 30px 70px rgba(0,0,0,.65);border:1px solid var(--iron);
+}
+.reveal-float.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0)}
+.reveal-float img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.12)}
+@media (hover:none),(pointer:coarse){.reveal-float{display:none}}
+
+/* ═══════════════ PORTAL (túnel de scroll) ═══════════════ */
+#portal{height:340vh;position:relative;background:var(--pitch)}
+.portal-stick{position:sticky;top:0;height:100svh;overflow:hidden;display:grid;place-items:center;perspective:620px;perspective-origin:50% 50%}
+.portal-ring{
+  position:absolute;width:min(76vmin,620px);aspect-ratio:1;border-radius:50%;
+  border:1px solid rgba(226,87,31,.30);will-change:transform,opacity;
+}
+.portal-ring:nth-child(even){border-color:rgba(242,234,224,.13)}
+.portal-core{
+  position:relative;z-index:3;text-align:center;padding-inline:var(--gut);
+  will-change:transform,opacity;max-width:820px;
+}
+.portal-core .d2{margin-bottom:18px}
+.portal-core p{color:var(--smoke);font-weight:200;max-width:48ch;margin-inline:auto}
+.portal-glow{
+  position:absolute;width:60vmin;aspect-ratio:1;border-radius:50%;
+  background:radial-gradient(circle,rgba(226,87,31,.30),transparent 66%);
+  filter:blur(46px);z-index:1;will-change:transform,opacity;
+}
+
+/* ═══════════════ MÉTODO (bento) ═══════════════ */
+.bento{display:grid;gap:clamp(10px,1.4vw,16px);grid-template-columns:1fr}
+@media(min-width:640px){.bento{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1040px){
+  .bento{grid-template-columns:repeat(4,1fr)}
+  .bx:nth-child(1){grid-column:span 2;grid-row:span 2}
+  .bx:nth-child(4){grid-column:span 2}
+}
+.bx{
+  position:relative;overflow:hidden;isolation:isolate;
+  min-height:210px;padding:clamp(20px,2.4vw,32px);
+  border:1px solid var(--iron);border-radius:16px;background:var(--coal);
+  display:flex;flex-direction:column;justify-content:space-between;gap:26px;
+  transform-style:preserve-3d;will-change:transform;
+  transition:border-color .45s var(--ease),background .45s var(--ease);
+  --gx:50%;--gy:50%;--gi:0;
+}
+.bx::before{
+  content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;
+  background:radial-gradient(240px circle at var(--gx) var(--gy),rgba(226,87,31,calc(var(--gi)*.20)),transparent 62%);
+  transition:opacity .4s;
+}
+.bx::after{
+  content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:radial-gradient(220px circle at var(--gx) var(--gy),rgba(226,87,31,calc(var(--gi)*.85)),transparent 62%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask-composite:exclude;
+}
+.bx:hover{border-color:rgba(226,87,31,.4)}
+.bx .bnum{font-size:11px;letter-spacing:.2em;color:var(--ember)}
+.bx h4{font-size:clamp(1.15rem,2vw,1.7rem);font-weight:500;margin-bottom:10px}
+.bx p{font-size:14px;color:var(--ash);font-weight:200;line-height:1.62}
+.bx.tall{min-height:300px}
+.bx-img{position:absolute;inset:0;z-index:-2;opacity:.20;transition:opacity .6s var(--ease),transform 1.1s var(--ease)}
+.bx-img img{width:100%;height:100%;object-fit:cover}
+.bx:hover .bx-img{opacity:.36;transform:scale(1.06)}
+
+/* ═══════════════ VITRINE 3D (perspectiva/scroll) ═══════════════ */
+#vitrine{background:var(--pitch);border-block:1px solid var(--iron);overflow:hidden}
+.deck{
+  position:relative;height:clamp(340px,46vw,560px);
+  perspective:1500px;perspective-origin:50% 46%;
+  display:grid;place-items:center;margin-top:clamp(28px,4vw,48px);
+}
+.card3d{
+  position:absolute;width:clamp(190px,24vw,300px);aspect-ratio:3/4;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border:1px solid var(--iron);border-radius:12px;overflow:hidden;background:var(--coal);
+  transform-style:preserve-3d;will-change:transform,opacity;
+  box-shadow:0 26px 70px rgba(0,0,0,.6);
+}
+.card3d img{width:100%;height:100%;object-fit:cover;filter:saturate(.86) contrast(1.1)}
+.card3d figcaption{
+  position:absolute;inset:auto 0 0;padding:16px 18px;
+  background:linear-gradient(transparent,rgba(7,6,5,.94));
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--bone);
+}
+.deck-hint{margin-top:22px;text-align:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ash)}
+
+/* ═══════════════ MARQUEE ═══════════════ */
+.marq{overflow:hidden;border-block:1px solid var(--iron);padding-block:clamp(14px,2vw,26px);background:var(--void)}
+.marq-track{display:flex;width:max-content;gap:0;animation:marq 34s linear infinite}
+.marq-track span{
+  font-family:'Roboto Flex',sans-serif;font-size:clamp(1.6rem,5.6vw,4.4rem);font-weight:500;
+  letter-spacing:-.03em;text-transform:uppercase;padding-inline:.35em;color:var(--bone);white-space:nowrap;
+}
+.marq-track span:nth-child(even){color:transparent;-webkit-text-stroke:1px var(--iron)}
+.marq-track i{align-self:center;width:9px;height:9px;background:var(--ember);border-radius:50%;flex:none}
+@keyframes marq{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marq-track{animation:none}}
+
+/* ═══════════════ COMUNIDADE ═══════════════ */
+.mosaic{display:grid;gap:clamp(8px,1.2vw,14px);grid-template-columns:repeat(2,1fr);margin-top:clamp(28px,4vw,50px)}
+@media(min-width:820px){.mosaic{grid-template-columns:repeat(4,1fr)}}
+.ms{position:relative;overflow:hidden;border-radius:10px;border:1px solid var(--iron);background:var(--coal)}
+.ms img{width:100%;height:100%;object-fit:cover;aspect-ratio:1;transition:transform 1s var(--ease),filter .6s var(--ease);filter:saturate(.8) contrast(1.1) brightness(.86)}
+.ms:hover img{transform:scale(1.07);filter:saturate(1) contrast(1.12) brightness(1)}
+@media(min-width:820px){.ms.w2{grid-column:span 2}.ms.w2 img{aspect-ratio:2/1}}
+
+/* ═══════════════ PLANOS ═══════════════ */
+.plans{display:grid;gap:clamp(12px,1.6vw,20px);grid-template-columns:1fr;margin-top:clamp(30px,4vw,52px)}
+@media(min-width:800px){.plans{grid-template-columns:repeat(3,1fr)}}
+.plan{
+  border:1px solid var(--iron);border-radius:16px;padding:clamp(24px,2.6vw,34px);
+  background:var(--coal);display:flex;flex-direction:column;gap:18px;
+  transition:border-color .45s var(--ease),transform .45s var(--ease);
+}
+.plan:hover{border-color:rgba(226,87,31,.42);transform:translateY(-4px)}
+.plan.hi{border-color:var(--ember);background:linear-gradient(180deg,rgba(226,87,31,.10),var(--coal) 55%)}
+.plan h4{font-size:1.35rem;font-weight:500}
+.plan .pk{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ember)}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:14px;color:var(--smoke);font-weight:200}
+.plan li{display:flex;gap:11px;align-items:flex-start;line-height:1.5}
+.plan li::before{content:"";flex:none;width:5px;height:5px;margin-top:8px;border-radius:50%;background:var(--ember)}
+.plan .btn{margin-top:auto;justify-content:center}
+.partners{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.partners .chip{border-color:rgba(226,87,31,.32);color:var(--flame)}
+
+/* ═══════════════ LOCAL / CTA ═══════════════ */
+#local{border-top:1px solid var(--iron)}
+.local-grid{display:grid;gap:clamp(28px,4vw,60px);grid-template-columns:1fr}
+@media(min-width:900px){.local-grid{grid-template-columns:1fr 1fr;align-items:center}}
+.addr{display:grid;gap:22px;margin-top:26px}
+.addr div{display:flex;gap:14px;align-items:flex-start}
+.addr svg{flex:none;margin-top:3px;stroke:var(--ember)}
+.addr b{display:block;font-weight:500;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ash);margin-bottom:5px}
+.addr p{color:var(--bone);font-weight:300;font-size:15px;line-height:1.55}
+.map-card{position:relative;border:1px solid var(--iron);border-radius:16px;overflow:hidden;background:var(--coal);min-height:280px}
+.map-card img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;filter:saturate(.7) contrast(1.15) brightness(.72)}
+.map-card .over{position:absolute;inset:auto 0 0;padding:22px;background:linear-gradient(transparent,rgba(7,6,5,.95))}
+
+/* ═══════════════ FOOTER ═══════════════ */
+footer{border-top:1px solid var(--iron);background:var(--pitch);padding-block:clamp(40px,6vw,80px) 30px}
+.fgrid{display:grid;gap:34px;grid-template-columns:1fr}
+@media(min-width:760px){.fgrid{grid-template-columns:1.4fr 1fr 1fr}}
+footer h5{margin:0 0 16px;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ash);font-weight:500}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:14px;color:var(--smoke);font-weight:200}
+footer a:hover{color:var(--ember)}
+.fbot{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;
+  margin-top:clamp(34px,5vw,60px);padding-top:24px;border-top:1px solid var(--iron);
+  font-size:11.5px;color:var(--ash)}
+.tocima{
+  position:fixed;right:20px;bottom:20px;z-index:850;
+  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  background:var(--ember);border:none;cursor:pointer;color:#fff;
+  opacity:0;pointer-events:none;transform:translateY(12px);
+  transition:opacity .45s var(--ease),transform .45s var(--ease);
+  box-shadow:0 12px 30px rgba(226,87,31,.4);
+}
+.tocima.on{opacity:1;pointer-events:auto;transform:none}
+.wa{position:fixed;left:20px;bottom:20px;z-index:850;display:flex;align-items:center;gap:9px;
+  padding:12px 18px;border-radius:100px;background:#1FAD52;color:#fff;font-size:12.5px;font-weight:500;
+  box-shadow:0 12px 30px rgba(31,173,82,.34);transition:transform .35s var(--ease)}
+.wa:hover{transform:translateY(-3px)}
+@media(max-width:520px){.wa span{display:none}.wa{padding:14px}}
+
+/* ═══════════════ CANVAS DE FUNDO ═══════════════ */
+#dots{position:fixed;inset:0;z-index:-3;pointer-events:none;opacity:.55}
+</style>
+</head>
+<body>
+
+<div class="cur" aria-hidden="true"></div><div class="cur-dot" aria-hidden="true"></div>
+<canvas id="dots" aria-hidden="true"></canvas>
+<div class="reveal-float" id="rvfloat" aria-hidden="true"><img alt="" id="rvimg" src="" loading="lazy"></div>
+
+<header class="hdr" id="hdr">
+  <a href="#topo" class="mark"><i></i>Cross Lion</a>
+  <nav class="nav">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#revelacao">Treinos</a>
+    <a href="#metodo">Método</a>
+    <a href="#planos">Planos</a>
+    <a href="#local">Onde estamos</a>
+  </nav>
+  <a class="btn" href="#planos">Aula experimental</a>
+</header>
+
+<main id="topo">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <video id="hv" autoplay muted loop playsinline preload="metadata"
+      poster="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_3a68bae7-c698-47bc-8dae-9fd04eebecfd_min.webp">
+      <source src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154258_9e98999c-646f-4ae1-bc83-88a59354dc36.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-kicker">
+      <span class="chip">Sumarezinho · Ribeirão Preto</span>
+      <span class="chip">Wellhub &amp; TotalPass</span>
+      <span class="chip">Aula experimental gratuita</span>
+    </div>
+    <div id="pressure"><h1 aria-label="Cross Lion"></h1></div>
+    <div class="hero-sub">
+      <p>Aqui você não vem só treinar. Você evolui de verdade — com coaching de perto, treinos que se adaptam ao seu nível e uma comunidade que faz de cada sessão uma conquista.</p>
+      <div class="scroll-cue"><i></i>Role para descobrir</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MANIFESTO ═══════════ -->
+<section class="sect wrap manifesto" id="manifesto">
+  <span class="tag rv">O que somos</span>
+  <h2 class="d2 rv">Muito <em>além</em> do treino.</h2>
+  <div class="mani-grid">
+    <p class="lead rv">Nosso trabalho é transformar sua saúde, seu corpo e sua mente. Treinos dinâmicos e desafiadores, acompanhamento de perto pelos coaches e uma comunidade unida e cheia de energia — para que cada treino seja uma conquista, não uma obrigação.</p>
+    <div class="mani-stats rv">
+      <div class="stat"><b>100%</b><span>Adaptável ao seu nível</span></div>
+      <div class="stat"><b>1:1</b><span>Correção de movimento</span></div>
+      <div class="stat"><b>7</b><span>Frentes de treino</span></div>
+      <div class="stat"><b>0</b><span>Custo na 1ª aula</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PERSPECTIVA ═══════════ -->
+<section class="sect" id="perspectiva">
+  <div class="wrap">
+    <div class="persp-head">
+      <div>
+        <span class="tag rv">Perspectiva</span>
+        <h2 class="d3 rv" style="max-width:18ch">O box responde a você.<br>Assim como o treino.</h2>
+      </div>
+      <p class="rv" style="font-size:13px;color:var(--ash);max-width:30ch">Passe o cursor pela grade — cada placa se inclina no espaço em direção a você. É a mesma lógica da nossa metodologia: o ambiente se ajusta a quem chega.</p>
+    </div>
+    <div class="tiles-stage rv" id="tiles" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ═══════════ REVELAÇÃO NO HOVER ═══════════ -->
+<section class="sect wrap" id="revelacao">
+  <span class="tag rv">Frentes de treino</span>
+  <h2 class="d2 rv" style="max-width:16ch;margin-bottom:.7em">Um método, sete caminhos.</h2>
+  <div class="reveal-list rv" id="rvlist">
+    <div class="reveal-row" data-img="f77054e2-2ea2-4e7c-813d-4875cd7f6299">
+      <span class="num">01</span><h3>Cross Training</h3>
+      <span class="meta">Alta intensidade, movimento funcional, resultado que aparece fora do box.</span>
+    </div>
+    <div class="reveal-row" data-img="27dd47bc-d992-4845-a17a-0e387558a01d">
+      <span class="num">02</span><h3>Levantamento</h3>
+      <span class="meta">Técnica olímpica sob olhar do coach, do zero à barra pesada.</span>
+    </div>
+    <div class="reveal-row" data-img="7e0399eb-ef50-4f96-8dab-dc4a4befe57a">
+      <span class="num">03</span><h3>Ginástica</h3>
+      <span class="meta">Barra, argolas e controle de corpo — força que você comanda.</span>
+    </div>
+    <div class="reveal-row" data-img="955dae93-af18-4009-a2c4-f9b03cfe8751">
+      <span class="num">04</span><h3>Condicionamento</h3>
+      <span class="meta">Fôlego, ritmo e resistência para aguentar o dia inteiro.</span>
+    </div>
+    <div class="reveal-row" data-img="3de71b35-263c-4805-a9d9-b5d3083a4f50">
+      <span class="num">05</span><h3>Remo &amp; Cardio</h3>
+      <span class="meta">Motor aeróbico construído com intenção, não com sofrimento.</span>
+    </div>
+    <div class="reveal-row" data-img="095a26ae-d75f-4e88-931d-273cc20b264d">
+      <span class="num">06</span><h3>Mobilidade</h3>
+      <span class="meta">Amplitude e articulações saudáveis — a base que sustenta tudo.</span>
+    </div>
+    <div class="reveal-row" data-img="6526df44-7608-4bac-85b3-013e34eb39fd">
+      <span class="num">07</span><h3>Iniciante</h3>
+      <span class="meta">Turma de adaptação: você aprende o movimento antes da carga.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PORTAL ═══════════ -->
+<section id="portal">
+  <div class="portal-stick">
+    <div class="portal-glow" id="pglow"></div>
+    <div class="portal-ring"></div><div class="portal-ring"></div><div class="portal-ring"></div>
+    <div class="portal-ring"></div><div class="portal-ring"></div><div class="portal-ring"></div>
+    <div class="portal-ring"></div><div class="portal-ring"></div>
+    <div class="portal-core" id="pcore">
+      <span class="tag" style="justify-content:center">Atravesse</span>
+      <h2 class="d2">Cada treino<br>é uma conquista.</h2>
+      <p>Você entra de um jeito e sai de outro. O portal não é a porta do box — é o que acontece com você depois de cruzá-la.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ MÉTODO (bento) ═══════════ -->
+<section class="sect wrap" id="metodo">
+  <span class="tag rv">O método</span>
+  <h2 class="d2 rv" style="max-width:15ch;margin-bottom:.8em">Estrutura para evoluir de verdade.</h2>
+  <div class="bento rv" id="bento">
+    <article class="bx tall">
+      <div class="bx-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_890aafcd-2aad-427c-9496-52da90b41e4e_min.webp" alt="Interior do box Cross Lion com rig de aço e equipamentos" loading="lazy"></div>
+      <span class="bnum">01</span>
+      <div><h4>Coaches que ficam por perto</h4><p>Ninguém treina sozinho aqui. O coach acompanha série a série, corrige o movimento na hora e ajusta a carga ao seu dia — não à média da turma.</p></div>
+    </article>
+    <article class="bx">
+      <span class="bnum">02</span>
+      <div><h4>Escalável de verdade</h4><p>O mesmo treino serve para quem começou ontem e para quem compete. Muda a carga, o volume e a variação — nunca a intenção.</p></div>
+    </article>
+    <article class="bx">
+      <span class="bnum">03</span>
+      <div><h4>Progressão medida</h4><p>Você acompanha o que melhorou: carga, tempo, amplitude, constância. Evolução que dá para ver, não só sentir.</p></div>
+    </article>
+    <article class="bx">
+      <div class="bx-img"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_6526df44-7608-4bac-85b3-013e34eb39fd_min.webp" alt="Grupo de atletas reunido no box" loading="lazy"></div>
+      <span class="bnum">04</span>
+      <div><h4>Comunidade que puxa junto</h4><p>Energia é combustível. A turma comemora o seu primeiro pull-up com a mesma intensidade que comemora um PR de agachamento.</p></div>
+    </article>
+    <article class="bx">
+      <span class="bnum">05</span>
+      <div><h4>Corpo e mente</h4><p>Treinar é também descarregar o dia. Você sai mais forte e com a cabeça mais leve — os dois contam como resultado.</p></div>
+    </article>
+    <article class="bx">
+      <span class="bnum">06</span>
+      <div><h4>Ambiente motivador</h4><p>Estrutura completa, equipamento cuidado e um clima que faz você querer voltar amanhã. É isso que sustenta a constância.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════ VITRINE 3D ═══════════ -->
+<section class="sect" id="vitrine">
+  <div class="wrap">
+    <span class="tag rv">Dentro do box</span>
+    <h2 class="d3 rv" style="max-width:20ch">Role e gire a vitrine.</h2>
+    <div class="deck rv" id="deck">
+      <figure class="card3d"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_f77054e2-2ea2-4e7c-813d-4875cd7f6299_min.webp" alt="Atleta executando kettlebell swing" loading="lazy"><figcaption>Kettlebell</figcaption></figure>
+      <figure class="card3d"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_27dd47bc-d992-4845-a17a-0e387558a01d_min.webp" alt="Atleta no clean com barra olímpica" loading="lazy"><figcaption>Barra olímpica</figcaption></figure>
+      <figure class="card3d"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_955dae93-af18-4009-a2c4-f9b03cfe8751_min.webp" alt="Cordas navais em movimento" loading="lazy"><figcaption>Battle ropes</figcaption></figure>
+      <figure class="card3d"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_3de71b35-263c-4805-a9d9-b5d3083a4f50_min.webp" alt="Atleta no remo ergômetro" loading="lazy"><figcaption>Remo</figcaption></figure>
+      <figure class="card3d"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_7e0399eb-ef50-4f96-8dab-dc4a4befe57a_min.webp" alt="Mãos com magnésio na barra fixa" loading="lazy"><figcaption>Ginástica</figcaption></figure>
+      <figure class="card3d"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_3a68bae7-c698-47bc-8dae-9fd04eebecfd_min.webp" alt="Anilhas e kettlebells alinhados no piso" loading="lazy"><figcaption>Equipamento</figcaption></figure>
+    </div>
+    <p class="deck-hint">Role a página — os módulos giram no eixo</p>
+  </div>
+</section>
+
+<!-- ═══════════ MARQUEE ═══════════ -->
+<div class="marq" aria-hidden="true">
+  <div class="marq-track" id="marq"></div>
+</div>
+
+<!-- ═══════════ COMUNIDADE ═══════════ -->
+<section class="sect wrap" id="comunidade">
+  <span class="tag rv">Comunidade</span>
+  <h2 class="d2 rv" style="max-width:17ch">Gente que puxa você para cima.</h2>
+  <div class="mosaic rv">
+    <div class="ms w2"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_6526df44-7608-4bac-85b3-013e34eb39fd_min.webp" alt="Turma reunida antes do treino" loading="lazy"></div>
+    <div class="ms"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_ff6b0b3a-5dbc-44b9-be01-1df9c445eded_min.webp" alt="Coach da Cross Lion" loading="lazy"></div>
+    <div class="ms"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_7e0399eb-ef50-4f96-8dab-dc4a4befe57a_min.webp" alt="Mãos com magnésio na barra" loading="lazy"></div>
+    <div class="ms"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_095a26ae-d75f-4e88-931d-273cc20b264d_min.webp" alt="Coach corrigindo o agachamento de um aluno" loading="lazy"></div>
+    <div class="ms"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_3de71b35-263c-4805-a9d9-b5d3083a4f50_min.webp" alt="Treino no remo ergômetro" loading="lazy"></div>
+    <div class="ms w2"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_890aafcd-2aad-427c-9496-52da90b41e4e_min.webp" alt="Vista ampla do box" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- ═══════════ PLANOS ═══════════ -->
+<section class="sect wrap" id="planos">
+  <span class="tag rv">Comece agora</span>
+  <h2 class="d2 rv" style="max-width:16ch">A primeira aula é por nossa conta.</h2>
+  <p class="lead rv" style="margin-top:1.1em">Você treina, conhece a turma, conversa com o coach e decide depois. Sem compromisso e sem letra miúda.</p>
+  <div class="plans">
+    <article class="plan hi rv">
+      <span class="pk">Comece por aqui</span>
+      <h4>Aula experimental</h4>
+      <ul>
+        <li>Treino completo acompanhado por um coach</li>
+        <li>Avaliação do seu nível e dos seus objetivos</li>
+        <li>Sem custo e sem compromisso</li>
+        <li>É só chegar com roupa de treino</li>
+      </ul>
+      <a class="btn" href="#local">Agendar minha aula</a>
+    </article>
+    <article class="plan rv">
+      <span class="pk">Plano recorrente</span>
+      <h4>Mensal &amp; trimestral</h4>
+      <ul>
+        <li>Acesso a todas as frentes de treino</li>
+        <li>Horários variados ao longo do dia</li>
+        <li>Acompanhamento contínuo de progressão</li>
+        <li>Valores sob consulta no box</li>
+      </ul>
+      <a class="btn ghost" href="#local">Consultar valores</a>
+    </article>
+    <article class="plan rv">
+      <span class="pk">Benefício corporativo</span>
+      <h4>Wellhub &amp; TotalPass</h4>
+      <ul>
+        <li>Somos parceiros das duas plataformas</li>
+        <li>Use o benefício da sua empresa</li>
+        <li>Check-in direto pelo aplicativo</li>
+        <li>Mesma estrutura, mesmo coaching</li>
+      </ul>
+      <a class="btn ghost" href="#local">Como usar</a>
+    </article>
+  </div>
+  <div class="partners rv">
+    <span class="chip">Wellhub (Gympass)</span>
+    <span class="chip">TotalPass</span>
+    <span class="chip">Alta performance</span>
+    <span class="chip">Bem-estar</span>
+  </div>
+</section>
+
+<!-- ═══════════ LOCAL ═══════════ -->
+<section class="sect wrap" id="local">
+  <div class="local-grid">
+    <div>
+      <span class="tag rv">Onde estamos</span>
+      <h2 class="d2 rv" style="max-width:14ch">Sumarezinho, Ribeirão Preto.</h2>
+      <div class="addr rv">
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div><b>Endereço</b><p>Av. Antônio e Helena Zerrener, 1810<br>Sumarezinho — Ribeirão Preto/SP</p></div>
+        </div>
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+          <div><b>Instagram</b><p><a href="https://www.instagram.com/crosslionrp/" target="_blank" rel="noopener">@crosslionrp</a></p></div>
+        </div>
+        <div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          <!-- TROCAR: confirmar horários reais com o box -->
+          <div><b>Horários</b><p>Turmas ao longo do dia, manhã e noite.<br>Confirme a grade atual pelo Instagram.</p></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:30px">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Av.+Ant%C3%B4nio+e+Helena+Zerrener,+1810,+Sumarezinho,+Ribeir%C3%A3o+Preto+-+SP" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        <a class="btn ghost" href="https://www.instagram.com/crosslionrp/" target="_blank" rel="noopener">Chamar no Instagram</a>
+      </div>
+    </div>
+    <div class="map-card rv">
+      <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_d86ad8df-c38a-41c3-ba65-c94b2f179df2_min.webp" alt="Fachada da Cross Lion ao entardecer" loading="lazy">
+      <div class="over">
+        <b style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ember);display:block;margin-bottom:6px">Cross Lion</b>
+        <p style="font-size:14px;color:var(--bone)">Av. Antônio e Helena Zerrener, 1810 — Sumarezinho</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="mark" style="margin-bottom:16px"><i></i>Cross Lion</div>
+        <p style="font-size:14px;color:var(--smoke);font-weight:200;max-width:34ch">Cross training de alta performance e bem-estar em Ribeirão Preto. Muito além do treino.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <ul>
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#revelacao">Frentes de treino</a></li>
+          <li><a href="#metodo">Método</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#local">Onde estamos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="https://www.instagram.com/crosslionrp/" target="_blank" rel="noopener">@crosslionrp</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Av.+Ant%C3%B4nio+e+Helena+Zerrener,+1810,+Sumarezinho,+Ribeir%C3%A3o+Preto+-+SP" target="_blank" rel="noopener">Av. A. e H. Zerrener, 1810</a></li>
+          <li>Sumarezinho — Ribeirão Preto/SP</li>
+          <li>Wellhub · TotalPass</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="yr"></span> Cross Lion. Todos os direitos reservados.</span>
+      <span>Muito além do treino.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- TROCAR: substituir 5516000000000 pelo WhatsApp real do box -->
+<a class="wa" href="https://wa.me/5516000000000?text=Ol%C3%A1!%20Quero%20agendar%20a%20aula%20experimental%20na%20Cross%20Lion." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.16c-.24.68-1.4 1.3-1.94 1.34-.5.04-.97.22-3.27-.68-2.77-1.09-4.53-3.92-4.67-4.1-.13-.18-1.11-1.48-1.11-2.82s.7-2 .95-2.28c.25-.27.54-.34.72-.34.18 0 .36 0 .52.01.17.01.39-.06.61.47.23.54.77 1.88.84 2.02.07.13.11.29.02.47-.09.18-.14.29-.27.45-.14.16-.29.35-.41.47-.14.13-.28.28-.12.55.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.13.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.58.75 1.85.88.27.13.45.2.52.32.07.11.07.65-.17 1.33z"/></svg>
+  <span>Aula experimental</span>
+</a>
+<button class="tocima" id="tocima" aria-label="Voltar ao topo">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script>
+(()=>{
+"use strict";
+const $=(s,c=document)=>c.querySelector(s), $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FINE = matchMedia('(hover:hover) and (pointer:fine)').matches;
+const MOB = matchMedia('(max-width:760px)').matches;
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+/* ── ano ── */
+$('#yr').textContent = new Date().getFullYear();
+
+/* ── header ── */
+const hdr=$('#hdr'), toTop=$('#tocima');
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  hdr.classList.toggle('stuck', y>40);
+  toTop.classList.toggle('on', y>900);
+},{passive:true});
+toTop.addEventListener('click',()=>scrollTo({top:0,behavior:RM?'auto':'smooth'}));
+
+/* ── reveal on scroll ── */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{rootMargin:'0px 0px -12% 0px',threshold:.08});
+$$('.rv').forEach((el,i)=>{ el.style.transitionDelay=(i%6*60)+'ms'; io.observe(el); });
+
+/* ── cursor ── */
+if(FINE){
+  const ring=$('.cur'), dot=$('.cur-dot');
+  let rx=innerWidth/2, ry=innerHeight/2, mx=rx, my=ry;
+  addEventListener('mousemove',e=>{
+    mx=e.clientX; my=e.clientY;
+    dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;
+  },{passive:true});
+  (function loop(){
+    rx=lerp(rx,mx,.16); ry=lerp(ry,my,.16);
+    ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  })();
+  const grow=()=>document.body.classList.add('cur-lg');
+  const shrink=()=>document.body.classList.remove('cur-lg');
+  $$('a,button,.reveal-row,.bx,.ms,.card3d').forEach(el=>{
+    el.addEventListener('mouseenter',grow); el.addEventListener('mouseleave',shrink);
+  });
+}
+
+/* ── DotField: grade de pontos que estufa perto do cursor ── */
+(function dotField(){
+  const cv=$('#dots'); if(!cv||RM) return;
+  const ctx=cv.getContext('2d',{alpha:true});
+  const dpr=Math.min(devicePixelRatio||1,2);
+  const GAP = MOB?26:18, R=1.25, CR=340, BULGE=MOB?26:58;
+  let W=0,H=0,dots=[],mouse={x:-9999,y:-9999,px:-9999,py:-9999,sp:0},eng=0;
+
+  function size(){
+    W=innerWidth; H=innerHeight;
+    cv.width=W*dpr; cv.height=H*dpr; cv.style.width=W+'px'; cv.style.height=H+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    build();
+  }
+  function build(){
+    dots=[];
+    const cols=Math.floor(W/GAP), rows=Math.floor(H/GAP);
+    const px=(W-cols*GAP)/2+GAP/2, py=(H-rows*GAP)/2+GAP/2;
+    for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
+      const x=px+c*GAP, y=py+r*GAP;
+      dots.push({ax:x,ay:y,sx:x,sy:y});
+    }
+  }
+  addEventListener('resize',()=>{clearTimeout(size._t);size._t=setTimeout(size,140)},{passive:true});
+  addEventListener('mousemove',e=>{mouse.x=e.clientX;mouse.y=e.clientY;},{passive:true});
+  setInterval(()=>{
+    const d=Math.hypot(mouse.px-mouse.x,mouse.py-mouse.y);
+    mouse.sp+=(d-mouse.sp)*.5; if(mouse.sp<.001)mouse.sp=0;
+    mouse.px=mouse.x; mouse.py=mouse.y;
+  },20);
+
+  const g=ctx.createLinearGradient?null:null;
+  function frame(){
+    eng+=(clamp(mouse.sp/5,0,1)-eng)*.06;
+    ctx.clearRect(0,0,W,H);
+    const grad=ctx.createLinearGradient(0,0,W,H);
+    grad.addColorStop(0,'rgba(226,87,31,.34)');
+    grad.addColorStop(1,'rgba(122,107,94,.20)');
+    ctx.fillStyle=grad; ctx.beginPath();
+    for(let i=0;i<dots.length;i++){
+      const d=dots[i], dx=mouse.x-d.ax, dy=mouse.y-d.ay, ds=dx*dx+dy*dy;
+      if(ds<CR*CR && eng>.01){
+        const dist=Math.sqrt(ds), t=1-dist/CR, push=t*t*BULGE*eng, a=Math.atan2(dy,dx);
+        d.sx+=(d.ax-Math.cos(a)*push-d.sx)*.15;
+        d.sy+=(d.ay-Math.sin(a)*push-d.sy)*.15;
+      }else{
+        d.sx+=(d.ax-d.sx)*.1; d.sy+=(d.ay-d.sy)*.1;
+      }
+      ctx.moveTo(d.sx+R,d.sy); ctx.arc(d.sx,d.sy,R,0,6.283);
+    }
+    ctx.fill();
+    requestAnimationFrame(frame);
+  }
+  size(); requestAnimationFrame(frame);
+})();
+
+/* ── TextPressure: as letras engordam perto do cursor ── */
+(function textPressure(){
+  const host=$('#pressure'), h1=$('#pressure h1'); if(!host) return;
+  const TXT='CROSS LION', chars=[...TXT];
+  h1.innerHTML = chars.map(c=>`<span aria-hidden="true">${c===' '?'&nbsp;':c}</span>`).join('');
+  const spans=$$('span',h1);
+  let cx=innerWidth/2, cy=innerHeight/2, mx=cx, my=cy;
+
+  const WMAX=812, WDMAX=124;          /* tetos das variacoes usadas na animacao */
+  function fit(){
+    const w=host.clientWidth; if(!w) return;
+    /* mede a largura natural do texto ja na expansao maxima, para que
+       nenhuma letra estoure o container quando o cursor chegar perto */
+    spans.forEach(s=>s.style.fontVariationSettings=`'wght' ${WMAX},'wdth' ${WDMAX}`);
+    h1.style.fontSize='100px'; h1.style.display='inline-block'; h1.style.width='auto';
+    const nat=h1.scrollWidth||1;
+    h1.style.display=''; h1.style.width='';
+    const size=Math.max(22,Math.floor(100*w/nat));
+    h1.style.fontSize=size+'px';
+    host.style.height=Math.round(size*0.94)+'px';
+  }
+  fit(); document.fonts?.ready?.then(fit); addEventListener('resize',()=>{clearTimeout(fit._t);fit._t=setTimeout(fit,120)},{passive:true});
+  addEventListener('mousemove',e=>{cx=e.clientX;cy=e.clientY},{passive:true});
+  addEventListener('touchmove',e=>{const t=e.touches[0];cx=t.clientX;cy=t.clientY},{passive:true});
+
+  if(RM){ spans.forEach(s=>s.style.fontVariationSettings=`'wght' 620,'wdth' 118`); return; }
+  (function loop(){
+    mx=lerp(mx,cx,1/15); my=lerp(my,cy,1/15);
+    const r=h1.getBoundingClientRect(), max=r.width/2||1;
+    for(const s of spans){
+      const b=s.getBoundingClientRect();
+      const d=Math.hypot(mx-(b.x+b.width/2), my-(b.y+b.height/2));
+      const at=(mn,mx2)=>Math.max(mn, mx2-Math.abs(mx2*d/max)+mn);
+      s.style.fontVariationSettings=`'wght' ${Math.round(at(180,WMAX))},'wdth' ${Math.round(at(58,WDMAX))}`;
+    }
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ── grade de placas em perspectiva ── */
+(function tiles(){
+  const stage=$('#tiles'); if(!stage) return;
+  const N = MOB?16:35, RAD=2.6, MAXA=44;
+  const cols = MOB?4:7;
+  stage.innerHTML=Array.from({length:N},(_,i)=>`<div class="tile" data-r="${Math.floor(i/cols)}" data-c="${i%cols}"></div>`).join('');
+  const tl=$$('.tile',stage);
+  if(RM) return;
+
+  function tiltAt(rc,cc){
+    tl.forEach(t=>{
+      const r=+t.dataset.r, c=+t.dataset.c;
+      const d=Math.hypot(r-rc,c-cc);
+      if(d<=RAD){
+        const p=1-d/RAD, a=p*MAXA;
+        t.style.transform=`rotateX(${-a}deg) rotateY(${a}deg) translateZ(${p*26}px)`;
+        t.classList.add('hot');
+      }else{
+        t.style.transform='rotateX(0) rotateY(0) translateZ(0)';
+        t.classList.remove('hot');
+      }
+    });
+  }
+  let active=false, idle;
+  stage.addEventListener('pointermove',e=>{
+    active=true; clearTimeout(idle);
+    const b=stage.getBoundingClientRect();
+    tiltAt((e.clientY-b.top)/(b.height/(N/cols)), (e.clientX-b.left)/(b.width/cols));
+    idle=setTimeout(()=>active=false,2600);
+  });
+  stage.addEventListener('pointerleave',()=>tiltAt(-99,-99));
+  /* deriva automática quando ninguém interage */
+  let px=Math.random()*cols, py=Math.random()*(N/cols), tx=px, ty=py;
+  (function drift(){
+    if(!active){
+      px+=(tx-px)*.02; py+=(ty-py)*.02;
+      tiltAt(py,px);
+      if(Math.hypot(px-tx,py-ty)<.12){ tx=Math.random()*cols; ty=Math.random()*(N/cols); }
+    }
+    requestAnimationFrame(drift);
+  })();
+})();
+
+/* ── Object reveal on hover ── */
+(function objectReveal(){
+  const list=$('#rvlist'), fl=$('#rvfloat'), im=$('#rvimg');
+  if(!list||!FINE) return;
+  const B='https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260827_154448_';
+  let fx=0,fy=0,tx=0,ty=0,on=false;
+  $$('.reveal-row',list).forEach(row=>{
+    row.addEventListener('mouseenter',()=>{ im.src=B+row.dataset.img+'_min.webp'; fl.classList.add('on'); on=true; });
+    row.addEventListener('mouseleave',()=>{ fl.classList.remove('on'); on=false; });
+  });
+  addEventListener('mousemove',e=>{tx=e.clientX;ty=e.clientY},{passive:true});
+  (function loop(){
+    fx=lerp(fx,tx,.13); fy=lerp(fy,ty,.13);
+    if(on) fl.style.left=fx+'px', fl.style.top=fy+'px';
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ── Portal: túnel de anéis dirigido pelo scroll ── */
+(function portal(){
+  const sec=$('#portal'); if(!sec) return;
+  const rings=$$('.portal-ring',sec), core=$('#pcore'), glow=$('#pglow');
+  let raf=null;
+  function draw(){
+    raf=null;
+    const b=sec.getBoundingClientRect();
+    const total=sec.offsetHeight-innerHeight;
+    const p=clamp(-b.top/total,0,1);            /* 0 → 1 ao atravessar */
+    rings.forEach((r,i)=>{
+      const off=i/rings.length;
+      /* cada anel entra pelo fundo e passa pela câmera */
+      let t=(p*1.9+off)%1;
+      const z=-1500+t*2100;
+      const s=.24+t*1.5;
+      r.style.transform=`translateZ(${z}px) scale(${s})`;
+      r.style.opacity = (t<.08? t/.08 : t>.86 ? (1-t)/.14 : 1)*(.34+off*.5);
+    });
+    const cz = -420+p*880;
+    core.style.transform=`translateZ(${clamp(cz,-420,120)}px) scale(${clamp(.72+p*.5,.72,1.06)})`;
+    core.style.opacity = p<.14 ? p/.14 : p>.9 ? clamp((1-p)/.1,0,1) : 1;
+    glow.style.transform=`scale(${.5+p*1.7})`;
+    glow.style.opacity=.25+p*.55;
+  }
+  if(RM){ core.style.transform='none'; core.style.opacity=1; return; }
+  addEventListener('scroll',()=>{ if(!raf) raf=requestAnimationFrame(draw) },{passive:true});
+  addEventListener('resize',()=>{ if(!raf) raf=requestAnimationFrame(draw) },{passive:true});
+  draw();
+})();
+
+/* ── Bento: spotlight + tilt + magnetismo ── */
+(function bento(){
+  const grid=$('#bento'); if(!grid||RM||!FINE) return;
+  const boxes=$$('.bx',grid);
+  const PROX=280, FADE=460;
+  addEventListener('mousemove',e=>{
+    const gb=grid.getBoundingClientRect();
+    const inside = e.clientX>=gb.left-120 && e.clientX<=gb.right+120 && e.clientY>=gb.top-120 && e.clientY<=gb.bottom+120;
+    boxes.forEach(b=>{
+      const r=b.getBoundingClientRect();
+      const cx=r.left+r.width/2, cy=r.top+r.height/2;
+      const dist=Math.max(0, Math.hypot(e.clientX-cx,e.clientY-cy)-Math.max(r.width,r.height)/2);
+      let gi=0;
+      if(inside){ gi = dist<=PROX?1 : dist<=FADE ? (FADE-dist)/(FADE-PROX) : 0; }
+      b.style.setProperty('--gi',gi.toFixed(3));
+      b.style.setProperty('--gx',(((e.clientX-r.left)/r.width)*100).toFixed(1)+'%');
+      b.style.setProperty('--gy',(((e.clientY-r.top)/r.height)*100).toFixed(1)+'%');
+      /* tilt + ímã só na caixa sob o cursor */
+      const over = e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
+      if(over){
+        const nx=(e.clientX-cx)/(r.width/2), ny=(e.clientY-cy)/(r.height/2);
+        b.style.transform=`perspective(1000px) rotateX(${(-ny*5).toFixed(2)}deg) rotateY(${(nx*5).toFixed(2)}deg) translate(${(nx*5).toFixed(1)}px,${(ny*5).toFixed(1)}px)`;
+      }else if(b.style.transform){
+        b.style.transform='';
+      }
+    });
+  },{passive:true});
+  grid.addEventListener('mouseleave',()=>boxes.forEach(b=>{b.style.setProperty('--gi',0);b.style.transform=''}));
+  /* ondulação no clique */
+  boxes.forEach(b=>b.addEventListener('click',e=>{
+    const r=b.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top;
+    const m=Math.max(Math.hypot(x,y),Math.hypot(x-r.width,y),Math.hypot(x,y-r.height),Math.hypot(x-r.width,y-r.height));
+    const rip=document.createElement('span');
+    rip.style.cssText=`position:absolute;left:${x-m}px;top:${y-m}px;width:${m*2}px;height:${m*2}px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(226,87,31,.32),transparent 68%);transform:scale(0);opacity:1;transition:transform .8s cubic-bezier(.52,.01,0,1),opacity .8s`;
+    b.appendChild(rip);
+    requestAnimationFrame(()=>{rip.style.transform='scale(1)';rip.style.opacity='0'});
+    setTimeout(()=>rip.remove(),820);
+  }));
+})();
+
+/* ── Vitrine 3D: carrossel em perspectiva dirigido pelo scroll ── */
+(function deck(){
+  const stage=$('#deck'); if(!stage) return;
+  const cards=$$('.card3d',stage), n=cards.length;
+  const RAD = MOB?250:430;
+  let base=0, raf=null, drag=0, tDrag=0;
+
+  function place(){
+    raf=null;
+    const b=stage.getBoundingClientRect();
+    const prog=clamp((innerHeight-b.top)/(innerHeight+b.height),0,1);
+    const rot=base+prog*Math.PI*1.5+drag;
+    cards.forEach((c,i)=>{
+      const a=rot+(i/n)*Math.PI*2;
+      const x=Math.sin(a)*RAD, z=Math.cos(a)*RAD;
+      const depth=(z+RAD)/(RAD*2);           /* 0 atrás → 1 na frente */
+      c.style.transform=`translate3d(${x.toFixed(1)}px,0,${z.toFixed(1)}px) rotateY(${(a*180/Math.PI).toFixed(1)}deg) scale(${(.72+depth*.34).toFixed(3)})`;
+      c.style.opacity=(0.22+depth*.78).toFixed(3);
+      c.style.zIndex=Math.round(depth*100);
+      c.style.filter=`brightness(${(.45+depth*.6).toFixed(2)})`;
+    });
+  }
+  const req=()=>{ if(!raf) raf=requestAnimationFrame(place) };
+  if(RM){ cards.forEach((c,i)=>{ c.style.position='relative'; c.style.transform='none'; }); stage.style.cssText+='display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;height:auto;perspective:none'; return; }
+  addEventListener('scroll',req,{passive:true});
+  addEventListener('resize',req,{passive:true});
+  /* arrastar para girar */
+  let down=false,sx=0;
+  stage.addEventListener('pointerdown',e=>{down=true;sx=e.clientX;stage.setPointerCapture(e.pointerId)});
+  stage.addEventListener('pointermove',e=>{ if(!down)return; tDrag=(e.clientX-sx)*.006; drag=tDrag; req(); });
+  stage.addEventListener('pointerup',()=>{down=false;base+=drag;drag=0});
+  stage.addEventListener('pointercancel',()=>{down=false;base+=drag;drag=0});
+  place();
+})();
+
+/* ── marquee ── */
+(function marquee(){
+  const t=$('#marq'); if(!t) return;
+  const words=['Muito além do treino','Alta performance','Comunidade','Bem-estar','Cross Lion'];
+  const seq=words.map(w=>`<span>${w}</span><i></i>`).join('');
+  t.innerHTML=seq+seq;   /* duplicado para o loop ficar contínuo */
+})();
+
+/* ── vídeo: pausa fora da tela para poupar bateria ── */
+(function video(){
+  const v=$('#hv'); if(!v) return;
+  v.play?.().catch(()=>{});
+  new IntersectionObserver(es=>{
+    es.forEach(e=> e.isIntersecting ? v.play?.().catch(()=>{}) : v.pause?.());
+  },{threshold:.05}).observe(v);
+})();
+
+/* ── rolagem suave nas âncoras ── */
+$$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const id=a.getAttribute('href'); if(id.length<2) return;
+  const t=document.querySelector(id); if(!t) return;
+  e.preventDefault();
+  scrollTo({top:t.getBoundingClientRect().top+scrollY-(id==='#topo'?0:60),behavior:RM?'auto':'smooth'});
+}));
+
+})();
+</script>
+</body>
+</html>
