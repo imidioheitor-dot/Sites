@@ -1,0 +1,1474 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Marcenaria JR — Móveis planejados em Ribeirão Preto</title>
+<meta name="description" content="Móveis planejados feitos para o seu espaço, com qualidade, compromisso e excelente acabamento. Marcenaria JR — Rua Itapetinga, 1422, Sumarezinho, Ribeirão Preto/SP.">
+<meta name="theme-color" content="#0D0906">
+<link rel="canonical" href="https://marcenariajr.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marcenaria JR — Móveis planejados em Ribeirão Preto">
+<meta property="og:description" content="Móveis planejados feitos para o seu espaço, com qualidade, compromisso e excelente acabamento.">
+<meta property="og:image" content="assets/img/cozinha.jpg">
+<meta property="og:locale" content="pt_BR">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D0906'/%3E%3Cpath d='M6 23V9h4.6l5.4 9 5.4-9H26v14h-3.4v-8.6L17.4 23h-2.8L9.4 14.4V23z' fill='%23C8763A'/%3E%3C/svg%3E">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://marcenariajr.com.br/#marcenaria",
+"name":"Marcenaria JR","alternateName":"Marcenaria Júnior",
+"description":"Móveis planejados feitos para o seu espaço, com qualidade, compromisso e excelente acabamento.",
+"telephone":"+5516993482301","priceRange":"$$",
+"address":{"@type":"PostalAddress","streetAddress":"Rua Itapetinga, 1422","addressLocality":"Ribeirão Preto","addressRegion":"SP","postalCode":"14050-355","addressCountry":"BR"},
+"areaServed":{"@type":"City","name":"Ribeirão Preto"},
+"sameAs":["https://www.instagram.com/marcenariajr_rp/"],
+"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"08:00","closes":"12:00"}]}
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   MARCENARIA JR — sistema de design "Serragem e Verniz"
+   Canvas preto-quente, tipografia creme-osso, um único acento âmbar.
+   ═══════════════════════════════════════════════════════════════ */
+
+@font-face{font-family:'Archivo';src:url('assets/archivo.woff2') format('woff2-variations');
+  font-weight:100 900;font-stretch:62% 125%;font-display:swap}
+@font-face{font-family:'Fraunces';src:url('assets/fraunces.woff2') format('woff2-variations');
+  font-weight:100 900;font-display:swap}
+
+:root{
+  --breu:#0D0906; --casca:#17100B; --crosta:#221812; --fio:#2E241B;
+  --serragem:#F1E5D2; --po:#9A8977; --brasa:#C8763A; --verniz:#E8A765;
+  --musgo:#3E4A3A;
+  --ui:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --disp:'Fraunces',Georgia,serif;
+  --gut:clamp(18px,4.5vw,72px);
+  --sec:clamp(70px,9.5vh,128px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;padding:0;background:var(--breu);overflow-x:clip}
+body{font-family:var(--ui);color:var(--serragem);font-weight:300;
+  -webkit-font-smoothing:antialiased;line-height:1.5;overscroll-behavior-y:none}
+img,video,canvas{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,textarea,select{font:inherit;color:inherit}
+::selection{background:var(--brasa);color:#120C07}
+
+/* ── tipografia ─────────────────────────────────────────────── */
+.mono{font-family:var(--ui);font-size:clamp(10px,.72vw,12px);font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--po)}
+.mono b{color:var(--brasa);font-weight:500}
+
+h1,h2,h3,h4{margin:0;font-family:var(--disp);font-weight:400;
+  font-variation-settings:'opsz' 144,'SOFT' 20,'WONK' 1;letter-spacing:-.025em;line-height:.94}
+h2{font-size:clamp(38px,6.4vw,96px)}
+h3{font-size:clamp(26px,3.4vw,52px);line-height:1.02}
+h4{font-size:clamp(19px,1.9vw,27px);line-height:1.14;letter-spacing:-.015em}
+p{margin:0 0 1.1em}
+.lede{font-size:clamp(17px,1.55vw,23px);line-height:1.52;color:var(--serragem);
+  font-weight:200;max-width:34ch}
+.corpo{font-size:clamp(15px,1.05vw,17px);line-height:1.68;color:var(--po);max-width:56ch}
+
+/* itens de grid não podem herdar min-width:auto — é o que estoura a caixa */
+#orcamento .grid>*,#tridi .grid>*,#manifesto .grid>*,.dois>*,.passos>*,
+.fgrid>*,.mats>*,.specs>*{min-width:0}
+.campo input,.campo textarea,.campo select,.prancheta canvas{min-width:0;max-width:100%}
+
+/* o cabeçalho é fixo: as âncoras precisam parar abaixo dele */
+main>section,footer{scroll-margin-top:clamp(74px,10vh,92px)}
+
+.rule{height:1px;background:var(--fio);border:0;margin:0}
+.wrap{max-width:1440px;margin:0 auto;padding-inline:var(--gut)}
+section{position:relative}
+
+/* rótulo de seção */
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:clamp(26px,4vh,52px)}
+.eyebrow::after{content:'';flex:1;height:1px;background:var(--fio)}
+
+/* ── cursor ─────────────────────────────────────────────────── */
+#cur,#curdot{position:fixed;top:0;left:0;pointer-events:none;z-index:9000;
+  border-radius:999px;mix-blend-mode:screen;will-change:transform}
+#cur{width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid rgba(200,118,58,.75);
+  transition:width .3s var(--ease),height .3s var(--ease),margin .3s var(--ease),
+    background .3s var(--ease),border-color .3s var(--ease),opacity .3s}
+#curdot{width:5px;height:5px;margin:-2.5px 0 0 -2.5px;background:var(--verniz)}
+#cur.on{width:74px;height:74px;margin:-37px 0 0 -37px;background:rgba(200,118,58,.13);
+  border-color:rgba(232,167,101,.95)}
+#cur .lbl{position:absolute;inset:0;display:grid;place-items:center;font-size:9px;
+  font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--verniz);
+  opacity:0;transition:opacity .25s}
+#cur.on .lbl{opacity:1}
+@media(hover:none),(pointer:coarse){#cur,#curdot{display:none}}
+
+/* ── preloader ──────────────────────────────────────────────── */
+#pre{position:fixed;inset:0;z-index:9500;background:var(--breu);
+  display:grid;place-items:center;transition:opacity .7s var(--ease),visibility .7s}
+#pre.off{opacity:0;visibility:hidden}
+#pre .bar{width:min(260px,52vw);height:1px;background:var(--fio);position:relative;overflow:hidden}
+#pre .bar i{position:absolute;inset:0 100% 0 0;background:var(--brasa);transition:right .3s linear}
+#pre .nm{font-family:var(--disp);font-size:clamp(22px,4vw,40px);letter-spacing:-.03em;
+  margin-bottom:22px;text-align:center}
+
+/* ── header ─────────────────────────────────────────────────── */
+header{position:fixed;top:0;left:0;right:0;z-index:800;padding:18px 0;
+  transition:background .45s var(--ease),backdrop-filter .45s,border-color .45s;
+  border-bottom:1px solid transparent}
+header.stuck{background:rgba(13,9,6,.82);backdrop-filter:blur(14px) saturate(1.4);
+  -webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom-color:var(--fio)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:baseline;gap:9px;font-family:var(--disp);
+  font-size:19px;letter-spacing:-.02em;white-space:nowrap}
+.logo i{width:9px;height:9px;background:var(--brasa);border-radius:1px;
+  display:inline-block;transform:translateY(-1px)}
+.logo em{font-style:normal;color:var(--brasa)}
+nav.desk{display:flex;gap:clamp(16px,2vw,34px);align-items:center}
+nav.desk a{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--po);transition:color .3s;position:relative;padding:4px 0}
+nav.desk a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;
+  background:var(--brasa);transition:right .4s var(--ease)}
+nav.desk a:hover{color:var(--serragem)}
+nav.desk a:hover::after{right:0}
+
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;
+  font-size:12px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  background:var(--brasa);color:#140D07;border:0;cursor:pointer;white-space:nowrap;
+  transition:transform .3s var(--ease),background .3s,box-shadow .3s}
+.btn:hover{background:var(--verniz);transform:translateY(-2px);
+  box-shadow:0 10px 34px rgba(200,118,58,.3)}
+.btn.ghost{background:transparent;color:var(--serragem);border:1px solid var(--fio)}
+.btn.ghost:hover{background:transparent;border-color:var(--brasa);color:var(--verniz);
+  box-shadow:none}
+.btn svg{width:15px;height:15px;flex:none}
+
+#burger{display:none;width:44px;height:44px;background:none;border:1px solid var(--fio);
+  border-radius:999px;cursor:pointer;position:relative}
+#burger span{position:absolute;left:13px;width:18px;height:1px;background:var(--serragem);
+  transition:transform .35s var(--ease),opacity .25s}
+#burger span:nth-child(1){top:19px}
+#burger span:nth-child(2){top:25px}
+body.menu #burger span:nth-child(1){transform:translateY(3px) rotate(45deg)}
+body.menu #burger span:nth-child(2){transform:translateY(-3px) rotate(-45deg)}
+
+#mob{position:fixed;inset:0;z-index:790;background:var(--breu);padding:96px var(--gut) 40px;
+  display:flex;flex-direction:column;gap:6px;clip-path:inset(0 0 100% 0);
+  transition:clip-path .6s var(--ease);overflow-y:auto}
+body.menu #mob{clip-path:inset(0 0 0 0)}
+#mob a{font-family:var(--disp);font-size:clamp(28px,8vw,44px);padding:11px 0;
+  border-bottom:1px solid var(--fio);letter-spacing:-.02em}
+#mob .btn{margin-top:26px;justify-content:center}
+
+@media(max-width:900px){
+  nav.desk{display:none}
+  #burger{display:block}
+  header .btn.wpp{display:none}
+}
+</style>
+<style>
+/* ── HERO — vídeo escrolável + TextPressure ─────────────────── */
+#hero{height:100svh;min-height:560px;overflow:hidden;
+  display:grid;grid-template-rows:1fr auto;isolation:isolate}
+#hero .film{position:absolute;inset:0;z-index:-2;overflow:hidden}
+#hero video,#hero .poster{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;will-change:transform}
+#hero .poster{background:var(--casca) center/cover no-repeat}
+#hero .film::after{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 82% 68% at 50% 42%,transparent 4%,rgba(13,9,6,.52) 58%,var(--breu) 100%),
+    linear-gradient(180deg,rgba(13,9,6,.86) 0%,transparent 26%,transparent 52%,var(--breu) 99%)}
+
+.hero-mid{display:grid;place-items:center;padding-top:64px;position:relative}
+#tp{width:min(1240px,88vw);height:clamp(90px,17vw,210px);position:relative;
+  overflow:hidden;margin-inline:auto}
+#tp h1{position:absolute;inset:0;margin:0;display:flex;justify-content:space-between;
+  align-items:center;font-family:'Archivo',sans-serif;font-weight:200;
+  text-transform:uppercase;white-space:nowrap;line-height:1;user-select:none;
+  color:var(--serragem)}
+#tp h1 span{display:inline-block;font-variation-settings:'wght' 300,'wdth' 100;
+  will-change:font-variation-settings}
+#tp h1 span.gap{flex:0 0 auto}
+.hero-sub{text-align:center;margin-top:clamp(14px,2.6vh,30px);
+  font-size:clamp(13px,1.15vw,17px);color:var(--po);font-weight:200;
+  letter-spacing:.04em;padding-inline:var(--gut)}
+.hero-sub b{color:var(--serragem);font-weight:400}
+
+.hero-foot{padding-bottom:clamp(20px,4vh,40px)}
+.hero-foot .wrap{display:flex;align-items:flex-end;justify-content:space-between;
+  gap:24px;flex-wrap:wrap;padding-right:calc(var(--gut) + 72px)}
+@media(max-width:900px){.hero-foot .wrap{padding-right:var(--gut)}}
+.hero-facts{display:flex;gap:clamp(18px,3.4vw,54px);flex-wrap:wrap}
+.hero-facts div{display:flex;flex-direction:column;gap:5px}
+.hero-facts b{font-family:var(--disp);font-size:clamp(19px,2.1vw,30px);font-weight:400;
+  letter-spacing:-.02em;color:var(--serragem)}
+.scroll-cue{display:flex;align-items:center;gap:11px}
+.scroll-cue i{width:1px;height:38px;background:linear-gradient(var(--brasa),transparent);
+  display:block;animation:cue 2.1s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}
+  45%{transform:scaleY(1);transform-origin:top}
+  55%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ── MANIFESTO ──────────────────────────────────────────────── */
+#manifesto{padding:var(--sec) 0}
+#manifesto .grid{display:grid;grid-template-columns:1fr;gap:clamp(30px,5vw,80px)}
+@media(min-width:940px){#manifesto .grid{grid-template-columns:1.35fr .95fr;align-items:end}}
+.big-claim{font-family:var(--disp);font-weight:400;letter-spacing:-.03em;line-height:.98;
+  font-size:clamp(33px,5.6vw,84px);font-variation-settings:'opsz' 144,'SOFT' 28,'WONK' 1}
+.big-claim em{font-style:italic;color:var(--brasa);font-variation-settings:'opsz' 144,'WONK' 1}
+.reveal-line{display:block;overflow:hidden}
+.reveal-line>span{display:block;transform:translateY(105%);
+  transition:transform .95s var(--ease)}
+.on .reveal-line>span{transform:none}
+.reveal-line:nth-child(2)>span{transition-delay:.08s}
+.reveal-line:nth-child(3)>span{transition-delay:.16s}
+.reveal-line:nth-child(4)>span{transition-delay:.24s}
+.reveal-line:nth-child(5)>span{transition-delay:.32s}
+
+.fade{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.fade.on{opacity:1;transform:none}
+
+/* ── CORREDOR EM PERSPECTIVA ────────────────────────────────── */
+#corredor{height:340vh;background:var(--breu)}
+#corredor .stick{position:sticky;top:0;height:100svh;overflow:hidden}
+.cam{position:absolute;inset:0;perspective:1150px;
+  perspective-origin:calc(50% + var(--px,0px)) calc(50% + var(--py,0px))}
+.scene{position:absolute;inset:0;transform-style:preserve-3d}
+.tile{position:absolute;left:50%;top:50%;transform-style:preserve-3d;opacity:0;
+  border-radius:14px;overflow:hidden;border:1px solid rgba(241,229,210,.14);
+  background:var(--casca);box-shadow:0 46px 120px rgba(0,0,0,.7);will-change:transform,opacity}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 54%,rgba(13,9,6,.86) 100%)}
+.tile img{filter:brightness(1.28) saturate(1.12)}
+.tile b{position:absolute;left:15px;bottom:12px;z-index:2;font-size:10px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;text-shadow:0 2px 12px #000}
+.veil{position:absolute;inset:0;pointer-events:none;z-index:3;
+  background:radial-gradient(ellipse 74% 66% at 50% 50%,transparent 30%,rgba(13,9,6,.42) 70%,var(--breu) 100%)}
+.corredor-hd{position:absolute;left:0;right:0;top:clamp(84px,12vh,132px);z-index:4;
+  text-align:center;pointer-events:none;padding-inline:var(--gut)}
+.corredor-hd h2{font-size:clamp(30px,4.6vw,64px)}
+
+/* ── AMBIENTES — object reveal on hover ─────────────────────── */
+#ambientes{padding:var(--sec) 0;position:relative}
+.amb-list{border-top:1px solid var(--fio)}
+.amb{position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:clamp(14px,2.5vw,34px);
+  align-items:center;padding:clamp(20px,3.1vw,40px) 0;border-bottom:1px solid var(--fio);
+  cursor:pointer;transition:padding-left .5s var(--ease)}
+.amb:hover{padding-left:clamp(10px,1.6vw,26px)}
+.amb .num{font-size:11px;font-weight:500;letter-spacing:.16em;color:var(--po);
+  transition:color .4s;width:2.4em}
+.amb h3{transition:color .4s var(--ease);font-variation-settings:'opsz' 144,'SOFT' 24,'WONK' 1}
+.amb .meta{font-size:12px;color:var(--po);letter-spacing:.06em;text-align:right;
+  max-width:22ch;transition:color .4s}
+.amb:hover .num,.amb:hover .meta{color:var(--verniz)}
+.amb:hover h3{color:var(--brasa)}
+.amb::before{content:'';position:absolute;left:0;right:100%;bottom:-1px;height:1px;
+  background:var(--brasa);transition:right .6s var(--ease);z-index:2}
+.amb:hover::before{right:0}
+@media(max-width:760px){
+  .amb{grid-template-columns:auto 1fr;gap:12px}
+  .amb .meta{display:none}
+}
+/* o objeto revelado que segue o cursor */
+#reveal{position:fixed;top:0;left:0;width:clamp(240px,25vw,400px);aspect-ratio:16/11;
+  z-index:700;pointer-events:none;opacity:0;border-radius:12px;overflow:hidden;
+  transform:translate(-50%,-50%) scale(.82) rotate(-4deg);
+  transition:opacity .42s var(--ease),transform .5s var(--ease);
+  box-shadow:0 40px 90px rgba(0,0,0,.72);border:1px solid rgba(241,229,210,.16)}
+#reveal.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(0deg)}
+#reveal img{width:100%;height:100%;object-fit:cover;opacity:0;
+  position:absolute;inset:0;transition:opacity .38s var(--ease)}
+#reveal img.vis{opacity:1}
+@media(hover:none),(pointer:coarse){#reveal{display:none}}
+/* fallback mobile: miniatura embutida */
+.amb .thumb{display:none}
+@media(max-width:760px){
+  .amb .thumb{display:block;grid-column:1/-1;margin-top:14px;border-radius:10px;
+    overflow:hidden;aspect-ratio:16/9;border:1px solid var(--fio)}
+  .amb .thumb img{width:100%;height:100%;object-fit:cover}
+}
+
+/* ── 3D interativo ──────────────────────────────────────────── */
+#tridi{padding:var(--sec) 0;overflow:hidden}
+#tridi .grid{display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,64px);align-items:center}
+@media(min-width:980px){#tridi .grid{grid-template-columns:.86fr 1.14fr}}
+#palco{position:relative;aspect-ratio:1/1;max-height:74vh;border-radius:16px;
+  background:radial-gradient(ellipse 62% 58% at 50% 46%,#1b1209 0%,var(--breu) 72%);
+  border:1px solid var(--fio);overflow:hidden;cursor:grab;touch-action:pan-y}
+#palco.drag{cursor:grabbing}
+#palco canvas{width:100%!important;height:100%!important;display:block}
+#palco .hint{position:absolute;left:0;right:0;bottom:14px;text-align:center;
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--po);
+  pointer-events:none;transition:opacity .5s}
+#palco.tocado .hint{opacity:0}
+.ctrls{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.chip{padding:10px 16px;border:1px solid var(--fio);border-radius:999px;font-size:11px;
+  font-weight:500;letter-spacing:.13em;text-transform:uppercase;background:none;
+  cursor:pointer;color:var(--po);transition:all .3s var(--ease)}
+.chip:hover{border-color:var(--brasa);color:var(--verniz)}
+.chip[aria-pressed=true]{background:var(--brasa);border-color:var(--brasa);color:#140D07}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));
+  gap:1px;background:var(--fio);border:1px solid var(--fio);margin-top:30px;border-radius:10px;
+  overflow:hidden}
+.specs div{background:var(--breu);padding:16px 18px}
+.specs b{display:block;font-family:var(--disp);font-size:24px;font-weight:400;
+  letter-spacing:-.02em;margin-bottom:3px}
+.specs span{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--po)}
+</style>
+<style>
+/* ── PORTAL escrolável ──────────────────────────────────────── */
+#portal{height:300vh;background:var(--breu)}
+#portal .stick{position:sticky;top:0;height:100svh;overflow:hidden;
+  display:grid;place-items:center}
+/* o "quarto" que existe atrás da porta */
+.sala{position:absolute;inset:0;overflow:hidden;
+  clip-path:inset(var(--pt,42%) var(--px2,38%) var(--pb,14%) var(--px2,38%) round var(--pr,10px));
+  will-change:clip-path}
+.sala img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  transform:scale(var(--pz,1.34));transform-origin:50% 52%;will-change:transform}
+.sala::after{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 50% 50%,transparent 20%,rgba(13,9,6,.55) 78%)}
+/* as duas folhas da porta */
+.folha{position:absolute;top:0;bottom:0;width:52%;overflow:hidden;
+  background:var(--casca);will-change:transform;z-index:2;
+  box-shadow:0 0 90px rgba(0,0,0,.75)}
+.folha img{width:100%;height:100%;object-fit:cover;opacity:.94}
+.folha.l{left:0;transform:translateX(calc(var(--abre,0) * -102%));
+  border-right:1px solid rgba(241,229,210,.1)}
+.folha.r{right:0;transform:translateX(calc(var(--abre,0) * 102%));
+  border-left:1px solid rgba(241,229,210,.1)}
+.folha::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(13,9,6,.28),transparent 42%,rgba(13,9,6,.5))}
+.folha i{position:absolute;top:50%;width:7px;height:96px;border-radius:4px;
+  background:linear-gradient(90deg,#241a12,#0d0a07);transform:translateY(-50%);
+  box-shadow:0 3px 16px rgba(0,0,0,.85),0 0 0 1px rgba(241,229,210,.09)}
+.folha.l i{right:20px}
+.folha.r i{left:20px}
+.portal-txt{position:relative;z-index:3;text-align:center;padding-inline:var(--gut);
+  pointer-events:none;transition:opacity .5s;opacity:var(--tx,1)}
+.portal-txt::before{content:"";position:absolute;left:50%;top:50%;width:150%;
+  height:340%;transform:translate(-50%,-50%);z-index:-1;
+  background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(9,6,4,.9),transparent 72%)}
+.portal-txt h2{margin-bottom:14px}
+.portal-in{position:absolute;left:0;right:0;bottom:clamp(50px,9vh,104px);z-index:3;
+  text-align:center;padding-inline:var(--gut);opacity:var(--ti,0);
+  transform:translateY(calc((1 - var(--ti,0)) * 26px));pointer-events:none}
+
+/* ── MATERIAIS ──────────────────────────────────────────────── */
+#materiais{padding:var(--sec) 0}
+.mats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:clamp(10px,1.4vw,20px);margin-top:clamp(26px,4vh,48px)}
+.mat{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;
+  border:1px solid var(--fio);cursor:pointer;
+  transition:transform .55s var(--ease),border-color .4s}
+.mat img{width:100%;height:100%;object-fit:cover;
+  transition:transform .8s var(--ease),filter .5s;filter:brightness(.82)}
+.mat:hover{transform:translateY(-8px);border-color:var(--brasa)}
+.mat:hover img{transform:scale(1.09);filter:brightness(1.06)}
+.mat figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 15px 14px;
+  background:linear-gradient(transparent,rgba(13,9,6,.94));
+  font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.mat figcaption em{display:block;font-style:normal;font-size:10px;color:var(--po);
+  letter-spacing:.1em;margin-top:4px;text-transform:none}
+
+/* ── PROCESSO ───────────────────────────────────────────────── */
+#processo{padding:var(--sec) 0;background:var(--casca);
+  border-block:1px solid var(--fio)}
+.passos{counter-reset:p;display:grid;grid-template-columns:1fr;gap:0;
+  margin-top:clamp(24px,4vh,44px)}
+@media(min-width:820px){.passos{grid-template-columns:repeat(5,1fr);gap:1px;background:var(--fio)}}
+.passo{background:var(--casca);padding:clamp(24px,2.4vw,34px) clamp(18px,1.8vw,26px);
+  border-bottom:1px solid var(--fio);position:relative;overflow:hidden}
+@media(min-width:820px){.passo{border-bottom:0;min-height:270px}}
+.passo::before{counter-increment:p;content:counter(p,decimal-leading-zero);
+  font-family:var(--disp);font-size:clamp(38px,4.2vw,60px);color:var(--fio);
+  display:block;line-height:1;margin-bottom:16px;transition:color .5s var(--ease)}
+.passo:hover::before{color:var(--brasa)}
+.passo h4{margin-bottom:9px}
+.passo p{font-size:13px;line-height:1.62;color:var(--po);margin:0}
+.passo::after{content:'';position:absolute;left:0;top:0;width:100%;height:1px;
+  background:var(--brasa);transform:scaleX(0);transform-origin:left;
+  transition:transform .6s var(--ease)}
+.passo:hover::after{transform:scaleX(1)}
+
+/* ── ORÇAMENTO ──────────────────────────────────────────────── */
+#orcamento{padding:var(--sec) 0}
+#orcamento .grid{display:grid;grid-template-columns:1fr;gap:clamp(34px,4vw,72px)}
+@media(min-width:980px){#orcamento .grid{grid-template-columns:1fr 1fr}}
+.campo{margin-bottom:22px}
+.campo label{display:block;font-size:10px;font-weight:600;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--po);margin-bottom:9px}
+.campo input,.campo textarea,.campo select{width:100%;background:transparent;border:0;
+  border-bottom:1px solid var(--fio);padding:11px 2px;font-size:15px;font-weight:300;
+  color:var(--serragem);transition:border-color .35s,background .35s;border-radius:0}
+.campo textarea{resize:vertical;min-height:88px;line-height:1.55}
+.campo select{cursor:pointer}
+.campo select option{background:var(--casca);color:var(--serragem)}
+.campo input:focus,.campo textarea:focus,.campo select:focus{outline:0;
+  border-bottom-color:var(--brasa)}
+.campo input::placeholder,.campo textarea::placeholder{color:#5f5346}
+.dois{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:600px){.dois{grid-template-columns:1fr}}
+
+/* prancheta de desenho */
+.prancheta{border:1px solid var(--fio);border-radius:12px;overflow:hidden;
+  background:var(--casca)}
+.prancheta .top{display:flex;align-items:center;justify-content:space-between;
+  gap:10px;padding:12px 14px;border-bottom:1px solid var(--fio);flex-wrap:wrap}
+.prancheta .top .mono{margin:0}
+.prancheta canvas{display:block;width:100%;aspect-ratio:4/3;background:#0A0705;
+  cursor:crosshair;touch-action:none}
+.prancheta .foot{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--fio);
+  flex-wrap:wrap;align-items:center}
+.mini{padding:8px 13px;border:1px solid var(--fio);border-radius:999px;background:none;
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--po);cursor:pointer;transition:all .3s}
+.mini:hover{border-color:var(--brasa);color:var(--verniz)}
+.mini[aria-pressed=true]{background:var(--brasa);border-color:var(--brasa);color:#140D07}
+.drop{border:1px dashed var(--fio);border-radius:12px;padding:26px 20px;text-align:center;
+  cursor:pointer;transition:all .35s var(--ease);margin-top:18px;position:relative}
+.drop:hover,.drop.hot{border-color:var(--brasa);background:rgba(200,118,58,.05)}
+.drop p{margin:0;font-size:13px;color:var(--po)}
+.drop strong{color:var(--serragem);font-weight:500}
+.drop img{max-height:190px;margin:14px auto 0;border-radius:8px;border:1px solid var(--fio)}
+.aviso{font-size:12px;color:var(--po);line-height:1.6;margin-top:16px;
+  padding-left:15px;border-left:1px solid var(--fio)}
+
+/* ── RODAPÉ ─────────────────────────────────────────────────── */
+footer{border-top:1px solid var(--fio);padding-top:clamp(50px,8vh,92px);
+  background:var(--breu)}
+.fgrid{display:grid;grid-template-columns:1fr;gap:clamp(28px,3vw,48px);
+  padding-bottom:clamp(40px,6vh,70px)}
+@media(min-width:820px){.fgrid{grid-template-columns:1.5fr 1fr 1fr 1.1fr}}
+.fgrid h5{margin:0 0 16px;font-size:10px;font-weight:600;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--po)}
+.fgrid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.fgrid li a,.fgrid li span{font-size:14px;color:var(--serragem);font-weight:300;
+  transition:color .3s}
+.fgrid li a:hover{color:var(--brasa)}
+.mapa{border:1px solid var(--fio);border-radius:12px;overflow:hidden;
+  filter:grayscale(1) invert(.92) contrast(.86) sepia(.34) hue-rotate(340deg) brightness(.92);
+  transition:filter .6s var(--ease)}
+.mapa:hover{filter:grayscale(.6) invert(.9) contrast(.9) sepia(.42) hue-rotate(340deg) brightness(1)}
+.mapa iframe{display:block;width:100%;height:210px;border:0}
+.fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:22px 0 30px;border-top:1px solid var(--fio);font-size:11px;color:var(--po);
+  letter-spacing:.06em}
+
+/* botão flutuante do WhatsApp */
+#wpp{position:fixed;right:clamp(14px,2.2vw,26px);bottom:clamp(14px,2.2vw,26px);z-index:750;
+  width:56px;height:56px;border-radius:999px;background:var(--brasa);display:grid;
+  place-items:center;box-shadow:0 12px 34px rgba(0,0,0,.5);
+  transform:scale(0);transition:transform .5s var(--ease),background .3s}
+#wpp.on{transform:scale(1)}
+#wpp:hover{background:var(--verniz)}
+#wpp svg{width:27px;height:27px;fill:#120C07}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .reveal-line>span{transform:none}
+  .fade{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="pre"><div>
+  <div class="nm">Marcenaria <em style="font-style:normal;color:#C8763A">JR</em></div>
+  <div class="bar"><i></i></div>
+</div></div>
+
+<div id="cur"><span class="lbl"></span></div><div id="curdot"></div>
+<div id="reveal"></div>
+
+<header>
+  <div class="wrap">
+    <a href="#topo" class="logo" data-cur="início"><i></i>Marcenaria&nbsp;<em>JR</em></a>
+    <nav class="desk">
+      <a href="#manifesto">A marcenaria</a>
+      <a href="#ambientes">Ambientes</a>
+      <a href="#tridi">Projeto 3D</a>
+      <a href="#materiais">Materiais</a>
+      <a href="#processo">Como fazemos</a>
+      <a href="#orcamento">Orçamento</a>
+    </nav>
+    <a class="btn wpp" href="#orcamento" data-cur="agendar">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.5 14c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.3-5-4.5-.1-.2-1.1-1.5-1.1-2.9 0-1.3.7-2 1-2.3.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.4.1.6-.1l.9-1c.2-.2.3-.2.6-.1l2 1c.3.1.4.2.5.3.1.2.1.6-.1 1.3Z"/></svg>
+      Agendar
+    </a>
+    <button id="burger" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<div id="mob">
+  <a href="#manifesto">A marcenaria</a>
+  <a href="#ambientes">Ambientes</a>
+  <a href="#tridi">Projeto 3D</a>
+  <a href="#materiais">Materiais</a>
+  <a href="#processo">Como fazemos</a>
+  <a href="#orcamento">Orçamento</a>
+  <a class="btn" href="https://wa.me/5516993482301" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+</div>
+
+<main id="topo">
+
+<!-- ══ HERO ══════════════════════════════════════════════════ -->
+<section id="hero">
+  <div class="film">
+    <div class="poster" style="background-image:url(assets/img/hero-poster.jpg)"></div>
+    <video id="filme" autoplay muted loop playsinline preload="metadata"
+           poster="assets/img/hero-poster.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video>
+  </div>
+
+  <div class="hero-mid">
+    <div>
+      <div id="tp"><h1 aria-label="Marcenaria JR"></h1></div>
+      <p class="hero-sub">Móveis planejados feitos para o <b>seu</b> espaço —
+        com qualidade, compromisso e excelente acabamento.</p>
+    </div>
+  </div>
+
+  <div class="hero-foot"><div class="wrap">
+    <div class="hero-facts">
+      <div><b>Ribeirão&nbsp;Preto</b><span class="mono">Sumarezinho · SP</span></div>
+      <div><b>100% sob medida</b><span class="mono">do desenho à montagem</span></div>
+      <div><b>Projeto 3D</b><span class="mono">antes de cortar a primeira chapa</span></div>
+    </div>
+    <div class="scroll-cue"><i></i><span class="mono">Role para entrar</span></div>
+  </div></div>
+</section>
+
+<!-- ══ MANIFESTO ═════════════════════════════════════════════ -->
+<section id="manifesto">
+  <div class="wrap">
+    <div class="eyebrow"><span class="mono"><b>01</b> &nbsp;A marcenaria</span></div>
+    <div class="grid">
+      <div>
+        <div class="big-claim" data-lines>
+          <span class="reveal-line"><span>Um móvel bom</span></span>
+          <span class="reveal-line"><span>não se nota.</span></span>
+          <span class="reveal-line"><span><em>Ele só encaixa.</em></span></span>
+        </div>
+      </div>
+      <div class="fade">
+        <p class="lede">A gente mede o seu espaço, desenha o móvel para ele e fabrica
+          peça por peça. Nada de gaveta que emperra, porta desalinhada ou fita de borda
+          soltando no segundo verão.</p>
+        <p class="corpo">A Marcenaria JR nasceu no Sumarezinho e cresceu no boca a boca de
+          Ribeirão Preto. Trabalhamos com MDF de procedência, lâmina natural e laca fosca,
+          ferragens com amortecedor e um acabamento que a gente confere de perto — porque
+          é o nosso nome que vai junto com o móvel.</p>
+        <a class="btn ghost" href="#processo" data-cur="ver">Como fazemos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CORREDOR EM PERSPECTIVA ═══════════════════════════════ -->
+<section id="corredor">
+  <div class="stick">
+    <div class="cam"><div class="scene" id="scene"></div></div>
+    <div class="veil"></div>
+    <div class="corredor-hd">
+      <div class="mono" style="margin-bottom:14px"><b>02</b> &nbsp;O que sai da oficina</div>
+      <h2>Projeto por projeto</h2>
+    </div>
+  </div>
+</section>
+
+<!-- ══ AMBIENTES — object reveal on hover ════════════════════ -->
+<section id="ambientes">
+  <div class="wrap">
+    <div class="eyebrow"><span class="mono"><b>03</b> &nbsp;Ambientes que fazemos</span></div>
+    <h2 class="fade" style="margin-bottom:clamp(28px,4vh,54px);max-width:15ch">
+      Tudo sob medida.<br>Do rodapé ao forro.</h2>
+    <div class="amb-list" id="ambList"></div>
+    <p class="corpo fade" style="margin-top:34px">Não achou o seu ambiente?
+      Fazemos qualquer móvel planejado — inclusive aquele encaixe estranho embaixo da
+      escada que ninguém quis resolver.</p>
+  </div>
+</section>
+
+<!-- ══ 3D INTERATIVO ═════════════════════════════════════════ -->
+<section id="tridi">
+  <div class="wrap">
+    <div class="eyebrow"><span class="mono"><b>04</b> &nbsp;Projeto 3D interativo</span></div>
+    <div class="grid">
+      <div>
+        <h2 style="margin-bottom:22px">Gire.<br>Abra.<br>Escolha a lâmina.</h2>
+        <p class="corpo">Antes de qualquer corte, você recebe o móvel em 3D e roda ele na
+          tela — igualzinho a este. Se a gaveta tem que ser mais funda ou a porta abrir
+          para o outro lado, a gente muda ali, não na oficina.</p>
+        <div class="ctrls" id="ctrlsMat" role="group" aria-label="Lâmina">
+          <button class="chip" data-mat="freijo" aria-pressed="true">Freijó</button>
+          <button class="chip" data-mat="imbuia" aria-pressed="false">Imbuia</button>
+          <button class="chip" data-mat="carvalho" aria-pressed="false">Carvalho</button>
+          <button class="chip" data-mat="laca" aria-pressed="false">Laca off-white</button>
+        </div>
+        <div class="ctrls">
+          <button class="chip" id="btnPortas" aria-pressed="false">Abrir as portas</button>
+          <button class="chip" id="btnGira" aria-pressed="true">Girar sozinho</button>
+        </div>
+        <div class="specs">
+          <div><b>18&nbsp;mm</b><span>MDF do corpo</span></div>
+          <div><b>2,60&nbsp;m</b><span>altura padrão</span></div>
+          <div><b>Soft-close</b><span>em toda gaveta</span></div>
+          <div><b>Cava</b><span>puxador embutido</span></div>
+        </div>
+      </div>
+      <div id="palco">
+        <span class="hint">Arraste para girar · role para aproximar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PORTAL ESCROLÁVEL ═════════════════════════════════════ -->
+<section id="portal">
+  <div class="stick">
+    <div class="sala"><img src="assets/img/cozinha.jpg" alt="Cozinha planejada entregue"></div>
+    <div class="folha l"><img src="assets/img/mat-imbuia.jpg" alt=""><i></i></div>
+    <div class="folha r"><img src="assets/img/mat-imbuia.jpg" alt=""><i></i></div>
+    <div class="portal-txt">
+      <div class="mono" style="margin-bottom:16px"><b>05</b> &nbsp;A entrega</div>
+      <h2>Abra a porta</h2>
+      <p class="mono" style="margin-top:14px">Role para atravessar</p>
+    </div>
+    <div class="portal-in">
+      <h3 style="margin-bottom:12px">O dia da montagem</h3>
+      <p class="corpo" style="margin:0 auto">A gente sai e o ambiente fica pronto —
+        limpo, alinhado, com as portas reguladas uma a uma.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ MATERIAIS ═════════════════════════════════════════════ -->
+<section id="materiais">
+  <div class="wrap">
+    <div class="eyebrow"><span class="mono"><b>06</b> &nbsp;Materiais</span></div>
+    <h2 class="fade" style="max-width:16ch">O acabamento começa na chapa.</h2>
+    <div class="mats" id="mats"></div>
+  </div>
+</section>
+
+<!-- ══ PROCESSO ══════════════════════════════════════════════ -->
+<section id="processo">
+  <div class="wrap">
+    <div class="eyebrow"><span class="mono"><b>07</b> &nbsp;Como fazemos</span></div>
+    <h2 class="fade" style="max-width:18ch">Cinco etapas, nenhuma surpresa.</h2>
+    <div class="passos">
+      <div class="passo"><h4>Visita e medição</h4><p>Vamos até você em Ribeirão e região,
+        medimos o vão real e conferimos prumo, esquadro, tomadas e tubulação.</p></div>
+      <div class="passo"><h4>Projeto 3D</h4><p>Você vê o móvel montado na tela, com a
+        lâmina escolhida, antes de aprovar qualquer coisa.</p></div>
+      <div class="passo"><h4>Aprovação e prazo</h4><p>Orçamento fechado, sem item escondido.
+        Data de entrega combinada por escrito.</p></div>
+      <div class="passo"><h4>Produção</h4><p>Corte, fita de borda, usinagem e pré-montagem
+        na nossa oficina — conferido peça por peça.</p></div>
+      <div class="passo"><h4>Montagem</h4><p>Instalamos, regulamos porta por porta,
+        limpamos tudo e só saímos com você aprovando.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ORÇAMENTO ═════════════════════════════════════════════ -->
+<section id="orcamento">
+  <div class="wrap">
+    <div class="eyebrow"><span class="mono"><b>08</b> &nbsp;Agende seu móvel</span></div>
+    <div class="grid">
+      <div>
+        <h2 style="margin-bottom:20px;max-width:14ch">Conte o que você precisa.</h2>
+        <p class="corpo" style="margin-bottom:34px">Preencha, aperte o botão e o WhatsApp
+          abre com tudo escrito. Você só dá enviar.</p>
+
+        <form id="form" novalidate>
+          <div class="dois">
+            <div class="campo"><label for="f-nome">Seu nome</label>
+              <input id="f-nome" name="nome" required autocomplete="name" placeholder="Como te chamamos?"></div>
+            <div class="campo"><label for="f-tel">Telefone</label>
+              <input id="f-tel" name="tel" inputmode="tel" autocomplete="tel" placeholder="(16) 90000-0000"></div>
+          </div>
+          <div class="dois">
+            <div class="campo"><label for="f-amb">Ambiente</label>
+              <select id="f-amb" name="ambiente"></select></div>
+            <div class="campo"><label for="f-prazo">Para quando</label>
+              <select id="f-prazo" name="prazo">
+                <option>Sem pressa — quero orçar</option>
+                <option>Nos próximos 30 dias</option>
+                <option>Em 2 a 3 meses</option>
+                <option>Obra em andamento</option>
+              </select></div>
+          </div>
+          <div class="dois">
+            <div class="campo"><label for="f-med">Medidas aproximadas</label>
+              <input id="f-med" name="medidas" placeholder="ex.: 3,20 m × 2,60 m de pé-direito"></div>
+            <div class="campo"><label for="f-bairro">Bairro / cidade</label>
+              <input id="f-bairro" name="bairro" placeholder="ex.: Jardim Irajá, Ribeirão Preto"></div>
+          </div>
+          <div class="campo"><label for="f-obs">O que você imaginou</label>
+            <textarea id="f-obs" name="obs" placeholder="Cor, lâmina, quantas portas, se tem gaveta, se precisa de nicho para o forno…"></textarea></div>
+
+          <div class="drop" id="drop" tabindex="0" role="button"
+               aria-label="Anexar foto do desenho">
+            <p><strong>Tem um desenho ou uma foto de referência?</strong><br>
+              Clique aqui, ou arraste a imagem — ela abre junto na conversa.</p>
+            <input type="file" id="file" accept="image/*" hidden>
+          </div>
+
+          <button class="btn" type="submit" style="margin-top:26px;width:100%;justify-content:center"
+                  data-cur="enviar">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.5 14c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.3-5-4.5-.1-.2-1.1-1.5-1.1-2.9 0-1.3.7-2 1-2.3.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.4.1.6-.1l.9-1c.2-.2.3-.2.6-.1l2 1c.3.1.4.2.5.3.1.2.1.6-.1 1.3Z"/></svg>
+            Abrir no WhatsApp com tudo preenchido
+          </button>
+          <p class="aviso" id="aviso">O WhatsApp não deixa anexar arquivo por link.
+            Sua imagem é <b>baixada para o seu aparelho</b> e a conversa abre em seguida —
+            é só tocar no clipe e escolher a foto que acabou de salvar.</p>
+        </form>
+      </div>
+
+      <div>
+        <div class="prancheta">
+          <div class="top">
+            <span class="mono">Ou rabisque aqui mesmo</span>
+            <div style="display:flex;gap:6px">
+              <button class="mini" type="button" data-esp="3" aria-pressed="true">Fino</button>
+              <button class="mini" type="button" data-esp="8" aria-pressed="false">Grosso</button>
+            </div>
+          </div>
+          <canvas id="prancha" width="960" height="720"
+                  aria-label="Área para desenhar seu móvel"></canvas>
+          <div class="foot">
+            <button class="mini" type="button" id="limpar">Limpar</button>
+            <button class="mini" type="button" id="desfazer">Desfazer</button>
+            <button class="mini" type="button" id="usar">Usar este desenho</button>
+            <span class="mono" id="prState" style="margin-left:auto"></span>
+          </div>
+        </div>
+        <p class="corpo" style="margin-top:20px;font-size:13px">Desenhe o móvel do jeito que
+          está na sua cabeça — planta, elevação, um quadrado com uma seta. Serve. A gente
+          entende e transforma em projeto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ══ RODAPÉ ════════════════════════════════════════════════ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="logo" style="font-size:26px;margin-bottom:18px"><i></i>Marcenaria&nbsp;<em>JR</em></div>
+        <p class="corpo" style="font-size:14px;max-width:32ch">Móveis planejados feitos para
+          o seu espaço, com qualidade, compromisso e excelente acabamento.</p>
+      </div>
+      <div>
+        <h5>Oficina</h5>
+        <ul>
+          <li><span>Rua Itapetinga, 1422</span></li>
+          <li><span>Sumarezinho</span></li>
+          <li><span>Ribeirão Preto — SP</span></li>
+          <li><span>CEP 14050-355</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Falar com a gente</h5>
+        <ul>
+          <li><a href="https://wa.me/5516993482301" target="_blank" rel="noopener" data-cur="whats">WhatsApp · (16) 99348-2301</a></li>
+          <li><a href="tel:+5516993482301">Ligar agora</a></li>
+          <li><a href="https://www.instagram.com/marcenariajr_rp/" target="_blank" rel="noopener" data-cur="ver">Instagram · @marcenariajr_rp</a></li>
+          <li><span>Seg a sex 8h–18h · Sáb 8h–12h</span></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Onde ficamos</h5>
+        <div class="mapa">
+          <iframe title="Mapa — Rua Itapetinga, 1422, Sumarezinho, Ribeirão Preto" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Rua%20Itapetinga%2C%201422%2C%20Sumarezinho%2C%20Ribeir%C3%A3o%20Preto%20-%20SP%2C%2014050-355&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>© <span id="ano"></span> Marcenaria JR · Ribeirão Preto/SP</span>
+      <span>Móveis planejados sob medida</span>
+    </div>
+  </div>
+</footer>
+
+<a id="wpp" href="https://wa.me/5516993482301" target="_blank" rel="noopener"
+   aria-label="Chamar no WhatsApp" data-cur="whats">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.7 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.5 14c-.2.7-1.3 1.3-1.9 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-2.9-1.3-4.8-4.3-5-4.5-.1-.2-1.1-1.5-1.1-2.9 0-1.3.7-2 1-2.3.2-.3.5-.4.7-.4h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.1 1 2.1 1.3 2.4 1.4.3.1.4.1.6-.1l.9-1c.2-.2.3-.2.6-.1l2 1c.3.1.4.2.5.3.1.2.1.6-.1 1.3Z"/></svg>
+</a>
+
+<script src="assets/js/three.min.js"></script>
+<script>
+(() => {
+'use strict';
+
+const $  = (s,c=document) => c.querySelector(s);
+const $$ = (s,c=document) => [...c.querySelectorAll(s)];
+const clamp = (v,a,b) => v<a?a:v>b?b:v;
+const lerp  = (a,b,t) => a+(b-a)*t;
+const REDUZ = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const TOQUE = matchMedia('(hover: none), (pointer: coarse)').matches;
+
+/* ── dados ───────────────────────────────────────────────── */
+const AMBIENTES = [
+  {id:'cozinha',    nome:'Cozinha',           meta:'Torre quente, despenseiro, bancada'},
+  {id:'closet',     nome:'Closet',            meta:'Cabideiro, gaveteiro, LED por prateleira'},
+  {id:'painel-tv',  nome:'Painel de TV',      meta:'Ripado, nicho de som, passagem de fio'},
+  {id:'home-office',nome:'Home office',       meta:'Tampo, aéreos, estante até o teto'},
+  {id:'dormitorio', nome:'Dormitório',        meta:'Cabeceira, guarda-roupa, criado-mudo'},
+  {id:'banheiro',   nome:'Banheiro',          meta:'Gabinete, espelheira, nicho de box'},
+  {id:'gourmet',    nome:'Área gourmet',      meta:'Churrasqueira, adega, bancada de apoio'},
+];
+const MATERIAIS = [
+  {id:'freijo',   nome:'Freijó',      desc:'Mel claro, veio longo e calmo'},
+  {id:'imbuia',   nome:'Imbuia',      desc:'Chocolate, veio marcante'},
+  {id:'carvalho', nome:'Carvalho',    desc:'Neutro, aceita qualquer cor'},
+  {id:'nogueira', nome:'Nogueira',    desc:'Escuro e quente, para destaque'},
+  {id:'laca',     nome:'Laca off-white', desc:'Fosca, sem brilho, fácil de limpar'},
+];
+const FONE = '5516993482301';
+
+/* ── preloader ───────────────────────────────────────────── */
+const pre = $('#pre'), barra = $('#pre .bar i');
+let carregado = 0;
+const ativos = [...AMBIENTES.map(a=>`assets/img/${a.id}.jpg`),
+                ...MATERIAIS.map(m=>`assets/img/mat-${m.id}.jpg`),
+                'assets/img/hero-poster.jpg'];
+const fim = () => {
+  carregado++;
+  barra.style.right = (100 - carregado/ativos.length*100) + '%';
+  if (carregado >= ativos.length) setTimeout(()=>{
+    pre.classList.add('off'); document.body.classList.add('pronto');
+    $('#wpp').classList.add('on');
+  }, 260);
+};
+ativos.forEach(src => { const i = new Image(); i.onload = i.onerror = fim; i.src = src; });
+setTimeout(()=>{ pre.classList.add('off'); $('#wpp').classList.add('on'); }, 4200);
+
+/* ── cursor ──────────────────────────────────────────────── */
+if (!TOQUE) {
+  const cur = $('#cur'), dot = $('#curdot'), lbl = $('#cur .lbl');
+  let mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my;
+  addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.transform = `translate(${mx}px,${my}px)`;
+  }, {passive:true});
+  (function anima(){
+    cx = lerp(cx, mx, .18); cy = lerp(cy, my, .18);
+    cur.style.transform = `translate(${cx}px,${cy}px)`;
+    requestAnimationFrame(anima);
+  })();
+  const alvos = 'a,button,.amb,.mat,.passo,#palco,.drop,input,textarea,select,canvas';
+  document.addEventListener('mouseover', e => {
+    const t = e.target.closest(alvos);
+    if (!t) return;
+    cur.classList.add('on');
+    lbl.textContent = t.dataset.cur || '';
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest(alvos) && !e.relatedTarget?.closest(alvos)) {
+      cur.classList.remove('on'); lbl.textContent = '';
+    }
+  });
+}
+
+/* ── header + menu ───────────────────────────────────────── */
+const head = $('header'), burger = $('#burger');
+addEventListener('scroll', () => head.classList.toggle('stuck', scrollY > 40), {passive:true});
+burger.addEventListener('click', () => {
+  const ab = document.body.classList.toggle('menu');
+  burger.setAttribute('aria-expanded', ab);
+  document.body.style.overflow = ab ? 'hidden' : '';
+});
+$$('#mob a').forEach(a => a.addEventListener('click', () => {
+  document.body.classList.remove('menu');
+  burger.setAttribute('aria-expanded','false');
+  document.body.style.overflow = '';
+}));
+$$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const alvo = $(a.getAttribute('href'));
+  if (!alvo) return;
+  e.preventDefault();
+  alvo.scrollIntoView({behavior: REDUZ ? 'auto' : 'smooth', block:'start'});
+}));
+
+/* ── TEXTPRESSURE — as letras reagem ao cursor ───────────── */
+(() => {
+  const h1 = $('#tp h1'), caixa = $('#tp');
+  const texto = 'MARCENARIA JR';
+  const spans = [...texto].map(ch => {
+    const s = document.createElement('span');
+    if (ch === ' ') { s.className='gap'; s.style.width='1.05em';
+                      s.setAttribute('aria-hidden','true'); }
+    else s.textContent = ch;
+    h1.appendChild(s);
+    return s;
+  });
+
+  const MAXW = TOQUE ? 106 : 124;      // teto do eixo wdth
+  const MAXG = TOQUE ? 560 : 880;      // teto do eixo wght
+  const ajusta = () => {
+    const w = caixa.clientWidth;
+    if (!w) return;
+    // mede a linha já no extremo dos eixos: assim a animação nunca transborda
+    spans.forEach(s => s.style.fontVariationSettings = `'wght' ${MAXG},'wdth' ${MAXW}`);
+    h1.style.fontSize = '100px';
+    const largo = spans.reduce((a, s) => a + s.getBoundingClientRect().width, 0);
+    if (largo > 0) h1.style.fontSize = Math.max(20, 100 * w / largo * .99) + 'px';
+  };
+  ajusta();
+  addEventListener('resize', ajusta, {passive:true});
+  document.fonts?.ready.then(ajusta);
+  setTimeout(ajusta, 1200);
+
+  if (REDUZ) { spans.forEach(s => s.style.fontVariationSettings = "'wght' 320,'wdth' 104"); return; }
+
+  let mx = innerWidth/2, my = -400, ax = mx, ay = my;
+  addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, {passive:true});
+  addEventListener('touchmove', e => {
+    const t = e.touches[0]; if (t) { mx = t.clientX; my = t.clientY; }
+  }, {passive:true});
+
+  const attr = (d, max, min, top) => Math.max(min, top - Math.abs(top * d / max));
+
+  (function tick(){
+    ax = lerp(ax, mx, .12); ay = lerp(ay, my, .12);
+    const r = h1.getBoundingClientRect();
+    if (r.bottom > -200 && r.top < innerHeight + 200) {
+      const maxd = Math.max(r.width / 2, 220);
+      for (const s of spans) {
+        if (!s.textContent) continue;
+        const b = s.getBoundingClientRect();
+        const d = Math.hypot(ax - (b.x + b.width/2), ay - (b.y + b.height/2));
+        const wg = Math.round(attr(d, maxd, 120, MAXG));
+        const wd = Math.round(attr(d, maxd, 68, MAXW));
+        s.style.fontVariationSettings = `'wght' ${wg},'wdth' ${wd}`;
+      }
+    }
+    requestAnimationFrame(tick);
+  })();
+})();
+
+/* ── revelações no scroll ────────────────────────────────── */
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+}), {threshold:.16, rootMargin:'0px 0px -8% 0px'});
+$$('.fade,[data-lines]').forEach(el => io.observe(el));
+
+/* ── vídeo do hero: parallax + economia de bateria ───────── */
+(() => {
+  const film = $('#hero .film'), vid = $('#filme'), hero = $('#hero');
+  if (!REDUZ) addEventListener('scroll', () => {
+    const y = scrollY;
+    if (y < innerHeight * 1.2)
+      film.style.transform = `translate3d(0,${y * .32}px,0) scale(${1 + y/innerHeight*.1})`;
+  }, {passive:true});
+  new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) vid.play?.().catch(()=>{}); else vid.pause?.();
+  }), {threshold:.05}).observe(hero);
+})();
+
+/* ── CORREDOR EM PERSPECTIVA ─────────────────────────────── */
+(() => {
+  const sec = $('#corredor'), cena = $('#scene'), cam = $('.cam');
+  const N = 16, PROF = 2800, PASSO = PROF / N;
+  const fotos = [...AMBIENTES, ...AMBIENTES].slice(0, N);
+
+  const azar = (s) => { let x = Math.sin(s * 12.9898) * 43758.5453; return x - Math.floor(x); };
+  const tiles = fotos.map((a, i) => {
+    const el = document.createElement('div');
+    el.className = 'tile';
+    const ang = i * 2.39996323 + azar(i + 1) * .5;   // ângulo áureo: espalha parelho
+    const raio = 210 + azar(i + 9) * 250;
+    const larg = 250 + azar(i + 21) * 190;
+    el.style.width  = larg + 'px';
+    el.style.height = Math.round(larg * (.62 + azar(i+33) * .25)) + 'px';
+    el.innerHTML = `<img src="assets/img/${a.id}-sm.jpg" alt="${a.nome} planejado"
+      loading="lazy" decoding="async"><b>${a.nome}</b>`;
+    cena.appendChild(el);
+    return {el, x: Math.cos(ang) * raio * 1.5, y: Math.sin(ang) * raio * .92, base: i * PASSO,
+            giro: (azar(i+41) - .5) * 13};
+  });
+
+  let alvo = 0, suave = 0, rodando = false;
+  const desenha = () => {
+    suave = lerp(suave, alvo, .1);
+    for (const t of tiles) {
+      let u = (t.base + suave * PROF) % PROF; if (u < 0) u += PROF;
+      const z = -PROF + u;
+      const op = clamp((z + PROF) / (PROF * .3), 0, 1) * clamp(-z / 260, 0, 1);
+      t.el.style.opacity = op;
+      t.el.style.transform =
+        `translate(-50%,-50%) translate3d(${t.x}px,${t.y}px,${z}px) rotate(${t.giro}deg)`;
+    }
+    if (Math.abs(alvo - suave) > 1e-4) requestAnimationFrame(desenha);
+    else rodando = false;
+  };
+  const pede = () => { if (!rodando) { rodando = true; requestAnimationFrame(desenha); } };
+
+  addEventListener('scroll', () => {
+    const r = sec.getBoundingClientRect();
+    alvo = clamp(-r.top / (r.height - innerHeight), 0, 1);
+    pede();
+  }, {passive:true});
+
+  if (!TOQUE) sec.addEventListener('mousemove', e => {
+    cam.style.setProperty('--px', ((e.clientX / innerWidth) - .5) * -110 + 'px');
+    cam.style.setProperty('--py', ((e.clientY / innerHeight) - .5) * -70 + 'px');
+  }, {passive:true});
+
+  pede();
+})();
+
+/* ── AMBIENTES + OBJECT REVEAL ON HOVER ──────────────────── */
+(() => {
+  const lista = $('#ambList'), rev = $('#reveal');
+  const imgs = {};
+
+  AMBIENTES.forEach((a, i) => {
+    const li = document.createElement('article');
+    li.className = 'amb';
+    li.dataset.id = a.id;
+    li.dataset.cur = 'orçar';
+    li.innerHTML =
+      `<span class="num">${String(i+1).padStart(2,'0')}</span>
+       <h3>${a.nome}</h3>
+       <span class="meta">${a.meta}</span>
+       <div class="thumb"><img src="assets/img/${a.id}-sm.jpg" alt="${a.nome} planejado"
+            loading="lazy" decoding="async"></div>`;
+    li.addEventListener('click', () => {
+      $('#f-amb').value = a.nome;
+      $('#orcamento').scrollIntoView({behavior: REDUZ ? 'auto' : 'smooth'});
+    });
+    lista.appendChild(li);
+
+    const im = document.createElement('img');
+    im.src = `assets/img/${a.id}-sm.jpg`; im.alt = '';
+    im.loading = 'lazy'; im.decoding = 'async';
+    rev.appendChild(im);
+    imgs[a.id] = im;
+  });
+
+  if (TOQUE) return;
+  let mx = 0, my = 0, rx = 0, ry = 0, vivo = false;
+  addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, {passive:true});
+
+  $$('.amb').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      vivo = true; rx = mx; ry = my;
+      Object.values(imgs).forEach(i => i.classList.remove('vis'));
+      imgs[el.dataset.id].classList.add('vis');
+      rev.classList.add('on');
+    });
+    el.addEventListener('mouseleave', () => { vivo = false; rev.classList.remove('on'); });
+  });
+
+  (function segue(){
+    if (vivo) {
+      rx = lerp(rx, mx, .13); ry = lerp(ry, my, .13);
+      const incl = clamp((mx - rx) * .09, -11, 11);
+      rev.style.transform =
+        `translate(${rx}px,${ry}px) translate(-50%,-50%) scale(1) rotate(${incl}deg)`;
+    }
+    requestAnimationFrame(segue);
+  })();
+})();
+
+/* ── MATERIAIS ───────────────────────────────────────────── */
+(() => {
+  const g = $('#mats');
+  MATERIAIS.forEach(m => {
+    const f = document.createElement('figure');
+    f.className = 'mat'; f.style.margin = 0; f.dataset.cur = 'usar';
+    f.innerHTML = `<img src="assets/img/mat-${m.id}.jpg" alt="Lâmina de ${m.nome}"
+        loading="lazy" decoding="async">
+      <figcaption>${m.nome}<em>${m.desc}</em></figcaption>`;
+    f.addEventListener('click', () => {
+      const chip = $(`#ctrlsMat .chip[data-mat="${m.id}"]`);
+      if (chip) { chip.click(); $('#tridi').scrollIntoView({behavior:REDUZ?'auto':'smooth'}); }
+    });
+    g.appendChild(f);
+  });
+})();
+
+/* ── ARMÁRIO 3D INTERATIVO (Three.js) ────────────────────── */
+(() => {
+  const palco = $('#palco');
+  if (!window.THREE || !palco) return;
+  let gl;
+  try { gl = document.createElement('canvas').getContext('webgl2')
+             || document.createElement('canvas').getContext('webgl'); } catch(e){}
+  if (!gl) { palco.innerHTML = '<img src="assets/img/closet.jpg" alt="Armário planejado" '
+    + 'style="width:100%;height:100%;object-fit:cover">'; return; }
+
+  const T = THREE;
+  const cena = new T.Scene();
+  cena.fog = new T.Fog(0x0D0906, 6.5, 15);
+
+  const cam = new T.PerspectiveCamera(34, 1, .1, 100);
+  let raio = 6.4, alvoRaio = 6.4;
+
+  const rend = new T.WebGLRenderer({antialias:true, alpha:true,
+    powerPreference:'high-performance'});
+  rend.setPixelRatio(Math.min(devicePixelRatio, 2));
+  rend.outputColorSpace = T.SRGBColorSpace;
+  rend.toneMapping = T.ACESFilmicToneMapping;
+  rend.toneMappingExposure = 1.15;
+  palco.appendChild(rend.domElement);
+
+  /* luz — a mesma gramática das fotos: rasante quente do alto-esquerda */
+  cena.add(new T.AmbientLight(0xffd9b0, .34));
+  const chave = new T.DirectionalLight(0xffc078, 2.5);
+  chave.position.set(-4.2, 5.4, 3.6); cena.add(chave);
+  const preenche = new T.DirectionalLight(0x9fb4c8, .5);
+  preenche.position.set(4, 1.2, 2.4); cena.add(preenche);
+  const contra = new T.DirectionalLight(0xffb070, .9);
+  contra.position.set(1.4, 2.2, -4.4); cena.add(contra);
+  const fita = new T.PointLight(0xffb974, 5.2, 4.2, 2);
+  fita.position.set(.35, .18, .34); cena.add(fita);
+
+  /* texturas de lâmina */
+  const carr = new T.TextureLoader();
+  const tex = {};
+  const pegaTex = id => {
+    if (!tex[id]) {
+      const t = carr.load(`assets/img/mat-${id}.jpg`);
+      t.colorSpace = T.SRGBColorSpace;
+      t.wrapS = t.wrapT = T.RepeatWrapping;
+      t.anisotropy = rend.capabilities.getMaxAnisotropy();
+      tex[id] = t;
+    }
+    return tex[id];
+  };
+  const madeira = new T.MeshStandardMaterial({map:pegaTex('freijo'), roughness:.62, metalness:.04});
+  const preto   = new T.MeshStandardMaterial({color:0x141110, roughness:.42, metalness:.55});
+  const fundo   = new T.MeshStandardMaterial({color:0x1a120c, roughness:.9});
+
+  const L = 1.6, A = 2.6, P = .6, E = .036;   // largura, altura, prof., espessura
+  const armario = new T.Group();
+  const cx = new T.BoxGeometry(1,1,1);
+
+  const bloco = (w,h,d,x,y,z,mat=madeira) => {
+    const m = new T.Mesh(cx, mat);
+    m.scale.set(w,h,d); m.position.set(x,y,z);
+    armario.add(m); return m;
+  };
+
+  // carcaça
+  bloco(E, A, P, -L/2+E/2, 0, 0);
+  bloco(E, A, P,  L/2-E/2, 0, 0);
+  bloco(L, E, P, 0,  A/2-E/2, 0);
+  bloco(L, E, P, 0, -A/2+E/2, 0);
+  bloco(L, A, E, 0, 0, -P/2+E/2, fundo);
+  bloco(E, A, P, -L/2+.64, 0, 0);                 // divisória
+  // prateleiras do módulo direito
+  [-.62, -.05, .52, 1.02].forEach(y => bloco(L-.68-E, E, P-.05, .3, y, .02));
+  // rodapé
+  bloco(L-.1, .09, P-.12, 0, -A/2-.045, 0, preto);
+
+  // gavetas (módulo esquerdo)
+  const gavetas = [];
+  for (let i = 0; i < 4; i++) {
+    const g = new T.Group();
+    const alt = .42, y = -A/2 + .30 + i * (alt + .022);
+    const f = new T.Mesh(cx, madeira);
+    f.scale.set(.60, alt, E); f.position.set(0,0,0); g.add(f);
+    const p = new T.Mesh(cx, preto);
+    p.scale.set(.28, .016, .022); p.position.set(0, alt/2 - .05, E/2 + .012); g.add(p);
+    g.position.set(-L/2 + .33, y, P/2 - E/2);
+    armario.add(g); gavetas.push(g);
+  }
+
+  // portas do módulo direito (abrem em dobradiça)
+  const portas = [];
+  [-1, 1].forEach(lado => {
+    const larg = (L - .64 - E) / 2;
+    const eixo = new T.Group();
+    const x = lado < 0 ? -L/2 + .64 + E/2 : L/2 - E/2;
+    eixo.position.set(x, 0, P/2 - E/2);
+    const f = new T.Mesh(cx, madeira);
+    f.scale.set(larg, A - .05, E);
+    f.position.set(lado < 0 ? larg/2 : -larg/2, 0, 0);
+    eixo.add(f);
+    const p = new T.Mesh(cx, preto);
+    p.scale.set(.02, .34, .022);
+    p.position.set(lado < 0 ? larg - .06 : -larg + .06, .2, E/2 + .012);
+    eixo.add(p);
+    armario.add(eixo);
+    portas.push({eixo, alvo: 0, atual: 0, dir: lado < 0 ? 1 : -1});
+  });
+
+  // cabide
+  const rod = new T.Mesh(new T.CylinderGeometry(.016,.016, L-.72, 12), preto);
+  rod.rotation.z = Math.PI/2; rod.position.set(.3, 1.02 - .16, .02);
+  armario.add(rod);
+
+  cena.add(armario);
+
+  // chão de contato
+  const chao = new T.Mesh(new T.CircleGeometry(3.4, 48),
+    new T.MeshBasicMaterial({color:0x000000, transparent:true, opacity:.5}));
+  chao.rotation.x = -Math.PI/2; chao.position.y = -A/2 - .09;
+  cena.add(chao);
+
+  /* interação */
+  let girY = -.55, girX = .12, alvoY = -.55, alvoX = .12;
+  let auto = true, arrastando = false, px = 0, py = 0;
+  const btnP = $('#btnPortas'), btnG = $('#btnGira');
+
+  const abreFecha = (abrir) => {
+    portas.forEach(p => p.alvo = abrir ? p.dir * 1.95 : 0);
+    gavetas.forEach((g,i) => g.userData.alvo = abrir && i === 1 ? .34 : 0);
+    btnP.setAttribute('aria-pressed', abrir);
+    btnP.textContent = abrir ? 'Fechar as portas' : 'Abrir as portas';
+  };
+  btnP.addEventListener('click', () => abreFecha(btnP.getAttribute('aria-pressed') !== 'true'));
+  btnG.addEventListener('click', () => {
+    auto = btnG.getAttribute('aria-pressed') !== 'true';
+    btnG.setAttribute('aria-pressed', auto);
+  });
+
+  $$('#ctrlsMat .chip').forEach(b => b.addEventListener('click', () => {
+    $$('#ctrlsMat .chip').forEach(o => o.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+    madeira.map = pegaTex(b.dataset.mat);
+    madeira.color.set(b.dataset.mat === 'laca' ? 0xffffff : 0xffffff);
+    madeira.roughness = b.dataset.mat === 'laca' ? .8 : .62;
+    madeira.needsUpdate = true;
+  }));
+
+  const pega = e => e.touches ? e.touches[0] : e;
+  const inicio = e => {
+    arrastando = true; auto = false;
+    btnG.setAttribute('aria-pressed','false');
+    palco.classList.add('drag','tocado');
+    const p = pega(e); px = p.clientX; py = p.clientY;
+  };
+  const move = e => {
+    if (!arrastando) return;
+    const p = pega(e);
+    alvoY += (p.clientX - px) * .0088;
+    alvoX = clamp(alvoX + (p.clientY - py) * .006, -.55, .62);
+    px = p.clientX; py = p.clientY;
+  };
+  const fim2 = () => { arrastando = false; palco.classList.remove('drag'); };
+  palco.addEventListener('mousedown', inicio);
+  addEventListener('mousemove', move, {passive:true});
+  addEventListener('mouseup', fim2);
+  palco.addEventListener('touchstart', inicio, {passive:true});
+  palco.addEventListener('touchmove', e => { move(e); }, {passive:true});
+  addEventListener('touchend', fim2);
+  palco.addEventListener('wheel', e => {
+    e.preventDefault();
+    alvoRaio = clamp(alvoRaio + Math.sign(e.deltaY) * .42, 3.9, 9.5);
+    palco.classList.add('tocado');
+  }, {passive:false});
+  if (!TOQUE) palco.addEventListener('mousemove', e => {
+    if (arrastando) return;
+    const r = palco.getBoundingClientRect();
+    alvoY = -.55 + ((e.clientX - r.left)/r.width - .5) * 1.15;
+    alvoX =  .12 + ((e.clientY - r.top)/r.height - .5) * -.5;
+  }, {passive:true});
+
+  const redim = () => {
+    const r = palco.getBoundingClientRect();
+    if (!r.width) return;
+    rend.setSize(r.width, r.height, false);
+    cam.aspect = r.width / r.height; cam.updateProjectionMatrix();
+  };
+  new ResizeObserver(redim).observe(palco); redim();
+
+  let visivel = false;
+  new IntersectionObserver(es => visivel = es[0].isIntersecting, {threshold:.04}).observe(palco);
+
+  (function laco(){
+    requestAnimationFrame(laco);
+    if (!visivel) return;
+    if (auto && !REDUZ) alvoY += .0032;
+    girY = lerp(girY, alvoY, .085);
+    girX = lerp(girX, alvoX, .085);
+    raio = lerp(raio, alvoRaio, .09);
+    armario.rotation.y = girY;
+    armario.rotation.x = girX * .34;
+    cam.position.set(Math.sin(girY*.22)*raio*.24, girX * 1.5 + .25, raio);
+    cam.lookAt(0, 0, 0);
+    portas.forEach(p => { p.atual = lerp(p.atual, p.alvo, .1); p.eixo.rotation.y = p.atual; });
+    gavetas.forEach(g => {
+      const a = g.userData.alvo || 0;
+      g.position.z = lerp(g.position.z, P/2 - E/2 + a, .1);
+    });
+    rend.render(cena, cam);
+  })();
+})();
+
+/* ── PORTAL ESCROLÁVEL ───────────────────────────────────── */
+(() => {
+  const sec = $('#portal'), sala = $('.sala'), st = $('#portal .stick');
+  const suave = (a,b,x) => { const t = clamp((x-a)/(b-a),0,1); return t*t*(3-2*t); };
+  const passo = () => {
+    const r = sec.getBoundingClientRect();
+    const p = clamp(-r.top / (r.height - innerHeight), 0, 1);
+    const abre  = suave(.10, .60, p);
+    const abrir = suave(.04, .74, p);
+    st.style.setProperty('--abre', abre);
+    sala.style.setProperty('--pt',  (42 - 42*abrir) + '%');
+    sala.style.setProperty('--pb',  (14 - 14*abrir) + '%');
+    sala.style.setProperty('--px2', (38 - 38*abrir) + '%');
+    sala.style.setProperty('--pr',  (10 - 10*abrir) + 'px');
+    sala.style.setProperty('--pz',  (1.34 - .34*abrir));
+    st.style.setProperty('--tx', 1 - suave(.02, .26, p));
+    st.style.setProperty('--ti', suave(.62, .92, p));
+  };
+  addEventListener('scroll', passo, {passive:true});
+  addEventListener('resize', passo, {passive:true});
+  passo();
+})();
+
+/* ── PRANCHETA — desenhe o móvel aqui mesmo ──────────────── */
+let anexo = null, anexoNome = 'desenho.png';
+(() => {
+  const cv = $('#prancha'), ctx = cv.getContext('2d');
+  const estado = $('#prState');
+  let tracos = [], atual = null, esp = 3, desenhando = false;
+
+  const grade = () => {
+    ctx.fillStyle = '#0A0705';
+    ctx.fillRect(0, 0, cv.width, cv.height);
+    ctx.strokeStyle = 'rgba(241,229,210,.055)'; ctx.lineWidth = 1;
+    for (let x = 0; x <= cv.width; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x+.5, 0); ctx.lineTo(x+.5, cv.height); ctx.stroke();
+    }
+    for (let y = 0; y <= cv.height; y += 40) {
+      ctx.beginPath(); ctx.moveTo(0, y+.5); ctx.lineTo(cv.width, y+.5); ctx.stroke();
+    }
+  };
+  const pinta = () => {
+    grade();
+    ctx.strokeStyle = '#F1E5D2'; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    for (const t of tracos) {
+      if (t.pts.length < 2) continue;
+      ctx.lineWidth = t.esp;
+      ctx.beginPath(); ctx.moveTo(t.pts[0].x, t.pts[0].y);
+      for (let i = 1; i < t.pts.length; i++) ctx.lineTo(t.pts[i].x, t.pts[i].y);
+      ctx.stroke();
+    }
+    estado.textContent = tracos.length ? tracos.length + ' traço' + (tracos.length>1?'s':'') : '';
+  };
+  grade();
+
+  const ponto = e => {
+    const r = cv.getBoundingClientRect();
+    return {x: (e.clientX - r.left) * cv.width / r.width,
+            y: (e.clientY - r.top)  * cv.height / r.height};
+  };
+  cv.addEventListener('pointerdown', e => {
+    desenhando = true; cv.setPointerCapture(e.pointerId);
+    atual = {esp, pts:[ponto(e)]}; tracos.push(atual); pinta();
+  });
+  cv.addEventListener('pointermove', e => {
+    if (!desenhando) return;
+    atual.pts.push(ponto(e)); pinta();
+  });
+  const solta = () => { desenhando = false; atual = null; };
+  cv.addEventListener('pointerup', solta);
+  cv.addEventListener('pointercancel', solta);
+
+  $$('.prancheta .top .mini').forEach(b => b.addEventListener('click', () => {
+    $$('.prancheta .top .mini').forEach(o => o.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true'); esp = +b.dataset.esp;
+  }));
+  $('#limpar').addEventListener('click', () => { tracos = []; pinta(); });
+  $('#desfazer').addEventListener('click', () => { tracos.pop(); pinta(); });
+  $('#usar').addEventListener('click', () => {
+    if (!tracos.length) { estado.textContent = 'desenhe algo primeiro'; return; }
+    cv.toBlob(b => {
+      anexo = b; anexoNome = 'desenho-marcenaria-jr.png';
+      mostraAnexo(URL.createObjectURL(b), 'Seu desenho está pronto para ir junto.');
+      $('#orcamento').scrollIntoView({behavior: REDUZ ? 'auto' : 'smooth'});
+    }, 'image/png');
+  });
+})();
+
+/* ── ANEXO (foto do desenho) ─────────────────────────────── */
+const drop = $('#drop'), file = $('#file');
+function mostraAnexo(url, txt) {
+  drop.innerHTML = `<p><strong>${txt}</strong><br>Clique para trocar.</p>
+    <img src="${url}" alt="Pré-visualização do desenho enviado">`;
+  drop.appendChild(file);
+}
+drop.addEventListener('click', () => file.click());
+drop.addEventListener('keydown', e => {
+  if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); file.click(); }
+});
+file.addEventListener('change', () => {
+  const f = file.files[0]; if (!f) return;
+  anexo = f; anexoNome = f.name || 'desenho.png';
+  mostraAnexo(URL.createObjectURL(f), 'Imagem anexada.');
+});
+['dragenter','dragover'].forEach(ev => drop.addEventListener(ev, e => {
+  e.preventDefault(); drop.classList.add('hot');
+}));
+['dragleave','drop'].forEach(ev => drop.addEventListener(ev, e => {
+  e.preventDefault(); drop.classList.remove('hot');
+}));
+drop.addEventListener('drop', e => {
+  const f = e.dataTransfer?.files?.[0];
+  if (f && f.type.startsWith('image/')) {
+    anexo = f; anexoNome = f.name || 'desenho.png';
+    mostraAnexo(URL.createObjectURL(f), 'Imagem anexada.');
+  }
+});
+
+/* ── FORMULÁRIO → WHATSAPP ───────────────────────────────── */
+(() => {
+  const sel = $('#f-amb');
+  ['Ainda não sei / outro', ...AMBIENTES.map(a => a.nome)].forEach(n => {
+    const o = document.createElement('option'); o.textContent = n; sel.appendChild(o);
+  });
+  sel.selectedIndex = 0;
+
+  $('#form').addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => $(id).value.trim();
+    const nome = v('#f-nome');
+    if (!nome) { $('#f-nome').focus(); $('#f-nome').style.borderBottomColor = '#C8763A'; return; }
+
+    const linhas = [
+      'Olá, Marcenaria JR! Quero um orçamento de móvel planejado.',
+      '',
+      `*Nome:* ${nome}`,
+      v('#f-tel')    ? `*Telefone:* ${v('#f-tel')}` : '',
+      `*Ambiente:* ${sel.value}`,
+      `*Para quando:* ${$('#f-prazo').value}`,
+      v('#f-med')    ? `*Medidas:* ${v('#f-med')}` : '',
+      v('#f-bairro') ? `*Bairro/cidade:* ${v('#f-bairro')}` : '',
+      v('#f-obs')    ? `\n*O que imaginei:*\n${v('#f-obs')}` : '',
+      anexo ? '\n_Vou anexar a foto do desenho aqui na conversa._' : '',
+    ].filter(Boolean);
+
+    const url = `https://wa.me/${FONE}?text=${encodeURIComponent(linhas.join('\n'))}`;
+
+    if (anexo) {                       // salva a imagem para o cliente anexar
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(anexo); a.download = anexoNome;
+      document.body.appendChild(a); a.click(); a.remove();
+      $('#aviso').innerHTML = 'Sua imagem foi <b>salva no aparelho</b>. '
+        + 'Na conversa que abriu, toque no clipe e escolha o arquivo <b>'
+        + anexoNome + '</b>.';
+      setTimeout(() => window.open(url, '_blank', 'noopener'), 700);
+    } else {
+      window.open(url, '_blank', 'noopener');
+    }
+  });
+})();
+
+$('#ano').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
