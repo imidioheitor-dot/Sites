@@ -44,7 +44,7 @@ assets/
   archivo.woff2         grotesca variável — corpo e interface
   img/                  fotos reais da empresa + logo
   video/
-    hero.mp4 / .webm        vídeo do topo — 1080p, 15s, loop contínuo, sem áudio
+    hero.mp4 / .webm        vídeo do topo (reserva) — 1080p, 15s, loop, sem áudio
     hero-720.mp4 / .webm    versão leve, servida a celulares e conexões lentas
     hero-poster.jpg         primeiro quadro (aparece antes do vídeo carregar)
     tile-*.mp4 / .webm      clipes da montagem em perspectiva
@@ -94,12 +94,15 @@ aproxima de cada letra, junto com `opsz`.
 
 ## Efeitos implementados
 
-Nenhum efeito 3D. Não há Three.js, WebGL de geometria, `perspective`,
-`translate3d` nem `preserve-3d` em lugar nenhum do arquivo.
+O modelo do diagnóstico é 3D de verdade — matemática de projeção, ordenação
+por profundidade e sombreado próprios, escritos à mão sobre canvas 2D. Não há
+Three.js nem nenhuma outra biblioteca: o site continua sem dependência externa.
 
 | Efeito | Onde | Como funciona |
 |---|---|---|
-| Topo escrolável com vídeo | `#hero` | vídeo real em loop, texto e brilho respondem ao scroll |
+| Rolagem com inércia | página inteira | roda o scroll por interpolação; acelera e desacelera sozinho, e todo efeito preso ao scroll herda a suavização |
+| Topo escrolável com vídeo | `#hero` | vídeo 3D gerado por IA, com o material real da equipe como reserva automática |
+| Modelo 3D interativo | `#modelo3d` | árvore construída por ramificação recursiva; arraste para girar, e a rolagem gira sozinha enquanto a seção cruza a tela |
 | TextPressure | título "Sempre Verde" | peso e largura da fonte variam com a distância do cursor |
 | Faixa de credibilidade | logo abaixo do topo | as três medalhas já na entrada |
 | Fita horizontal | `#perspectiva` | rolar na vertical desliza a montagem de fotos e vídeos na horizontal |
@@ -126,3 +129,24 @@ Nenhum efeito 3D. Não há Three.js, WebGL de geometria, `perspective`,
 Os dois formulários (orçamento e lista de espera do curso) **não enviam nada para
 servidor nenhum** — eles montam a mensagem e abrem o WhatsApp já preenchido.
 Nada é armazenado no site.
+
+
+## O vídeo 3D do topo
+
+O topo tenta primeiro o vídeo 3D gerado por IA (Higgsfield, Kling v3.0 — 15s,
+16:9, sem áudio e sem texto, a partir de um quadro-chave desenhado na paleta da
+marca). A URL fica em `window.ARBO.videoIA`, no bloco de configuração do
+`index.html`.
+
+Se essa URL não responder, o `<video>` cai sozinho para `assets/video/hero.mp4`
+— a montagem das filmagens reais da equipe, que vive dentro do pacote. Não há
+tela preta em nenhum cenário.
+
+Para o site voltar a ser 100% offline, baixe o `.mp4` da URL, salve como
+`assets/video/hero-3d.mp4` e troque o valor de `videoIA` por esse caminho.
+
+## Cantos
+
+Os cantos são vivos (2px) em toda a interface. Continuam redondos apenas as
+coisas que são redondas de fato: o emblema da marca, as medalhas, os pontos
+sobre as fotos, o cursor e a máscara circular do portal.
