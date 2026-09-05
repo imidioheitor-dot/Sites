@@ -1,0 +1,1485 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VERTENTE — Perfumaria de autor · Goiânia</title>
+<meta name="description" content="Ateliê de perfumaria em Goiânia. Nove botânicas do Cerrado, alambique de cobre de 40 litros, lotes de 36 frascos numerados a bico de pena.">
+<meta name="theme-color" content="#0B0D0A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   VERTENTE — sistema de design
+   Tokens: 8 cores, 3 famílias + 1 variável de propósito único.
+   Raio 0/2px (anti-padrão 18). Sem sombra de framework.
+   ============================================================ */
+:root{
+  --ink:#0B0D0A;          /* canvas: preto com desvio verde, nunca #000 */
+  --ink-2:#12150F;        /* superfície um passo acima */
+  --ink-3:#1A1E16;        /* superfície de bancada */
+  --paper:#EFE7D8;        /* tinta principal: osso quente, nunca #fff */
+  --paper-2:#ADA694;      /* texto secundário */
+  --paper-3:#736E5F;      /* texto terciário / rótulos apagados */
+  --pequi:#C2571B;        /* ÚNICO acento — menos de 3% da área */
+  --seiva:#6E7F52;        /* cor estrutural, linhas e detalhes vivos */
+  --line:rgba(239,231,216,.13);
+  --line-2:rgba(239,231,216,.06);
+
+  --f-display:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --f-text:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --f-var:"Archivo",var(--f-text);
+
+  --e-out:cubic-bezier(.16,1,.3,1);
+  --e-frame:cubic-bezier(.52,.01,0,1);
+  --e-over:cubic-bezier(.34,1.56,.64,1);
+
+  --gut:clamp(18px,4.4vw,64px);
+  --rule:1px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0;padding:0}
+body{
+  background:var(--ink);color:var(--paper);
+  font-family:var(--f-text);font-weight:300;
+  font-size:clamp(15px,1.02vw,17px);line-height:1.62;
+  letter-spacing:.004em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+body.is-locked{overflow:hidden;height:100%}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+::selection{background:var(--pequi);color:var(--ink)}
+:focus-visible{outline:2px solid var(--pequi);outline-offset:3px}
+
+/* ---------- tipografia ---------- */
+.display{
+  font-family:var(--f-display);font-weight:400;
+  line-height:.88;letter-spacing:-.022em;
+  font-size:clamp(46px,8.6vw,132px);
+  margin:0;
+}
+.display em{font-style:italic;letter-spacing:-.03em}
+.h2{
+  font-family:var(--f-display);font-weight:400;
+  line-height:.94;letter-spacing:-.018em;
+  font-size:clamp(30px,4.5vw,64px);margin:0;
+}
+.h3{
+  font-family:var(--f-display);font-weight:400;
+  line-height:1.02;letter-spacing:-.012em;
+  font-size:clamp(21px,2.3vw,32px);margin:0;
+}
+.lab{
+  font-family:var(--f-mono);font-size:11px;font-weight:500;
+  letter-spacing:.19em;text-transform:uppercase;
+  color:var(--paper-3);margin:0;
+}
+.lab--accent{color:var(--pequi)}
+.num{font-family:var(--f-mono);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+.lede{font-size:clamp(17px,1.42vw,22px);line-height:1.5;font-weight:300;color:var(--paper);max-width:32ch}
+p{margin:0 0 1.05em;max-width:62ch}
+p:last-child{margin-bottom:0}
+.dim{color:var(--paper-2)}
+.dimmer{color:var(--paper-3)}
+
+/* ---------- estrutura ---------- */
+.wrap{width:100%;max-width:1560px;margin-inline:auto;padding-inline:var(--gut)}
+section{position:relative}
+.rule{height:var(--rule);background:var(--line);border:0;margin:0}
+.eyebrow{display:flex;gap:14px;align-items:baseline;margin-bottom:clamp(20px,2.4vw,38px)}
+.eyebrow .idx{font-family:var(--f-mono);font-size:11px;color:var(--pequi);letter-spacing:.14em}
+
+/* ---------- grão + vinheta de cena ---------- */
+.grain{
+  position:fixed;inset:-60px;z-index:9000;pointer-events:none;
+  opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+  animation:grainshift 5.6s steps(6) infinite;
+}
+@keyframes grainshift{
+  0%{transform:translate(0,0)}16%{transform:translate(-14px,7px)}
+  33%{transform:translate(9px,-12px)}50%{transform:translate(-7px,-9px)}
+  66%{transform:translate(13px,6px)}83%{transform:translate(-11px,11px)}
+  100%{transform:translate(0,0)}
+}
+.scene-fade{
+  position:fixed;inset:0;z-index:8500;pointer-events:none;
+  background:radial-gradient(120% 92% at 50% 46%,transparent 52%,rgba(11,13,10,.62) 100%);
+}
+</style>
+<style>
+/* ============================================================
+   CURSOR — duas latências (ponto rápido, anel lento)
+   ============================================================ */
+.cur,.cur-ring{position:fixed;top:0;left:0;z-index:9600;pointer-events:none;will-change:transform}
+.cur{width:5px;height:5px;background:var(--paper);margin:-2.5px 0 0 -2.5px;border-radius:50%}
+.cur-ring{
+  width:38px;height:38px;margin:-19px 0 0 -19px;border:1px solid var(--line);
+  border-radius:50%;display:grid;place-items:center;
+  transition:width .42s var(--e-out),height .42s var(--e-out),
+             border-color .42s var(--e-out),background-color .42s var(--e-out);
+}
+.cur-ring span{
+  font-family:var(--f-mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ink);opacity:0;transition:opacity .26s var(--e-out);white-space:nowrap;
+}
+body[data-cur="link"] .cur-ring{width:64px;height:64px;background:var(--paper);border-color:var(--paper)}
+body[data-cur="link"] .cur-ring span{opacity:1}
+body[data-cur="drag"] .cur-ring{width:92px;height:92px;border-color:var(--pequi)}
+body[data-cur="drag"] .cur-ring span{opacity:1;color:var(--pequi)}
+body[data-cur="lens"] .cur-ring{width:0;height:0;opacity:0}
+body[data-cur="lens"] .cur{opacity:0}
+@media (hover:none),(pointer:coarse){.cur,.cur-ring{display:none!important}}
+
+/* ============================================================
+   LOADER
+   ============================================================ */
+#load{
+  position:fixed;inset:0;z-index:9800;background:var(--ink);
+  display:grid;grid-template-rows:1fr auto;padding:var(--gut);
+}
+#load .lmark{
+  align-self:center;justify-self:start;font-family:var(--f-display);
+  font-size:clamp(52px,11vw,150px);line-height:.86;letter-spacing:-.03em;
+  display:flex;overflow:hidden;
+}
+#load .lmark i{display:block;font-style:normal;transform:translateY(104%);opacity:.001}
+#load .lbot{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+#load .lbar{position:relative;flex:1;height:1px;background:var(--line);max-width:420px}
+#load .lbar b{position:absolute;inset:0 100% 0 0;background:var(--pequi);display:block}
+#load.done{transform:translateY(-100%);transition:transform 1.05s var(--e-frame)}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:8000;
+  transition:transform .55s var(--e-frame),opacity .4s var(--e-out);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:18px var(--gut);
+  mix-blend-mode:difference;
+}
+.nav.hid{transform:translateY(-118%);opacity:0}
+.nav .mark{font-family:var(--f-display);font-size:19px;letter-spacing:.02em}
+.nav .links{display:flex;gap:26px}
+.nav .links a{
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  position:relative;padding-bottom:3px;
+}
+.nav .links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;
+  background:currentColor;transform:scaleX(0);transform-origin:100% 50%;
+  transition:transform .5s var(--e-out);
+}
+.nav .links a:hover::after{transform:scaleX(1);transform-origin:0 50%}
+@media(max-width:820px){.nav .links a:not(.keep){display:none}}
+
+/* ============================================================
+   §1 HERO — vídeo rolável reenquadrado (não some por opacidade)
+   ============================================================ */
+#hero{height:270vh;height:270svh}
+.hero-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.hero-media{
+  position:absolute;inset:0;
+  clip-path:inset(var(--hi,0%) var(--hix,0%) round 0px);
+  transform:scale(var(--hs,1));
+  will-change:clip-path,transform;
+}
+.hero-media video,.hero-media img.poster{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+}
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,13,10,.72) 0%,rgba(11,13,10,.18) 34%,rgba(11,13,10,.30) 62%,rgba(11,13,10,.92) 100%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:2;
+  display:grid;grid-template-rows:1fr auto;
+  padding:calc(var(--gut) + 46px) var(--gut) var(--gut);
+  pointer-events:none;
+}
+.hero-top{align-self:end;pointer-events:auto}
+#pressure{
+  display:flex;justify-content:space-between;width:100%;
+  font-family:var(--f-var);font-weight:300;
+  font-size:clamp(56px,15.4vw,232px);line-height:.82;
+  letter-spacing:-.01em;user-select:none;
+}
+#pressure span{
+  display:block;font-variation-settings:"wght" 300,"wdth" 100;
+  will-change:font-variation-settings,transform;
+}
+.hero-sub{
+  display:flex;flex-wrap:wrap;gap:8px 30px;align-items:baseline;
+  margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
+}
+.hero-bot{
+  display:grid;gap:22px;align-items:end;pointer-events:auto;
+  grid-template-columns:minmax(0,1fr) auto;
+}
+.hero-bot .lede{max-width:40ch}
+.tick{
+  display:flex;gap:10px;align-items:center;
+  font-family:var(--f-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-2);
+}
+.tick i{display:block;width:26px;height:1px;background:var(--pequi);transform-origin:0 50%;animation:tickpull 2.9s var(--e-frame) infinite}
+@keyframes tickpull{0%,100%{transform:scaleX(.2)}45%{transform:scaleX(1)}}
+@media(max-width:760px){.hero-bot{grid-template-columns:1fr}}
+
+/* ============================================================
+   §2 MANIFESTO — revelação por linha (um dos "vales")
+   ============================================================ */
+#manifesto{padding:clamp(64px,9vw,132px) 0 clamp(56px,7vw,104px)}
+.man-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,5vw,90px);align-items:start}
+@media(max-width:900px){.man-grid{grid-template-columns:1fr}}
+.man-lines{font-family:var(--f-display);font-size:clamp(27px,3.9vw,58px);line-height:1.06;letter-spacing:-.018em}
+.man-lines .ln{display:block;overflow:hidden}
+.man-lines .ln i{display:block;font-style:normal;transform:translateY(105%);opacity:.001;transition:transform 1.02s var(--e-out),opacity .82s var(--e-out)}
+.man-lines.on .ln i{transform:none;opacity:1}
+.man-lines .ln:nth-child(2) i{transition-delay:.07s}
+.man-lines .ln:nth-child(3) i{transition-delay:.14s}
+.man-lines .ln:nth-child(4) i{transition-delay:.21s}
+.man-lines .ln:nth-child(5) i{transition-delay:.28s}
+.man-lines em{font-style:italic;color:var(--pequi)}
+.man-side{padding-top:9px}
+.man-side dl{display:grid;grid-template-columns:auto 1fr;gap:0;margin:26px 0 0;border-top:1px solid var(--line)}
+.man-side dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper-3);padding:12px 20px 12px 0;border-bottom:1px solid var(--line-2)}
+.man-side dd{margin:0;padding:12px 0;border-bottom:1px solid var(--line-2);text-align:right;font-family:var(--f-mono);font-size:13px;color:var(--paper)}
+
+/* ============================================================
+   §3 PORTAL — abertura dirigida por scroll, 3 camadas
+   ============================================================ */
+#portal{height:300vh;height:300svh;background:var(--ink)}
+.portal-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center}
+.portal-far,.portal-mid,.portal-near{position:absolute;inset:0;will-change:transform}
+.portal-far{
+  background:
+    radial-gradient(60% 44% at 50% 58%,rgba(194,87,27,.16),transparent 66%),
+    radial-gradient(120% 90% at 50% 120%,rgba(110,127,82,.13),transparent 60%),
+    var(--ink-2);
+  transform:scale(var(--pf,1.14));
+}
+.portal-mid{
+  background-image:var(--portal-img);
+  background-size:cover;background-position:center;
+  transform:scale(var(--pm,1.06));filter:saturate(.86) contrast(1.06);
+}
+.portal-mid::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,10,.5),rgba(11,13,10,.86))}
+.portal-hole{
+  position:absolute;inset:0;background:var(--ink);
+  -webkit-mask-image:radial-gradient(circle var(--pr,7vmax) at 50% 50%,transparent 0 98%,#000 100%);
+          mask-image:radial-gradient(circle var(--pr,7vmax) at 50% 50%,transparent 0 98%,#000 100%);
+  will-change:mask-image;
+}
+.portal-edge{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:calc(var(--pr,7vmax)*2);height:calc(var(--pr,7vmax)*2);border-radius:50%;
+  box-shadow:
+    inset 0 0 0 1px rgba(239,231,216,.22),
+    inset 0 14px 46px -12px rgba(194,87,27,.5),
+    inset 0 -22px 60px -20px rgba(11,13,10,.95),
+    0 0 120px -30px rgba(194,87,27,.34);
+  pointer-events:none;will-change:width,height;
+}
+.portal-copy{
+  position:relative;z-index:4;text-align:center;max-width:min(720px,86vw);
+  opacity:var(--pc,1);transform:translateY(calc(var(--pcY,0) * 1px));will-change:opacity,transform;
+}
+.portal-inner{
+  position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%) scale(var(--pis,.92));
+  width:min(1100px,84vw);text-align:center;opacity:var(--pio,0);will-change:opacity,transform;
+}
+.portal-inner .h2{margin-bottom:16px}
+.portal-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:34px;background:var(--line)}
+.portal-cells div{background:var(--ink);padding:20px 16px}
+.portal-cells b{display:block;font-family:var(--f-mono);font-size:clamp(19px,2.5vw,30px);font-weight:500;color:var(--pequi)}
+.portal-cells span{font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-3)}
+@media(max-width:640px){.portal-cells{grid-template-columns:1fr}}
+</style>
+<style>
+/* ============================================================
+   §4 PRODUTO 3D — turntable de vídeo, arrastável e ligado ao scroll
+   ============================================================ */
+#produto{padding:clamp(60px,8vw,116px) 0 clamp(52px,6.5vw,96px)}
+.pr-grid{display:grid;grid-template-columns:minmax(0,4.6fr) minmax(0,7.4fr);gap:clamp(26px,5vw,80px);align-items:center}
+@media(max-width:960px){.pr-grid{grid-template-columns:1fr}}
+.pr-stage{
+  position:relative;aspect-ratio:1/1;background:
+    radial-gradient(58% 58% at 50% 46%,rgba(194,87,27,.09),transparent 70%),var(--ink-2);
+  border:1px solid var(--line);overflow:hidden;touch-action:pan-y;
+}
+.pr-stage video,.pr-stage img.poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pr-stage::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(76% 72% at 50% 50%,transparent 58%,rgba(11,13,10,.7) 100%);
+}
+.pr-dial{
+  position:absolute;left:50%;bottom:16px;transform:translateX(-50%);
+  display:flex;align-items:center;gap:10px;z-index:3;
+  font-family:var(--f-mono);font-size:10px;letter-spacing:.16em;color:var(--paper-3);
+}
+.pr-dial .track{position:relative;width:min(240px,42vw);height:1px;background:var(--line)}
+.pr-dial .track i{position:absolute;top:-3px;width:1px;height:7px;background:var(--pequi);left:calc(var(--ang,0)/360 * 100%)}
+.hot{
+  position:absolute;z-index:4;width:auto;pointer-events:none;
+  opacity:0;transform:translate(-50%,-50%) scale(.94);
+  transition:opacity .45s var(--e-out),transform .45s var(--e-out);
+}
+.hot.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.hot b{
+  display:block;width:7px;height:7px;background:var(--pequi);margin:0 auto 8px;
+  box-shadow:0 0 0 6px rgba(194,87,27,.16);
+}
+.hot u{
+  display:block;text-decoration:none;font-family:var(--f-mono);font-size:10px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--paper);
+  background:rgba(11,13,10,.78);padding:5px 9px;border:1px solid var(--line);white-space:nowrap;
+}
+.pr-notes{margin-top:clamp(24px,3vw,44px);border-top:1px solid var(--line)}
+.pr-note{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line-2);cursor:pointer}
+.pr-note .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper-3);width:9ch}
+.pr-note .v{font-family:var(--f-display);font-size:clamp(18px,1.9vw,26px);line-height:1.05}
+.pr-note .p{font-family:var(--f-mono);font-size:11px;color:var(--paper-3)}
+.pr-note .bar{grid-column:1/-1;height:2px;background:var(--line-2);position:relative;margin-top:12px}
+.pr-note .bar i{position:absolute;inset:0 auto 0 0;background:var(--seiva);width:0;transition:width 1.1s var(--e-out)}
+.pr-note:hover .bar i{background:var(--pequi)}
+.pr-note.on .bar i{width:var(--w,50%)}
+.pr-note:hover .v{color:var(--pequi)}
+
+/* ============================================================
+   §5 OBJECT REVEAL ON HOVER — bancada revelada pela lente
+   ============================================================ */
+#bancada{padding:clamp(56px,7.5vw,110px) 0 clamp(56px,7.5vw,110px)}
+.bench{
+  position:relative;width:100%;aspect-ratio:16/9;
+  border:1px solid var(--line);overflow:hidden;background:var(--ink-2);
+  cursor:none;
+}
+@media(max-width:760px){.bench{aspect-ratio:4/5}}
+.bench-img{
+  position:absolute;inset:0;background-image:var(--bench-img);
+  background-size:cover;background-position:center;
+  -webkit-mask-image:radial-gradient(circle var(--br,0px) at var(--bx,50%) var(--by,50%),#000 34%,rgba(0,0,0,.55) 62%,transparent 78%);
+          mask-image:radial-gradient(circle var(--br,0px) at var(--bx,50%) var(--by,50%),#000 34%,rgba(0,0,0,.55) 62%,transparent 78%);
+  will-change:mask-image;
+}
+.bench-ring{
+  position:absolute;left:var(--bx,50%);top:var(--by,50%);
+  width:calc(var(--br,0px)*1.36);height:calc(var(--br,0px)*1.36);
+  transform:translate(-50%,-50%);border:1px solid rgba(239,231,216,.3);border-radius:50%;
+  pointer-events:none;mix-blend-mode:screen;
+}
+.bench-names{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  display:grid;grid-template-columns:repeat(5,1fr);align-content:center;
+  gap:clamp(8px,1.6vw,26px) clamp(6px,1.4vw,20px);padding:clamp(20px,4vw,60px);
+}
+.bench-names span{
+  font-family:var(--f-display);font-size:clamp(13px,1.62vw,27px);line-height:1.06;
+  color:var(--paper);opacity:.34;letter-spacing:-.01em;
+  transition:opacity .5s var(--e-out),color .5s var(--e-out);
+}
+.bench-names span.lit{opacity:1;color:var(--pequi)}
+@media(max-width:760px){.bench-names{grid-template-columns:repeat(3,1fr)}.bench{cursor:default}}
+.bench-meta{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:14px}
+
+/* linha-a-linha: o objeto segue o cursor (segunda variação do reveal) */
+.spec{border-top:1px solid var(--line);margin-top:clamp(34px,4.5vw,64px);position:relative}
+.spec-row{
+  display:grid;grid-template-columns:5ch minmax(0,1fr) minmax(0,1fr) auto;
+  gap:clamp(10px,2vw,32px);align-items:baseline;
+  padding:clamp(13px,1.6vw,22px) 0;border-bottom:1px solid var(--line-2);
+  position:relative;z-index:2;
+}
+.spec-row .n{font-family:var(--f-mono);font-size:11px;color:var(--paper-3)}
+.spec-row .t{font-family:var(--f-display);font-size:clamp(20px,2.6vw,38px);line-height:1;transition:transform .55s var(--e-out),color .45s var(--e-out)}
+.spec-row .d{color:var(--paper-2);font-size:14px}
+.spec-row .y{font-family:var(--f-mono);font-size:11px;color:var(--paper-3)}
+.spec-row:hover .t{transform:translateX(16px);color:var(--pequi)}
+@media(max-width:820px){.spec-row{grid-template-columns:4ch 1fr auto}.spec-row .d{display:none}}
+#specimen{
+  position:fixed;z-index:20;width:min(300px,34vw);aspect-ratio:4/3;
+  background-image:var(--bench-img);background-size:520% 340%;
+  border:1px solid var(--line);pointer-events:none;opacity:0;
+  transform:translate(-50%,-50%) scale(.92) rotate(var(--sr,-1.4deg));
+  transition:opacity .4s var(--e-out),transform .55s var(--e-out);
+}
+#specimen.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--sr,-1.4deg))}
+
+/* ============================================================
+   §6 PROCESSO — horizontal dirigido pelo scroll vertical
+   ============================================================ */
+#processo{height:340vh;height:340svh;background:var(--ink-2)}
+.pc-stick{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;flex-direction:column}
+.pc-head{padding:calc(var(--gut) + 40px) var(--gut) 0;display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.pc-rail{flex:1;display:flex;align-items:center;will-change:transform}
+.pc-card{
+  flex:0 0 auto;width:min(560px,84vw);margin-right:clamp(20px,3vw,54px);
+  padding:clamp(22px,2.6vw,40px);border:1px solid var(--line);background:var(--ink);
+  position:relative;align-self:stretch;
+  display:flex;flex-direction:column;justify-content:space-between;
+  max-height:calc(100svh - 210px);
+}
+.pc-card .h3{margin-top:auto}
+.pc-rail{padding-block:clamp(18px,3vh,42px)}
+.pc-card:first-child{margin-left:var(--gut)}
+.pc-card:last-child{margin-right:var(--gut)}
+.pc-card .gl{width:min(190px,42%);height:auto;color:var(--seiva);opacity:.9;margin-bottom:auto}
+.pc-card .gl path,.pc-card .gl line,.pc-card .gl circle,.pc-card .gl ellipse,.pc-card .gl polyline{
+  vector-effect:non-scaling-stroke;stroke:currentColor;fill:none;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.pc-card .gl .ac{stroke:var(--pequi)}
+.pc-card .gl .dsh{stroke-dasharray:2 5;opacity:.7}
+.pc-card .n{font-family:var(--f-mono);font-size:clamp(38px,5.4vw,78px);font-weight:400;line-height:1;color:var(--ink-3);position:absolute;top:12px;right:16px}
+.pc-card .h3{margin-bottom:12px;position:relative}
+.pc-card p{font-size:15px;color:var(--paper-2);position:relative}
+.pc-card dl{display:flex;gap:26px;margin:20px 0 0;padding-top:14px;border-top:1px solid var(--line-2)}
+.pc-card dt{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper-3)}
+.pc-card dd{margin:2px 0 0;font-family:var(--f-mono);font-size:14px;color:var(--paper)}
+.pc-prog{height:1px;background:var(--line);margin:0 var(--gut) var(--gut);position:relative}
+.pc-prog i{position:absolute;inset:0 auto 0 0;background:var(--pequi);width:calc(var(--pp,0) * 100%)}
+</style>
+<style>
+/* ============================================================
+   §7 CATÁLOGO  ·  §8 CAMPO DE PONTOS  ·  §9 ENCOMENDA  ·  §10 VISITA
+   ============================================================ */
+#catalogo{padding:clamp(62px,8.5vw,124px) 0 clamp(56px,7vw,100px)}
+.cat-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.8fr);gap:clamp(24px,4vw,70px);align-items:end;margin-bottom:clamp(36px,5vw,72px)}
+@media(max-width:860px){.cat-head{grid-template-columns:1fr}}
+.cat-table{border-top:1px solid var(--paper-3)}
+.cat-item{
+  display:grid;grid-template-columns:7ch minmax(0,1.15fr) minmax(0,1.4fr) 12ch 10ch;
+  gap:clamp(10px,2vw,30px);align-items:center;
+  padding:clamp(16px,2.1vw,28px) 0;border-bottom:1px solid var(--line);
+  position:relative;overflow:hidden;
+}
+.cat-item::before{
+  content:"";position:absolute;inset:0;background:var(--ink-2);
+  transform:scaleY(0);transform-origin:50% 100%;transition:transform .55s var(--e-frame);z-index:-1;
+}
+.cat-item:hover::before{transform:scaleY(1);transform-origin:50% 0}
+.cat-item .cod{font-family:var(--f-mono);font-size:11px;color:var(--pequi);letter-spacing:.1em}
+.cat-item .nm{font-family:var(--f-display);font-size:clamp(21px,2.7vw,38px);line-height:1;letter-spacing:-.014em}
+.cat-item .ac{font-size:14px;color:var(--paper-2)}
+.cat-item .st{font-family:var(--f-mono);font-size:11px;color:var(--paper-3);letter-spacing:.06em}
+.cat-item .pz{font-family:var(--f-mono);font-size:14px;text-align:right}
+.cat-item .pz s{color:var(--paper-3);text-decoration:none;font-size:11px;display:block}
+@media(max-width:900px){
+  .cat-item{grid-template-columns:6ch 1fr auto;row-gap:6px}
+  .cat-item .ac{grid-column:2/-1;font-size:13px}
+  .cat-item .st{display:none}
+}
+.cat-foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:22px}
+
+#campo{position:relative;padding:clamp(64px,9vw,132px) 0;overflow:hidden;background:var(--ink)}
+#dots{position:absolute;inset:0;width:100%;height:100%;opacity:.72}
+.campo-in{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,90px);align-items:center}
+@media(max-width:900px){.campo-in{grid-template-columns:1fr}}
+.quote{font-family:var(--f-display);font-size:clamp(24px,3.4vw,50px);line-height:1.08;letter-spacing:-.016em}
+.quote em{font-style:italic;color:var(--pequi)}
+.who{display:flex;align-items:center;gap:14px;margin-top:26px}
+.who i{display:block;width:38px;height:1px;background:var(--pequi)}
+
+#encomenda{padding:clamp(60px,8vw,116px) 0 clamp(64px,9vw,128px);border-top:1px solid var(--line)}
+.enc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(30px,5vw,90px);align-items:center}
+@media(max-width:900px){.enc-grid{grid-template-columns:1fr}}
+.curved{position:relative;width:100%;max-width:520px;margin-inline:auto;cursor:text}
+.curved svg{width:100%;height:auto;overflow:visible}
+.curved input{
+  position:absolute;inset:0;opacity:0;width:100%;height:100%;border:0;background:none;
+  font-size:16px;cursor:text;
+}
+.curved .cbtn{
+  position:absolute;right:2%;top:50%;transform:translateY(-50%);
+  background:var(--pequi);color:var(--ink);font-family:var(--f-mono);font-size:11px;
+  letter-spacing:.14em;text-transform:uppercase;padding:12px 16px;
+  transition:transform .4s var(--e-over);
+}
+.curved .cbtn:hover{transform:translateY(-50%) scale(1.04)}
+.enc-note{font-family:var(--f-mono);font-size:11px;color:var(--paper-3);text-align:center;margin-top:18px;letter-spacing:.06em}
+
+#visita{padding:clamp(56px,7vw,100px) 0 clamp(48px,6vw,84px);border-top:1px solid var(--line)}
+.vis-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,3vw,52px)}
+@media(max-width:900px){.vis-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.vis-grid{grid-template-columns:1fr}}
+.vis-col h4{margin:0 0 14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.19em;text-transform:uppercase;color:var(--paper-3);font-weight:500}
+.vis-col p,.vis-col a{font-size:15px;color:var(--paper);display:block;margin:0 0 6px;max-width:28ch}
+.vis-col a{position:relative;width:fit-content}
+.vis-col a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:100%;background:var(--pequi);transform:scaleX(0);transform-origin:0 50%;transition:transform .45s var(--e-out)}
+.vis-col a:hover::after{transform:scaleX(1)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:0}
+.hours dt{font-family:var(--f-mono);font-size:12px;color:var(--paper-2);padding:5px 18px 5px 0}
+.hours dd{margin:0;font-family:var(--f-mono);font-size:12px;text-align:right;padding:5px 0;color:var(--paper)}
+.hours dd.shut{color:var(--paper-3)}
+
+/* ---------- rodapé ---------- */
+footer{padding:clamp(40px,6vw,80px) 0 clamp(22px,3vw,34px);border-top:1px solid var(--line);overflow:hidden}
+#footmark{
+  display:flex;justify-content:space-between;width:100%;
+  font-family:var(--f-var);font-weight:200;
+  font-size:clamp(52px,17.4vw,268px);line-height:.8;letter-spacing:-.02em;
+  user-select:none;color:var(--ink-3);
+}
+#footmark span{display:block;font-variation-settings:"wght" 200,"wdth" 100;will-change:font-variation-settings}
+.foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:clamp(26px,4vw,54px);padding-top:16px;border-top:1px solid var(--line-2)}
+.foot-bot span,.foot-bot a{font-family:var(--f-mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--paper-3)}
+.foot-bot a:hover{color:var(--pequi)}
+
+/* ---------- entradas discretas (só onde faz sentido — Lei 5) ---------- */
+[data-rise]{opacity:.001;transform:translateY(22px);transition:opacity .9s var(--e-out),transform 1.05s var(--e-out)}
+[data-rise].on{opacity:1;transform:none}
+[data-wipe]{clip-path:inset(0 100% 0 0);transition:clip-path 1.15s var(--e-frame)}
+[data-wipe].on{clip-path:inset(0 0 0 0)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  [data-rise],[data-wipe]{opacity:1!important;transform:none!important;clip-path:none!important}
+  .grain{animation:none}
+  #hero,#portal,#processo{height:auto}
+  .hero-stick,.portal-stick,.pc-stick{position:relative;height:auto;min-height:100svh}
+  .pc-rail{overflow-x:auto;transform:none!important}
+}
+</style>
+</head>
+<body data-cur="idle">
+
+<div class="grain" aria-hidden="true"></div>
+<div class="scene-fade" aria-hidden="true"></div>
+<div class="cur" aria-hidden="true"></div>
+<div class="cur-ring" aria-hidden="true"><span></span></div>
+
+<!-- ══════════ LOADER ══════════ -->
+<div id="load" aria-hidden="true">
+  <div class="lmark"><i>V</i><i>E</i><i>R</i><i>T</i><i>E</i><i>N</i><i>T</i><i>E</i></div>
+  <div class="lbot">
+    <p class="lab">Goiânia · Setor Marista · desde 2016</p>
+    <div class="lbar"><b></b></div>
+    <p class="lab num" id="lpct">00</p>
+  </div>
+</div>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav">
+  <a href="#hero" class="mark">Vertente</a>
+  <div class="links">
+    <a href="#catalogo">Os quatro</a>
+    <a href="#processo">Como é feito</a>
+    <a href="#bancada">A bancada</a>
+    <a href="#visita" class="keep">Visitar o ateliê</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ══════════ §1 HERO — vídeo rolável ══════════ -->
+<section id="hero">
+  <div class="hero-stick">
+    <div class="hero-media">
+      <img class="poster" id="heroPoster" alt="" aria-hidden="true">
+      <video id="heroVideo" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-top">
+        <h1 id="pressure" aria-label="Vertente">
+          <span>V</span><span>E</span><span>R</span><span>T</span><span>E</span><span>N</span><span>T</span><span>E</span>
+        </h1>
+        <div class="hero-sub">
+          <p class="lab">Perfumaria de autor</p>
+          <p class="lab">Nove botânicas do Cerrado</p>
+          <p class="lab lab--accent">Lotes de 36 frascos</p>
+        </div>
+      </div>
+
+      <div class="hero-bot">
+        <p class="lede">Destilamos o que o Cerrado deixa cair no chão: pequi verde,
+          resina de copaíba, casca de angico, baru torrado. Um alambique de cobre de
+          quarenta litros, duas passagens, e a paciência de esperar seis meses.</p>
+        <p class="tick"><i></i> Lote 41 · setembro</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §2 MANIFESTO ══════════ -->
+<section id="manifesto">
+  <div class="wrap">
+    <div class="eyebrow"><span class="idx">01</span><p class="lab">O que estamos fazendo aqui</p></div>
+    <div class="man-grid">
+      <div class="man-lines" id="manLines">
+        <span class="ln"><i>Nada aqui cheira a perfume de loja.</i></span>
+        <span class="ln"><i>Cheira a mato depois da chuva,</i></span>
+        <span class="ln"><i>a resina quente no cobre,</i></span>
+        <span class="ln"><i>a fruta <em>que ninguém exporta</em>.</i></span>
+      </div>
+      <div class="man-side">
+        <p class="dim">Iara Bueno abriu a Vertente em 2016 com um alambique emprestado e
+          catorze quilos de pequi que sobraram de uma safra ruim em Pirenópolis. Nonato
+          Ribeiro entrou em 2019 e trouxe as resinas. Continuamos os dois, na mesma sala
+          de quarenta e dois metros quadrados, e continuamos secando devagar — por isso
+          uma encomenda leva noventa dias e não temos como apressar.</p>
+        <dl>
+          <dt>Fundação</dt><dd class="num">2016</dd>
+          <dt>Botânicas em uso</dt><dd class="num">09</dd>
+          <dt>Frascos por lote</dt><dd class="num">36</dd>
+          <dt>Alambique</dt><dd class="num">40 L</dd>
+          <dt>Maceração</dt><dd class="num">40 dias</dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════ §3 PORTAL (scrollable) ══════════ -->
+<section id="portal">
+  <div class="portal-stick">
+    <div class="portal-far" aria-hidden="true"></div>
+    <div class="portal-mid" id="portalMid" aria-hidden="true"></div>
+    <div class="portal-hole" id="portalHole" aria-hidden="true"></div>
+    <div class="portal-edge" id="portalEdge" aria-hidden="true"></div>
+
+    <div class="portal-copy" id="portalCopy">
+      <p class="lab lab--accent">02 — Setembro, seis da manhã</p>
+      <h2 class="h2" style="margin-top:14px">A porta do fundo dá<br>direto no cerrado.</h2>
+    </div>
+
+    <div class="portal-inner" id="portalInner">
+      <h2 class="h2">Coletamos entre a segunda quinzena de setembro<br>e a primeira de janeiro.</h2>
+      <p class="dim" style="margin-inline:auto;max-width:56ch">Três coletores, todos moradores do entorno de Pirenópolis,
+        recebem por quilo entregue e ficam com metade da amêndoa do baru. Fora dessa
+        janela não há colheita — e não há lote novo.</p>
+      <div class="portal-cells">
+        <div><b class="num">112</b><span>Quilômetros até a coleta</span></div>
+        <div><b class="num">03</b><span>Coletores fixos</span></div>
+        <div><b class="num">1.400 kg</b><span>Matéria bruta por safra</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §4 PRODUTO 3D — turntable interativo ══════════ -->
+<section id="produto">
+  <div class="wrap">
+    <div class="eyebrow"><span class="idx">03</span><p class="lab">Pequi 04 — o frasco de 30 ml</p></div>
+    <div class="pr-grid">
+      <div>
+        <h2 class="h2" data-rise>O frasco gira.<br>O que está dentro<br>levou quarenta dias.</h2>
+        <div class="pr-notes" id="prNotes">
+          <div class="pr-note" data-w="34%"><span class="k">Topo</span><span class="v">Pequi verde, pimenta-rosa</span><span class="p num">0–20 min</span><span class="bar"><i></i></span></div>
+          <div class="pr-note" data-w="48%"><span class="k">Coração</span><span class="v">Copaíba, capim-santo</span><span class="p num">20 min–3 h</span><span class="bar"><i></i></span></div>
+          <div class="pr-note" data-w="72%"><span class="k">Fundo</span><span class="v">Angico defumado, baru</span><span class="p num">3–9 h</span><span class="bar"><i></i></span></div>
+        </div>
+      </div>
+
+      <div class="pr-stage" id="prStage">
+        <img class="poster" id="prPoster" alt="Frasco de vidro soprado à mão do perfume Pequi 04, girando sobre um disco de cobre." >
+        <video id="prVideo" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+        <div class="hot" data-ang="24" style="left:63%;top:31%"><b></b><u>Vidro soprado, 3 mm</u></div>
+        <div class="hot" data-ang="140" style="left:37%;top:57%"><b></b><u>Número do lote a bico de pena</u></div>
+        <div class="hot" data-ang="256" style="left:56%;top:74%"><b></b><u>Fundo com bolhas de forno</u></div>
+        <div class="pr-dial"><span class="num" id="prAngTxt">000°</span><span class="track" id="prTrack"><i></i></span><span>360°</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════ §5 OBJECT REVEAL ON HOVER ══════════ -->
+<section id="bancada">
+  <div class="wrap">
+    <div class="eyebrow"><span class="idx">04</span><p class="lab">A bancada em setembro</p></div>
+    <div class="bench" id="bench">
+      <div class="bench-img" id="benchImg" aria-hidden="true"></div>
+      <div class="bench-ring" id="benchRing" aria-hidden="true"></div>
+      <div class="bench-names" id="benchNames" aria-hidden="true">
+        <span>Pequi</span><span>Baru</span><span>Copaíba</span><span>Buriti</span><span>Jatobá</span>
+        <span>Capim-santo</span><span>Angico</span><span>Barbatimão</span><span>Sucupira</span><span>Pimenta-rosa</span>
+        <span>Cera bruta</span><span>Vetiver</span><span>Resina moída</span><span>Casca seca</span><span>Óleo fixo</span>
+      </div>
+    </div>
+    <div class="bench-meta">
+      <p class="lab">Nove entram nos perfumes. As outras seis ainda estão em teste.</p>
+      <p class="lab num">Fotografada em 12.09 · slate 60 × 34 cm</p>
+    </div>
+
+    <div class="spec" id="spec">
+      <div class="spec-row" data-cell="0"><span class="n num">01</span><span class="t">Pequi</span><span class="d">Colhido verde, no chão, antes do bicho. Só a polpa externa entra.</span><span class="y num">set–dez</span></div>
+      <div class="spec-row" data-cell="1"><span class="n num">02</span><span class="t">Baru</span><span class="d">Torrado 18 minutos a 160 °C. Abaixo disso não solta a amêndoa.</span><span class="y num">ago–out</span></div>
+      <div class="spec-row" data-cell="2"><span class="n num">03</span><span class="t">Copaíba</span><span class="d">Sangrada de árvore viva, um furo por ano, no máximo três litros.</span><span class="y num">o ano todo</span></div>
+      <div class="spec-row" data-cell="3"><span class="n num">04</span><span class="t">Buriti</span><span class="d">Óleo prensado a frio na vereda, comprado de uma cooperativa em Formosa.</span><span class="y num">jan–abr</span></div>
+      <div class="spec-row" data-cell="4"><span class="n num">05</span><span class="t">Angico</span><span class="d">Casca defumada por nós, em forno de barro, quatro horas.</span><span class="y num">mai–jul</span></div>
+      <div class="spec-row" data-cell="5"><span class="n num">06</span><span class="t">Barbatimão</span><span class="d">A mais difícil: seis meses de maturação antes de virar perfume.</span><span class="y num">jun–set</span></div>
+    </div>
+    <div id="specimen" aria-hidden="true"></div>
+  </div>
+</section>
+
+<!-- ══════════ §6 PROCESSO — horizontal ══════════ -->
+<section id="processo">
+  <div class="pc-stick">
+    <div class="pc-head">
+      <div class="eyebrow" style="margin:0"><span class="idx">05</span><p class="lab">Do chão ao frasco, cinco etapas</p></div>
+      <p class="lab num" id="pcCount">01 / 05</p>
+    </div>
+
+    <div class="pc-rail" id="pcRail">
+      <article class="pc-card">
+        <span class="n num">01</span>
+        <svg class="gl" viewBox="0 0 160 120" aria-hidden="true"><path d="M14 8 C42 26 58 44 66 66"/><path d="M66 66 C58 48 46 34 30 26"/><path d="M40 30 C56 30 70 40 76 54"/><ellipse cx="96" cy="40" rx="11" ry="9"/><ellipse class="ac" cx="118" cy="70" rx="9" ry="7.5"/><path class="dsh" d="M96 50 L96 84"/><path class="dsh" d="M118 78 L118 100"/><ellipse cx="94" cy="96" rx="12" ry="9.5"/><line x1="8" y1="112" x2="152" y2="112"/></svg>
+        <h3 class="h3">Colheita</h3>
+        <p>Setembro a janeiro, no entorno de Pirenópolis. Pequi só do chão — o que ainda
+          está na árvore não serve. O baru vem antes, em agosto, ainda com casca.</p>
+        <dl><div><dt>Distância</dt><dd class="num">112 km</dd></div><div><dt>Pessoas</dt><dd class="num">03</dd></div></dl>
+      </article>
+      <article class="pc-card">
+        <span class="n num">02</span>
+        <svg class="gl" viewBox="0 0 160 120" aria-hidden="true"><path d="M52 14 h56 v10 l10 12 v70 a8 8 0 0 1 -8 8 h-60 a8 8 0 0 1 -8 -8 v-70 l10 -12 z"/><path class="ac" d="M44 58 c12 -6 22 6 34 0 s22 -6 34 0"/><circle cx="66" cy="76" r="3"/><circle cx="92" cy="88" r="4"/><circle cx="80" cy="68" r="2.4"/><path class="dsh" d="M44 74 h72"/><path class="dsh" d="M44 90 h72"/><line x1="132" y1="24" x2="132" y2="106"/><path d="M128 24 h8 M128 106 h8"/></svg>
+        <h3 class="h3">Maceração</h3>
+        <p>Quarenta dias em álcool de cana orgânico, no escuro, a dezenove graus. Agitamos
+          o vidro uma vez por dia, à mão. Nada de banho-maria, nada de ultrassom.</p>
+        <dl><div><dt>Tempo</dt><dd class="num">40 dias</dd></div><div><dt>Temperatura</dt><dd class="num">19 °C</dd></div></dl>
+      </article>
+      <article class="pc-card">
+        <span class="n num">03</span>
+        <svg class="gl" viewBox="0 0 160 120" aria-hidden="true"><path d="M30 108 h56 v-34 c0 -16 -12 -20 -12 -34 v-22 h-32 v22 c0 14 -12 18 -12 34 z"/><path class="ac" d="M74 40 c22 0 30 10 30 24 c0 12 -10 16 -10 26 c0 8 8 10 16 10 h14"/><path class="dsh" d="M42 18 v-12 M58 18 v-16 M74 18 v-12"/><circle cx="126" cy="98" r="9"/><path d="M126 89 v-6"/><line x1="18" y1="112" x2="148" y2="112"/></svg>
+        <h3 class="h3">Destilação</h3>
+        <p>Alambique de cobre de quarenta litros, duas passagens. A cabeça e a cauda saem
+          fora e viram álcool de limpeza da própria sala. Só o coração vira perfume.</p>
+        <dl><div><dt>Rendimento</dt><dd class="num">11%</dd></div><div><dt>Passagens</dt><dd class="num">02</dd></div></dl>
+      </article>
+      <article class="pc-card">
+        <span class="n num">04</span>
+        <svg class="gl" viewBox="0 0 160 120" aria-hidden="true"><path d="M22 44 h20 v-14 h-20 z M22 44 v58 h20 v-58"/><path d="M56 38 h20 v-14 h-20 z M56 38 v64 h20 v-64"/><path class="ac" d="M90 32 h20 v-14 h-20 z M90 32 v70 h20 v-70"/><path d="M124 50 h20 v-14 h-20 z M124 50 v52 h20 v-52"/><path class="dsh" d="M18 76 h130"/><line x1="14" y1="108" x2="150" y2="108"/></svg>
+        <h3 class="h3">Maturação</h3>
+        <p>Noventa dias para os cítricos e resinas leves. Seis meses para o barbatimão,
+          que antes disso ainda está adstringente e fecha a garganta.</p>
+        <dl><div><dt>Mínimo</dt><dd class="num">90 dias</dd></div><div><dt>Máximo</dt><dd class="num">6 meses</dd></div></dl>
+      </article>
+      <article class="pc-card">
+        <span class="n num">05</span>
+        <svg class="gl" viewBox="0 0 160 120" aria-hidden="true"><path d="M56 30 h22 v-12 h-22 z"/><path d="M56 30 c0 12 -12 14 -12 28 v46 a8 8 0 0 0 8 8 h34 a8 8 0 0 0 8 -8 v-46 c0 -14 -12 -16 -12 -28"/><path class="ac" d="M46 66 h44"/><path class="dsh" d="M46 80 h44"/><path d="M118 26 l20 20 l-38 38 l-22 4 l4 -22 z"/><path class="ac" d="M112 32 l14 14"/><line x1="14" y1="112" x2="150" y2="112"/></svg>
+        <h3 class="h3">Envase</h3>
+        <p>Trinta e seis frascos por lote, soprados por um vidreiro em Inhumas. Cada um
+          recebe o número do lote a bico de pena, em tinta ferrogálica, na faixa de papel.</p>
+        <dl><div><dt>Frascos</dt><dd class="num">36</dd></div><div><dt>Vidreiro</dt><dd class="num">Inhumas</dd></div></dl>
+      </article>
+    </div>
+
+    <div class="pc-prog"><i></i></div>
+  </div>
+</section>
+
+<!-- ══════════ §7 CATÁLOGO ══════════ -->
+<section id="catalogo">
+  <div class="wrap">
+    <div class="cat-head">
+      <div>
+        <div class="eyebrow"><span class="idx">06</span><p class="lab">Catálogo permanente</p></div>
+        <h2 class="h2" data-rise>Quatro perfumes.<br>Nenhum deles<br>fica pronto rápido.</h2>
+      </div>
+      <p class="dim">Preços de setembro de 2026. Estoque real, atualizado toda segunda —
+        quando um lote acaba, a linha some daqui até a próxima destilação.</p>
+    </div>
+
+    <div class="cat-table">
+      <div class="cat-item">
+        <span class="cod num">PQ·04</span>
+        <span class="nm">Pequi 04</span>
+        <span class="ac">Pequi verde, pimenta-rosa, copaíba, angico defumado</span>
+        <span class="st num">19 em estoque</span>
+        <span class="pz num">R$ 380<s>30 ml</s></span>
+      </div>
+      <div class="cat-item">
+        <span class="cod num">BR·11</span>
+        <span class="nm">Buriti 11</span>
+        <span class="ac">Buriti, cera de abelha bruta, capim-santo, baru torrado</span>
+        <span class="st num">07 em estoque</span>
+        <span class="pz num">R$ 380<s>30 ml</s></span>
+      </div>
+      <div class="cat-item">
+        <span class="cod num">BB·02</span>
+        <span class="nm">Barbatimão 02</span>
+        <span class="ac">Barbatimão, vetiver, jatobá, resina de copaíba envelhecida</span>
+        <span class="st num">Esgotado · volta em nov</span>
+        <span class="pz num">R$ 440<s>30 ml</s></span>
+      </div>
+      <div class="cat-item">
+        <span class="cod num">SC·07</span>
+        <span class="nm">Sucupira 07</span>
+        <span class="ac">Sucupira, baru torrado, pimenta-rosa, casca de angico</span>
+        <span class="st num">24 em estoque</span>
+        <span class="pz num">R$ 240<s>15 ml</s></span>
+      </div>
+    </div>
+
+    <div class="cat-foot">
+      <p class="lab">Amostra de 2 ml dos quatro, por R$ 60, abatidos na primeira compra.</p>
+      <a class="lab lab--accent" href="https://wa.me/5562999180410?text=Quero%20a%20amostra%20dos%20quatro" target="_blank" rel="noopener">Pedir a amostra pelo WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §8 CAMPO DE PONTOS + FALA ══════════ -->
+<section id="campo">
+  <canvas id="dots" aria-hidden="true"></canvas>
+  <div class="wrap campo-in">
+    <div>
+      <div class="eyebrow"><span class="idx">07</span><p class="lab">Sobre errar o ponto</p></div>
+      <blockquote class="quote" data-rise style="margin:0">
+        “A primeira destilação de barbatimão que fiz ficou <em>impossível de usar</em>.
+        Amarga, seca, parecia chá de casca. Levei dois anos para descobrir que o problema
+        não era a planta — era a pressa.”
+      </blockquote>
+      <div class="who"><i></i><p class="lab">Iara Bueno · perfumista · fundou a Vertente em 2016</p></div>
+    </div>
+    <div>
+      <dl style="display:grid;grid-template-columns:auto 1fr;margin:0;border-top:1px solid var(--line)">
+        <dt class="lab" style="padding:14px 20px 14px 0;border-bottom:1px solid var(--line-2)">Lotes destilados até hoje</dt>
+        <dd class="num" style="margin:0;padding:14px 0;text-align:right;border-bottom:1px solid var(--line-2);font-size:15px">41</dd>
+        <dt class="lab" style="padding:14px 20px 14px 0;border-bottom:1px solid var(--line-2)">Lotes descartados</dt>
+        <dd class="num" style="margin:0;padding:14px 0;text-align:right;border-bottom:1px solid var(--line-2);font-size:15px">06</dd>
+        <dt class="lab" style="padding:14px 20px 14px 0;border-bottom:1px solid var(--line-2)">Encomendas autorais entregues</dt>
+        <dd class="num" style="margin:0;padding:14px 0;text-align:right;border-bottom:1px solid var(--line-2);font-size:15px">88</dd>
+        <dt class="lab" style="padding:14px 20px 14px 0;border-bottom:1px solid var(--line-2)">Metros quadrados de ateliê</dt>
+        <dd class="num" style="margin:0;padding:14px 0;text-align:right;border-bottom:1px solid var(--line-2);font-size:15px">42</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §9 ENCOMENDA — input curvado ══════════ -->
+<section id="encomenda">
+  <div class="wrap enc-grid">
+    <div>
+      <div class="eyebrow"><span class="idx">08</span><p class="lab">Perfume de encomenda</p></div>
+      <h2 class="h2" data-rise>Noventa dias,<br>uma conversa de<br>duas horas,<br>trinta e seis frascos.</h2>
+      <p class="dim" style="margin-top:26px">Você vem ao ateliê, cheira quarenta e uma matérias-primas
+        e escolhe sete. A partir daí é nosso: maceração, corte, maturação. No fim saem trinta e seis
+        frascos com o seu nome no lote — você fica com seis, e os outros trinta entram no catálogo se
+        você deixar. <span class="num">R$ 2.400</span>, metade na primeira sessão.</p>
+    </div>
+
+    <div>
+      <form class="curved" id="curved" novalidate>
+        <svg viewBox="0 0 520 120" aria-hidden="true">
+          <defs><path id="arc" d="M 22 88 Q 260 24 498 88"></path></defs>
+          <path d="M 22 88 Q 260 24 498 88" fill="none" stroke="var(--line)" stroke-width="1"></path>
+          <path d="M 22 88 Q 260 24 498 88" fill="none" stroke="var(--pequi)" stroke-width="1.5"
+                stroke-dasharray="620" stroke-dashoffset="620" id="arcInk"></path>
+          <text font-family="var(--f-mono)" font-size="14" fill="var(--paper)" letter-spacing="1">
+            <textPath href="#arc" startOffset="6%" id="arcText">seu e-mail para a lista de encomenda</textPath>
+          </text>
+        </svg>
+        <input id="curvedInput" type="email" inputmode="email" autocomplete="email"
+               aria-label="Seu e-mail para entrar na lista de encomenda">
+        <button class="cbtn" type="submit">Entrar na fila</button>
+      </form>
+      <p class="enc-note" id="encNote">Quatro vagas por trimestre. Próxima janela: janeiro de 2027.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ §10 VISITA ══════════ -->
+<section id="visita">
+  <div class="wrap">
+    <div class="eyebrow"><span class="idx">09</span><p class="lab">Vir até aqui</p></div>
+    <div class="vis-grid">
+      <div class="vis-col">
+        <h4>Endereço</h4>
+        <p>Rua 22, 148 · fundos<br>Setor Marista<br>Goiânia · GO · 74150-220</p>
+        <a href="https://www.google.com/maps/search/?api=1&query=Rua+22%2C+148+Setor+Marista+Goi%C3%A2nia" target="_blank" rel="noopener">Abrir no mapa</a>
+      </div>
+      <div class="vis-col">
+        <h4>Horário</h4>
+        <dl class="hours">
+          <dt>Ter a sex</dt><dd>13h–19h</dd>
+          <dt>Sábado</dt><dd>10h–16h</dd>
+          <dt>Dom e seg</dt><dd class="shut">fechado</dd>
+          <dt>Destilação</dt><dd class="shut">qui, sem visita</dd>
+        </dl>
+      </div>
+      <div class="vis-col">
+        <h4>Falar com a gente</h4>
+        <a href="https://wa.me/5562999180410" target="_blank" rel="noopener">WhatsApp · 62 99918-0410</a>
+        <a href="tel:+556232410148">Fixo · 62 3241-0148</a>
+        <a href="mailto:atelie@vertente.com.br">atelie@vertente.com.br</a>
+      </div>
+      <div class="vis-col">
+        <h4>Antes de vir</h4>
+        <p class="dim" style="font-size:14px">Quinta é dia de alambique e a sala fica fechada e quente.
+          Se quiser cheirar as matérias-primas com calma, venha terça ou sexta no começo da tarde —
+          é quando não tem ninguém.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div id="footmark" aria-hidden="true">
+      <span>V</span><span>E</span><span>R</span><span>T</span><span>E</span><span>N</span><span>T</span><span>E</span>
+    </div>
+    <div class="foot-bot">
+      <span>© 2026 Vertente Perfumaria · CNPJ 28.401.552/0001-09</span>
+      <a href="#hero">Voltar ao topo</a>
+      <a href="https://wa.me/5562999180410" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="mailto:atelie@vertente.com.br">E-mail</a>
+      <span>Lote 41 · setembro de 2026</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   VERTENTE — runtime
+   Um único requestAnimationFrame. Nenhuma dependência externa.
+   ══════════════════════════════════════════════════════════════ */
+(function(){
+"use strict";
+
+/* ---------- 1. mídia gerada (Higgsfield) ---------- */
+var ASSETS = {
+  heroVideo : "https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260904_220434_78912903-2d8b-4ae8-b0b4-efce626697cc.mp4",
+  heroPoster: "https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260904_220121_12d21747-ac4d-4f9c-9704-fd404717cb10.png",
+  prodVideo : "https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260904_220452_95aa6d5c-3608-42ae-a91f-80e9c0a48a8b.mp4",
+  prodPoster: "https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260904_220134_a7cf87c0-f6ab-4b3e-b3ce-c8a0821485b6.png",
+  bench     : "https://d8j0ntlcm91z4.cloudfront.net/user_3Fn9kvwewWSxcmhyI5mG7uDadG8/hf_20260904_220144_b2f49819-3ef3-41ba-a95b-14588369e36b.png"
+};
+/* espelhe em ./assets/ e troque as URLs acima para deixar 100% offline */
+
+var $  = function(s,c){return (c||document).querySelector(s);};
+var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+var root = document.documentElement, body = document.body;
+
+var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var COARSE  = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+var SMALL   = window.matchMedia("(max-width: 820px)").matches;
+
+function clamp(v,a,b){return v<a?a:(v>b?b:v);}
+function lerp(a,b,t){return a+(b-a)*t;}
+function damp(cur,tgt,lambda,dt){return cur+(tgt-cur)*(1-Math.exp(-lambda*dt));}
+function map(v,a,b,c,d){return c+(clamp((v-a)/(b-a),0,1))*(d-c);}
+function smooth(t){return t*t*(3-2*t);}
+
+/* ---------- 2. loop central ---------- */
+var ticks = [], last = performance.now(), running = true;
+function addTick(fn){ticks.push(fn);}
+function frame(now){
+  var dt = clamp((now-last)/1000, 0, 0.05); last = now;
+  for(var i=0;i<ticks.length;i++) ticks[i](dt, now);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(function(n){last=n;requestAnimationFrame(frame);});
+document.addEventListener("visibilitychange", function(){ last = performance.now(); });
+
+/* ---------- 3. aplicar mídia ---------- */
+(function media(){
+  var hv=$("#heroVideo"), hp=$("#heroPoster");
+  hp.src = ASSETS.heroPoster;
+  if(!REDUCED){ hv.src = ASSETS.heroVideo; hv.poster = ASSETS.heroPoster;
+    hv.addEventListener("loadeddata", function(){ hp.style.opacity="0"; hp.style.transition="opacity .8s var(--e-out)"; });
+    var p=hv.play(); if(p&&p.catch) p.catch(function(){});
+  } else { hv.remove(); }
+
+  var pv=$("#prVideo"), pp=$("#prPoster");
+  pp.src = ASSETS.prodPoster;
+  if(!REDUCED && ASSETS.prodVideo.indexOf("http")===0){
+    pv.src = ASSETS.prodVideo; pv.poster = ASSETS.prodPoster;
+  } else { pv.remove(); }
+
+  root.style.setProperty("--bench-img", 'url("'+ASSETS.bench+'")');
+  root.style.setProperty("--portal-img", 'url("'+ASSETS.heroPoster+'")');
+})();
+
+/* ---------- 4. scroll suave (damping exponencial, nunca "seco") ---------- */
+var SS = { target:window.scrollY, current:window.scrollY, on:(!REDUCED && !COARSE), self:false };
+function maxScroll(){return Math.max(0, root.scrollHeight - window.innerHeight);}
+
+if(SS.on){
+  window.addEventListener("wheel", function(e){
+    if(e.ctrlKey) return;
+    e.preventDefault();
+    var d = e.deltaY;
+    if(e.deltaMode === 1) d *= 16;
+    else if(e.deltaMode === 2) d *= window.innerHeight;
+    SS.target = clamp(SS.target + d, 0, maxScroll());
+  }, {passive:false});
+
+  window.addEventListener("keydown", function(e){
+    var t=e.target; if(t && (t.tagName==="INPUT"||t.tagName==="TEXTAREA")) return;
+    var vh=window.innerHeight, step=null;
+    if(e.key==="PageDown") step= vh*.86; else if(e.key==="PageUp") step=-vh*.86;
+    else if(e.key===" " && !e.shiftKey) step= vh*.82;
+    else if(e.key===" " &&  e.shiftKey) step=-vh*.82;
+    else if(e.key==="ArrowDown") step= 110; else if(e.key==="ArrowUp") step=-110;
+    else if(e.key==="Home"){SS.target=0;e.preventDefault();return;}
+    else if(e.key==="End"){SS.target=maxScroll();e.preventDefault();return;}
+    if(step!==null){ e.preventDefault(); SS.target = clamp(SS.target+step,0,maxScroll()); }
+  });
+
+  window.addEventListener("scroll", function(){
+    if(SS.self){ SS.self=false; return; }
+    if(Math.abs(window.scrollY - SS.current) > 2){ SS.current = SS.target = window.scrollY; }
+  }, {passive:true});
+
+  addTick(function(dt){
+    if(Math.abs(SS.target - SS.current) < 0.08){ SS.current = SS.target; return; }
+    SS.current = damp(SS.current, SS.target, 7.2, dt);
+    SS.self = true;
+    window.scrollTo(0, SS.current);
+  });
+}
+function goTo(y){
+  y = clamp(y,0,maxScroll());
+  if(SS.on) SS.target = y; else window.scrollTo({top:y, behavior: REDUCED?"auto":"smooth"});
+}
+$$('a[href^="#"]').forEach(function(a){
+  a.addEventListener("click", function(e){
+    var el = document.getElementById(a.getAttribute("href").slice(1));
+    if(!el) return; e.preventDefault();
+    goTo(el.getBoundingClientRect().top + window.scrollY);
+  });
+});
+
+/* ---------- 5. ponteiro global ---------- */
+var PT = {x:innerWidth/2, y:innerHeight/2, rx:innerWidth/2, ry:innerHeight/2, sx:innerWidth/2, sy:innerHeight/2, has:false};
+window.addEventListener("pointermove", function(e){ PT.x=e.clientX; PT.y=e.clientY; PT.has=true; }, {passive:true});
+addTick(function(dt){
+  PT.rx = damp(PT.rx, PT.x, 22, dt);  PT.ry = damp(PT.ry, PT.y, 22, dt);
+  PT.sx = damp(PT.sx, PT.x, 7.5, dt); PT.sy = damp(PT.sy, PT.y, 7.5, dt);
+});
+
+/* ---------- 6. cursor de duas latências ---------- */
+if(!COARSE){
+  var cDot=$(".cur"), cRing=$(".cur-ring"), cTxt=$(".cur-ring span");
+  addTick(function(){
+    cDot.style.transform  = "translate3d("+PT.rx+"px,"+PT.ry+"px,0)";
+    cRing.style.transform = "translate3d("+PT.sx+"px,"+PT.sy+"px,0)";
+  });
+  function cur(state, label){ body.setAttribute("data-cur", state); cTxt.textContent = label||""; }
+  $$("a, button").forEach(function(el){
+    el.addEventListener("pointerenter", function(){ cur("link", el.dataset.cur || "abrir"); });
+    el.addEventListener("pointerleave", function(){ cur("idle"); });
+  });
+  var st=$("#prStage");
+  st.addEventListener("pointerenter", function(){ cur("drag","girar"); });
+  st.addEventListener("pointerleave", function(){ cur("idle"); });
+  var bn=$("#bench");
+  bn.addEventListener("pointerenter", function(){ cur("lens"); });
+  bn.addEventListener("pointerleave", function(){ cur("idle"); });
+}
+
+/* ---------- 7. loader ---------- */
+(function loader(){
+  var el=$("#load"), bar=$("#load .lbar b"), pct=$("#lpct"), letters=$$("#load .lmark i");
+  body.classList.add("is-locked");
+  letters.forEach(function(l,i){
+    l.style.transition="transform .92s cubic-bezier(.16,1,.3,1) "+(0.05+i*0.045)+"s, opacity .5s linear "+(0.05+i*0.045)+"s";
+  });
+  requestAnimationFrame(function(){ letters.forEach(function(l){ l.style.transform="none"; l.style.opacity="1"; }); });
+
+  var t0=performance.now(), DUR=1350, done=false;
+  function step(now){
+    var p = clamp((now-t0)/DUR,0,1), e = 1-Math.pow(1-p,3);
+    bar.style.right = (100 - e*100) + "%";
+    pct.textContent = String(Math.round(e*100)).padStart(2,"0");
+    if(p<1){ requestAnimationFrame(step); }
+    else if(!done){
+      done=true;
+      setTimeout(function(){
+        el.classList.add("done");
+        body.classList.remove("is-locked");
+        SS.current = SS.target = window.scrollY;
+        setTimeout(function(){ el.remove(); }, 1200);
+      }, 190);
+    }
+  }
+  requestAnimationFrame(step);
+})();
+
+/* ---------- 8. TextPressure (React Bits, reimplementado) ---------- */
+function pressure(sel, cfg){
+  var host=$(sel); if(!host) return;
+  var chars=$$("span", host), state=chars.map(function(){return {w:cfg.wMin, d:cfg.dMin, s:1};});
+  var visible=false;
+  new IntersectionObserver(function(en){ visible=en[0].isIntersecting; },{threshold:0}).observe(host);
+  addTick(function(dt){
+    if(!visible) return;
+    var maxD = Math.max(280, window.innerWidth*cfg.reach);
+    for(var i=0;i<chars.length;i++){
+      var r=chars[i].getBoundingClientRect();
+      var cx=r.left+r.width/2, cy=r.top+r.height/2;
+      var dist=Math.hypot(PT.sx-cx, PT.sy-cy);
+      var f = PT.has ? Math.pow(clamp(1-dist/maxD,0,1), 1.7) : 0;
+      var s=state[i];
+      s.w = damp(s.w, cfg.wMin + f*(cfg.wMax-cfg.wMin), 9, dt);
+      s.d = damp(s.d, cfg.dMin + f*(cfg.dMax-cfg.dMin), 9, dt);
+      s.s = damp(s.s, 1 + f*cfg.scale, 9, dt);
+      chars[i].style.fontVariationSettings = '"wght" '+s.w.toFixed(1)+', "wdth" '+s.d.toFixed(1);
+      chars[i].style.transform = "scaleY("+s.s.toFixed(4)+")";
+    }
+  });
+}
+if(!COARSE && !REDUCED){
+  pressure("#pressure", {wMin:230, wMax:880, dMin:74, dMax:125, scale:0.10, reach:0.42});
+  pressure("#footmark", {wMin:150, wMax:640, dMin:66, dMax:118, scale:0.06, reach:0.34});
+}
+
+/* ---------- 9. progresso de seção ---------- */
+function progressOf(el){
+  var r=el.getBoundingClientRect(), vh=window.innerHeight, total=r.height-vh;
+  if(total<=1){ return clamp((vh - r.top)/(vh + r.height), 0, 1); }
+  return clamp((-r.top)/total, 0, 1);
+}
+
+/* ---------- 10. HERO — reenquadramento dirigido pelo scroll ---------- */
+(function hero(){
+  var sec=$("#hero"), media=$(".hero-media"), top=$(".hero-top"), bot=$(".hero-bot"), vid=$("#heroVideo");
+  var seen=true;
+  new IntersectionObserver(function(en){
+    seen=en[0].isIntersecting;
+    if(vid){ if(seen){ var p=vid.play(); if(p&&p.catch)p.catch(function(){}); } else vid.pause(); }
+  },{threshold:0}).observe(sec);
+
+  addTick(function(){
+    if(!seen) return;
+    var p=progressOf(sec), e=smooth(p);
+    media.style.setProperty("--hi",  (e*13.5).toFixed(2)+"%");
+    media.style.setProperty("--hix", (e*8.4 ).toFixed(2)+"%");
+    media.style.setProperty("--hs",  (1.085 - e*0.085).toFixed(4));
+    top.style.transform = "translate3d(0,"+(-e*11).toFixed(2)+"vh,0)";
+    top.style.opacity   = (1 - clamp((p-0.55)/0.35,0,1)*0.82).toFixed(3);
+    bot.style.transform = "translate3d(0,"+( e*7 ).toFixed(2)+"vh,0)";
+    bot.style.opacity   = (1 - clamp((p-0.30)/0.30,0,1)).toFixed(3);
+  });
+})();
+
+/* ---------- 11. manifesto ---------- */
+(function manifesto(){
+  var el=$("#manLines");
+  new IntersectionObserver(function(en,o){
+    if(en[0].isIntersecting){ el.classList.add("on"); o.disconnect(); }
+  },{threshold:.34}).observe(el);
+})();
+
+/* ---------- 12. PORTAL ANIMATION (scrollable) ---------- */
+(function portal(){
+  var sec=$("#portal"), hole=$("#portalHole"), edge=$("#portalEdge"),
+      far=$(".portal-far"), mid=$("#portalMid"), copy=$("#portalCopy"), inner=$("#portalInner");
+  var seen=false, R=7;
+  new IntersectionObserver(function(en){ seen=en[0].isIntersecting; },{threshold:0}).observe(sec);
+
+  addTick(function(dt){
+    if(!seen) return;
+    var p = progressOf(sec);
+
+    /* abertura: cresce até 62%, mantém, e fecha no fim */
+    var open;
+    if(p < 0.60)      open = smooth(map(p, 0.06, 0.60, 0, 1));
+    else if(p < 0.84) open = 1;
+    else              open = 1 - smooth(map(p, 0.84, 1.0, 0, 1));
+
+    var targetR = 6.5 + open * 148;
+    R = damp(R, targetR, 14, dt);
+    var rv = R.toFixed(2)+"vmax";
+    hole.style.setProperty("--pr", rv);
+    edge.style.setProperty("--pr", rv);
+    edge.style.opacity = (1 - clamp((open-0.88)/0.12,0,1)*0.85).toFixed(3);
+
+    /* três profundidades, velocidades diferentes */
+    far.style.setProperty("--pf", (1.28 - open*0.24).toFixed(4));
+    mid.style.setProperty("--pm", (1.16 - open*0.15).toFixed(4));
+    mid.style.transform = "scale("+(1.16-open*0.15).toFixed(4)+") translate3d(0,"+(-open*3.2).toFixed(2)+"vh,0)";
+
+    var cOut = clamp(map(p,0.08,0.28,0,1),0,1);
+    copy.style.setProperty("--pc", (1-cOut).toFixed(3));
+    copy.style.setProperty("--pcY", (-cOut*46).toFixed(1));
+
+    var iIn = smooth(clamp(map(p,0.40,0.62,0,1),0,1));
+    var iOut= clamp(map(p,0.82,0.94,0,1),0,1);
+    inner.style.setProperty("--pio", (iIn*(1-iOut)).toFixed(3));
+    inner.style.setProperty("--pis", (0.93 + iIn*0.07).toFixed(4));
+  });
+})();
+
+/* ---------- 13. PRODUTO 3D — turntable arrastável + ligado ao scroll ---------- */
+(function turntable(){
+  var stage=$("#prStage"), vid=$("#prVideo"), track=$("#prTrack"), angTxt=$("#prAngTxt"),
+      hots=$$(".hot", stage), poster=$("#prPoster");
+  if(!vid){ return; }
+
+  var mode="auto", seen=false, dragging=false, startX=0, startT=0, lastScroll=0, idleAt=0;
+  var DUR=10;
+  vid.addEventListener("loadedmetadata", function(){
+    DUR = vid.duration || 10;
+    poster.style.transition="opacity .7s var(--e-out)"; poster.style.opacity="0";
+  });
+
+  new IntersectionObserver(function(en){
+    seen=en[0].isIntersecting;
+    if(seen && mode==="auto"){ var p=vid.play(); if(p&&p.catch)p.catch(function(){}); }
+    else vid.pause();
+  },{threshold:.25}).observe(stage);
+
+  function setTime(t){
+    var d = vid.duration || DUR;
+    t = ((t % d) + d) % d;
+    try{ vid.currentTime = t; }catch(e){}
+  }
+
+  stage.addEventListener("pointerdown", function(e){
+    dragging=true; mode="drag"; vid.pause();
+    startX=e.clientX; startT=vid.currentTime;
+    stage.setPointerCapture(e.pointerId);
+  });
+  stage.addEventListener("pointermove", function(e){
+    if(!dragging) return;
+    var d=vid.duration||DUR;
+    setTime(startT - ((e.clientX-startX)/stage.clientWidth) * d * 1.35);
+  });
+  function release(){
+    if(!dragging) return;
+    dragging=false; idleAt=performance.now()+1800;
+  }
+  stage.addEventListener("pointerup", release);
+  stage.addEventListener("pointercancel", release);
+  stage.addEventListener("lostpointercapture", release);
+
+  /* nudge por scroll: enquanto a seção está em tela e a página rola, o giro segue o scroll */
+  window.addEventListener("scroll", function(){
+    if(!seen || dragging) return;
+    lastScroll = performance.now();
+    if(mode!=="scroll"){ mode="scroll"; vid.pause(); }
+  }, {passive:true});
+
+  addTick(function(dt, now){
+    if(!seen) return;
+    var d = vid.duration || DUR;
+
+    if(mode==="scroll"){
+      var r=stage.getBoundingClientRect();
+      var q=clamp((window.innerHeight - r.top)/(window.innerHeight + r.height), 0, 1);
+      setTime(q * d * 1.6);
+      if(now - lastScroll > 850){ mode="auto"; idleAt=now; }
+    } else if(mode==="drag"){
+      if(!dragging && now > idleAt){ mode="auto"; }
+    } else if(vid.paused){
+      var pl=vid.play(); if(pl&&pl.catch)pl.catch(function(){});
+    }
+
+    var ang = ((vid.currentTime||0)/d)*360;
+    track.style.setProperty("--ang", ang.toFixed(1));
+    angTxt.textContent = String(Math.round(ang)).padStart(3,"0")+"°";
+    for(var i=0;i<hots.length;i++){
+      var a=parseFloat(hots[i].dataset.ang);
+      var diff=Math.abs(((ang-a+540)%360)-180);
+      hots[i].classList.toggle("on", diff < 52);
+    }
+  });
+
+  /* barras da pirâmide olfativa */
+  var notes=$$(".pr-note");
+  notes.forEach(function(n){ n.style.setProperty("--w", n.dataset.w); });
+  new IntersectionObserver(function(en,o){
+    if(en[0].isIntersecting){ notes.forEach(function(n,i){ setTimeout(function(){n.classList.add("on");}, i*140); }); o.disconnect(); }
+  },{threshold:.5}).observe($("#prNotes"));
+})();
+
+/* ---------- 14. OBJECT REVEAL ON HOVER — lente sobre a bancada ---------- */
+(function bench(){
+  var el=$("#bench"), img=$("#benchImg"), ring=$("#benchRing"), names=$$("#benchNames span");
+  var bx=0.5, by=0.5, tx=0.5, ty=0.5, r=0, tr=0, seen=false, inside=false, t=0;
+
+  new IntersectionObserver(function(en){ seen=en[0].isIntersecting; },{threshold:.14}).observe(el);
+
+  if(!COARSE){
+    el.addEventListener("pointerenter", function(){ inside=true; tr=1; });
+    el.addEventListener("pointerleave", function(){ inside=false; tr=0; });
+    el.addEventListener("pointermove", function(e){
+      var b=el.getBoundingClientRect();
+      tx=(e.clientX-b.left)/b.width; ty=(e.clientY-b.top)/b.height;
+    });
+  }
+
+  addTick(function(dt){
+    if(!seen){ return; }
+    t += dt;
+    if(COARSE || !inside){
+      /* varredura automática: no toque não existe hover (anti-padrão 44) e,
+         no desktop, é o movimento que anuncia a lente — sem legenda (§10). */
+      tr = COARSE ? 1 : 0.62;
+      tx = 0.5 + Math.cos(t*0.40)*0.30;
+      ty = 0.5 + Math.sin(t*0.57)*0.23;
+    } else { tr = 1; }
+    bx = damp(bx, tx, 6.4, dt);
+    by = damp(by, ty, 6.4, dt);
+    r  = damp(r,  tr, 5.2, dt);
+
+    var b=el.getBoundingClientRect();
+    var px = Math.min(b.width, b.height) * 0.30 * r;
+    el.style.setProperty("--bx", (bx*100).toFixed(2)+"%");
+    el.style.setProperty("--by", (by*100).toFixed(2)+"%");
+    el.style.setProperty("--br", px.toFixed(1)+"px");
+    ring.style.opacity = (r*0.9).toFixed(3);
+
+    var cx=bx*b.width, cy=by*b.height, rad=px*1.05;
+    for(var i=0;i<names.length;i++){
+      var nr=names[i].getBoundingClientRect();
+      var d=Math.hypot((nr.left+nr.width/2-b.left)-cx, (nr.top+nr.height/2-b.top)-cy);
+      names[i].classList.toggle("lit", d < rad);
+    }
+  });
+})();
+
+/* ---------- 15. espécime que segue o cursor (segunda variação do reveal) ---------- */
+(function specimen(){
+  var box=$("#specimen"), rows=$$(".spec-row");
+  if(!box) return;
+  box.style.backgroundSize = "500% 300%";
+  var COLS=5, ROWS=3, on=false, sx=0, sy=0;
+
+  rows.forEach(function(row, i){
+    row.addEventListener("pointerenter", function(){
+      if(COARSE) return;
+      var cell = parseInt(row.dataset.cell,10) || 0;
+      var c = cell % COLS, rr = Math.floor(cell / COLS) % ROWS;
+      box.style.backgroundPosition = ((c/(COLS-1))*100).toFixed(1)+"% "+((rr/(ROWS-1))*100).toFixed(1)+"%";
+      box.style.setProperty("--sr", (i%2 ? 1.6 : -1.9)+"deg");
+      sx = PT.x; sy = PT.y;
+      on = true; box.classList.add("on");
+    });
+    row.addEventListener("pointerleave", function(){ on=false; box.classList.remove("on"); });
+  });
+
+  addTick(function(dt){
+    if(!on) return;
+    sx = damp(sx, PT.x + 190, 9, dt);
+    sy = damp(sy, PT.y, 9, dt);
+    box.style.left = sx+"px"; box.style.top = sy+"px";
+  });
+})();
+
+/* ---------- 16. PROCESSO — horizontal dirigido pelo scroll vertical ---------- */
+(function processo(){
+  var sec=$("#processo"), rail=$("#pcRail"), prog=$(".pc-prog"), count=$("#pcCount");
+  var cards=$$(".pc-card", rail), seen=false, x=0;
+  new IntersectionObserver(function(en){ seen=en[0].isIntersecting; },{threshold:0}).observe(sec);
+
+  addTick(function(dt){
+    if(!seen || REDUCED) return;
+    var p=progressOf(sec);
+    var span=Math.max(0, rail.scrollWidth - window.innerWidth);
+    x = damp(x, -p*span, 11, dt);
+    rail.style.transform = "translate3d("+x.toFixed(1)+"px,0,0)";
+    prog.style.setProperty("--pp", p.toFixed(4));
+    var idx = clamp(Math.round(p*(cards.length-1))+1, 1, cards.length);
+    count.textContent = String(idx).padStart(2,"0")+" / "+String(cards.length).padStart(2,"0");
+  });
+})();
+
+/* ---------- 17. campo de pontos com bojo no cursor ---------- */
+(function dotfield(){
+  var cv=$("#dots"); if(!cv || REDUCED) return;
+  var ctx=cv.getContext("2d",{alpha:true}), sec=$("#campo"), seen=false, dpr=Math.min(2, devicePixelRatio||1);
+  var GAP=SMALL?30:38, pts=[], W=0, H=0;
+
+  function build(){
+    var b=sec.getBoundingClientRect();
+    W=Math.round(b.width); H=Math.round(b.height);
+    cv.width=W*dpr; cv.height=H*dpr; cv.style.width=W+"px"; cv.style.height=H+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    pts=[];
+    for(var y=GAP/2;y<H;y+=GAP) for(var x=GAP/2;x<W;x+=GAP) pts.push({x:x,y:y,o:0});
+  }
+  build();
+  addEventListener("resize", build);
+  new IntersectionObserver(function(en){ seen=en[0].isIntersecting; },{threshold:0}).observe(sec);
+
+  addTick(function(dt,now){
+    if(!seen) return;
+    var b=sec.getBoundingClientRect();
+    var mx=PT.rx-b.left, my=PT.ry-b.top, R=SMALL?110:170;
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<pts.length;i++){
+      var p=pts[i], dx=p.x-mx, dy=p.y-my, d=Math.hypot(dx,dy);
+      var f = PT.has ? clamp(1-d/R,0,1) : 0;
+      f = f*f;
+      var wob = Math.sin(now*0.00042 + p.x*0.012 + p.y*0.009)*0.5+0.5;
+      var ox = f*dx*0.34, oy = f*dy*0.34;
+      var s = 0.85 + f*2.5 + wob*0.35;
+      ctx.beginPath();
+      ctx.arc(p.x+ox, p.y+oy, s, 0, 6.2832);
+      ctx.fillStyle = f>0.24
+        ? "rgba(194,87,27,"+(0.20+f*0.68).toFixed(3)+")"
+        : "rgba(239,231,216,"+(0.055+wob*0.05).toFixed(3)+")";
+      ctx.fill();
+    }
+  });
+})();
+
+/* ---------- 18. input curvado (CurvedInput, React Bits) ---------- */
+(function curved(){
+  var form=$("#curved"), input=$("#curvedInput"), txt=$("#arcText"), ink=$("#arcInk"), note=$("#encNote");
+  var PH="seu e-mail para a lista de encomenda";
+  function paint(){
+    var v=input.value;
+    txt.textContent = v || PH;
+    txt.setAttribute("fill", v ? "var(--paper)" : "var(--paper-3)");
+    ink.style.strokeDashoffset = String(620 - Math.min(620, v.length*22));
+  }
+  input.addEventListener("input", paint);
+  form.addEventListener("click", function(){ input.focus(); });
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var v=input.value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(v)){
+      note.textContent = "Esse e-mail não passou na conferência. Confira e mande de novo.";
+      note.style.color = "var(--pequi)";
+      return;
+    }
+    note.textContent = "Anotado: "+v+". A janela de janeiro tem quatro vagas — respondemos em até dois dias úteis.";
+    note.style.color = "var(--seiva)";
+    input.value=""; paint();
+  });
+  paint();
+})();
+
+/* ---------- 19. entradas discretas (só um terço do conteúdo — Lei 5) ---------- */
+(function reveals(){
+  var io=new IntersectionObserver(function(en){
+    en.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } });
+  },{threshold:.22, rootMargin:"0px 0px -6% 0px"});
+  $$("[data-rise],[data-wipe]").forEach(function(el){ io.observe(el); });
+})();
+
+/* ---------- 20. nav: some ao descer, volta ao subir ---------- */
+(function navHide(){
+  var nav=document.querySelector(".nav"), prev=window.scrollY, acc=0;
+  addTick(function(){
+    var y=window.scrollY, d=y-prev; prev=y;
+    if(Math.sign(d)!==Math.sign(acc)) acc=0;
+    acc+=d;
+    if(y<120){ nav.classList.remove("hid"); acc=0; return; }
+    if(acc> 90){ nav.classList.add("hid");    acc=0; }
+    if(acc<-70){ nav.classList.remove("hid"); acc=0; }
+  });
+})();
+
+/* ---------- 21. reagir a mudança de preferência ---------- */
+window.matchMedia("(prefers-reduced-motion: reduce)").addEventListener("change", function(){ location.reload(); });
+
+})();
+</script>
+</body>
+</html>
